@@ -23,8 +23,13 @@
         android:id="@+id/newPlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="New Player"
-        tools:layout_editor_absoluteX="167dp"
-        tools:layout_editor_absoluteY="465dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="523dp" />
 
 </android.support.constraint.ConstraintLayout>
