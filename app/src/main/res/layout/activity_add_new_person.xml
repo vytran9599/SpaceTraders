@@ -6,4 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".views.addNewPerson">
 
+    <Spinner
+        android:id="@+id/difficultyLevel"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="237dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/difficultyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="58dp"
+        android:layout_marginLeft="58dp"
+        android:layout_marginBottom="1dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Difficulty Level"
+        app:layout_constraintBottom_toTopOf="@+id/difficultyLevel"
+        app:layout_constraintStart_toStartOf="@+id/difficultyLevel" />
 </android.support.constraint.ConstraintLayout>
