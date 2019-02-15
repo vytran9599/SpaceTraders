@@ -7,6 +7,7 @@ import android.widget.Spinner;
 import android.view.View;
 
 import edu.gatech.cs2340.spacetraders.model.DifficultyStanding;
+import edu.gatech.cs2340.spacetraders.model.Game;
 import edu.gatech.cs2340.spacetraders.model.Player;
 import edu.gatech.cs2340.spacetraders.viewmodels.GameViewModel;
 import edu.gatech.cs2340.spacetraders.R;
@@ -20,7 +21,7 @@ import edu.gatech.cs2340.spacetraders.R;
 public class ConfigurationActivity extends AppCompatActivity {
     private GameViewModel viewModel;
     private Spinner difficultySpinner;
-    private Player player;
+    private Game game;
     private boolean editing;
 
     @Override
@@ -32,11 +33,11 @@ public class ConfigurationActivity extends AppCompatActivity {
 
         ArrayAdapter<DifficultyStanding> difficultyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, DifficultyStanding.values());
         difficultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        difficultySpinner.setSelection(player.getDS().ordinal());
+        difficultySpinner.setSelection(game.getDS().ordinal());
         difficultySpinner.setAdapter(difficultyAdapter);
     }
     public void onAddPressed(View view) {
-        player.setDS((DifficultyStanding) difficultySpinner.getSelectedItem());
+        game.setDS((DifficultyStanding) difficultySpinner.getSelectedItem());
         finish();
     }
 }
