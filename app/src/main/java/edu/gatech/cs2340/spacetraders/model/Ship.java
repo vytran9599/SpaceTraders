@@ -8,7 +8,7 @@ public class Ship {
      * It has the ship type of NAT
      */
     public Ship() {
-        shipType = ShipType.NAT;
+        shipType = ShipType.GNAT;
     }
 
     /**
