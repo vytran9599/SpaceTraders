@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.spacetraders.entity;
+package edu.gatech.cs2340.spacetraders.model;
 
 public abstract class Player {
     private DifficultyStanding ds;
