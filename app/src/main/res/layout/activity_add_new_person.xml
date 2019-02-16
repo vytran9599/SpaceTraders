@@ -17,13 +17,13 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="152dp"
         android:spinnerMode="dropdown"
-        android:textColor="#0000"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#0000"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
@@ -76,8 +76,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157" />
-
+        app:layout_constraintVertical_bias="0.146" />
 
     <TextView
         android:id="@+id/pPoints"
@@ -114,13 +113,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="Trader:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389" />
+        app:layout_constraintBottom_toTopOf="@+id/tEnter"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/tEnter"
@@ -152,12 +147,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="Fighter: "
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tEnter" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/fEnter"
@@ -184,28 +176,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginTop="45dp"
         android:text="Engineer: "
-        app:layout_constraintBottom_toBottomOf="@+id/eEnter"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fPoints" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/eEnter"
         android:layout_width="0dp"
         android:layout_height="61dp"
-        android:layout_marginTop="424dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="404dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/nume"
             android:layout_width="match_parent"
-            android:layout_height="42dp"
+            android:layout_height="40dp"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
