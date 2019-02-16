@@ -4,6 +4,9 @@ public class Game {
     private DifficultyStanding ds;
     private Player thisPlayer;
 
+    public Game() {
+        this(DifficultyStanding.EASY, new Player("Bob", 4, 4, 4, 4));
+    }
     /**
      * The constructor of game
      * @param ds the difficulty standing of this game
