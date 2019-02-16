@@ -6,25 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".views.addNewPerson">
 
-    <Spinner
-        android:id="@+id/difficultyLevel"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:spinnerMode="dropdown"
-        android:textColor="#0000"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.797" />
-
     <EditText
         android:id="@+id/nameText"
         android:layout_width="403dp"
@@ -245,5 +226,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.906" />
+
+    <Spinner
+        android:id="@+id/difficulty"
+        android:layout_width="419dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:dropDownWidth="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.758" />
 
 </android.support.constraint.ConstraintLayout>
