@@ -8,7 +8,7 @@
 
     <Spinner
         android:id="@+id/difficultyLevel"
-        android:layout_width="395dp"
+        android:layout_width="398dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -17,18 +17,18 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="152dp"
         android:spinnerMode="dropdown"
+        android:textColor="#0000"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#0000"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/nameText"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -47,9 +47,7 @@
     <TextView
         android:id="@+id/difLevel"
         android:layout_width="439dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="Difficulty Level"
@@ -57,12 +55,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.734" />
+        app:layout_constraintVertical_bias="0.713" />
 
     <TextView
         android:id="@+id/skillPoints"
         android:layout_width="389dp"
-        android:layout_height="72dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -76,7 +74,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.146" />
+        app:layout_constraintVertical_bias="0.118" />
+    app:layout_constraintVertical_bias="0.146" />
 
     <TextView
         android:id="@+id/pPoints"
@@ -92,7 +91,7 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/pEnter"
         android:layout_width="0dp"
-        android:layout_height="54dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="206dp"
         android:layout_marginBottom="205dp"
         app:layout_constraintBottom_toBottomOf="@+id/eEnter"
@@ -166,7 +165,7 @@
         <android.support.design.widget.TextInputEditText
             android:id="@+id/numf"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="wrap_content"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
@@ -194,7 +193,7 @@
         <android.support.design.widget.TextInputEditText
             android:id="@+id/nume"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
