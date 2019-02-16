@@ -134,7 +134,7 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/tEnter"
         android:layout_width="406dp"
-        android:layout_height="35dp"
+        android:layout_height="56dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -151,7 +151,7 @@
         <android.support.design.widget.TextInputEditText
             android:id="@+id/numt"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
@@ -183,12 +183,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.505">
+        app:layout_constraintVertical_bias="0.51">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/numf"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="58dp"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
