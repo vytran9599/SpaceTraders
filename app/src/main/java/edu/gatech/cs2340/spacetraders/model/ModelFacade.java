@@ -24,6 +24,5 @@ public class ModelFacade {
      * Make a new Model instance (should have parameters of the data entered by the player)
      */
     private ModelFacade() {
-
     }
 }
