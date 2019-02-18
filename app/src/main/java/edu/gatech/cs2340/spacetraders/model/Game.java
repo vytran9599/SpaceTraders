@@ -5,7 +5,7 @@ public class Game {
     private Player thisPlayer;
 
     public Game() {
-        this(DifficultyStanding.EASY, new Player("Bob", 4, 4, 4, 4));
+        this(DifficultyStanding.EASY, new Player("Bob",DifficultyStanding.EASY,4, 4, 4, 4));
     }
     /**
      * The constructor of game
