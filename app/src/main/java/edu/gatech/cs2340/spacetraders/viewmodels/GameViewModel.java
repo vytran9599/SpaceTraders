@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
+import edu.gatech.cs2340.spacetraders.model.DifficultyStanding;
 import edu.gatech.cs2340.spacetraders.model.Player;
 
 public class GameViewModel extends AndroidViewModel {
@@ -11,6 +12,6 @@ public class GameViewModel extends AndroidViewModel {
         super(application);
     }
     public void addPlayer(String name) {
-        Player myPlayer = new Player(name, 4, 4, 4, 4);
+        Player myPlayer = new Player(name, DifficultyStanding.EASY,4, 4, 4, 4);
     }
 }
