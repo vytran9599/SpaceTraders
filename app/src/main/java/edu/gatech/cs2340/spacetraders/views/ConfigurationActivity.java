@@ -29,7 +29,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_person);
 
-        difficultySpinner = findViewById(R.id.difficultyLevel);
+        difficultySpinner = findViewById(R.id.difficulty);
 
         ArrayAdapter<DifficultyStanding> difficultyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, DifficultyStanding.values());
         difficultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
