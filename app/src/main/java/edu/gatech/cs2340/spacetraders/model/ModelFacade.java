@@ -9,7 +9,6 @@ package edu.gatech.cs2340.spacetraders.model;
  */
 public class ModelFacade {
     private Game myGame;
-    private Player myPlayer;
     /** Singleton Pattern Code
      *  this allows us to get access to this class
      *  anywhere, which will allow our View models to access
@@ -24,5 +23,12 @@ public class ModelFacade {
      * Make a new Model instance (should have parameters of the data entered by the player)
      */
     private ModelFacade() {
+    }
+
+    public void setGame(Game a) {
+        myGame = a;
+    }
+    public Game getGame() {
+        return myGame;
     }
 }
