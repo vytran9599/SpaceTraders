@@ -41,4 +41,10 @@ public class Game {
     public String toString() {
         return String.format("Difficulty standing: %s, player: %s", ds, thisPlayer);
     }
+
+    /**
+     * getter method for player
+     * @return player
+     */
+    public Player getPlayer() { return thisPlayer; }
 }
