@@ -3,7 +3,6 @@ package edu.gatech.cs2340.spacetraders.views;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -12,14 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-=======
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
->>>>>>> master
 
 import edu.gatech.cs2340.spacetraders.R;
 import edu.gatech.cs2340.spacetraders.model.DifficultyStanding;
@@ -27,7 +24,6 @@ import edu.gatech.cs2340.spacetraders.model.Player;
 
 
 public class addNewPerson extends AppCompatActivity {
-<<<<<<< HEAD
 
     private final int ABILITY_POINTS = 16;
     private boolean isNameGiven;
@@ -39,16 +35,13 @@ public class addNewPerson extends AppCompatActivity {
     private Spinner difficultySpinner;
     private EditText playerNameTextbox;
 
-=======
     public static final String EXTRA_NAME =
             "edu.gatech.cs2340.spacetraders.views.EXTRA_NAME";
     private EditText editPlayerName;
->>>>>>> master
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_person);
-<<<<<<< HEAD
         pilotText = findViewById(R.id.pilotPoints);
         fighterText = findViewById(R.id.fighterPoints);
         traderText = findViewById(R.id.traderPoints);
@@ -168,7 +161,6 @@ public class addNewPerson extends AppCompatActivity {
         DifficultyStanding difficulty = (DifficultyStanding) difficultySpinner.getSelectedItem();
         String playerName = playerNameTextbox.getText().toString();
         new Player(playerName, difficulty, pilotPts, engrPts, tradePts, fightPts);
-=======
         editPlayerName = findViewById(R.id.nameText);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
         setTitle("Add New Person");
@@ -209,6 +201,5 @@ public class addNewPerson extends AppCompatActivity {
 
         finish();
 
->>>>>>> master
     }
 }

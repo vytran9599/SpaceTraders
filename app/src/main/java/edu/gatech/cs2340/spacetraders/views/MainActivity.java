@@ -36,12 +36,9 @@ public class MainActivity extends AppCompatActivity {
         newPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
                 v.clearAnimation();
                 startActivity(new Intent(MainActivity.this, addNewPerson.class));
-=======
                 startActivityForResult(new Intent(MainActivity.this, addNewPerson.class), ADD_PERSON_REQUEST_ID);
->>>>>>> master
             }
         });
     }
