@@ -151,5 +151,6 @@ public class addNewPerson extends AppCompatActivity {
         DifficultyStanding difficulty = (DifficultyStanding) difficultySpinner.getSelectedItem();
         String playerName = playerNameTextbox.getText().toString();
         new Player(playerName, difficulty, pilotPts, engrPts, tradePts, fightPts);
+        setContentView(R.layout.activity_player_info);
     }
 }
