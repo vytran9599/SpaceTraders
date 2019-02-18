@@ -33,8 +33,9 @@ public class ConfigurationActivity extends AppCompatActivity {
 
         ArrayAdapter<DifficultyStanding> difficultyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, DifficultyStanding.values());
         difficultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        difficultySpinner.setSelection(game.getDS().ordinal());
         difficultySpinner.setAdapter(difficultyAdapter);
+
+        difficultySpinner.setSelection(game.getDS().ordinal());
     }
     public void onAddPressed(View view) {
         game.setDS((DifficultyStanding) difficultySpinner.getSelectedItem());
