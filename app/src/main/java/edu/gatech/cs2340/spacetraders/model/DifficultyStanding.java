@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.spacetraders.model;
 
 public enum DifficultyStanding {
-    FR("FR"), SO("SO"), JR("JR"), SR("SR");
+    EASY("Easy"), MEDIUM("Medium"), HARD("Hard"), EXPERT("Expert");
     private final String standing;
     DifficultyStanding(String standing) {
         this.standing = standing;
