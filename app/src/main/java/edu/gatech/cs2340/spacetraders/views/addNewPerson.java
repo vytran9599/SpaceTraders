@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,7 +14,9 @@ import android.widget.TextView;
 
 import edu.gatech.cs2340.spacetraders.R;
 import edu.gatech.cs2340.spacetraders.model.DifficultyStanding;
+import edu.gatech.cs2340.spacetraders.model.Game;
 import edu.gatech.cs2340.spacetraders.model.Player;
+import edu.gatech.cs2340.spacetraders.viewmodels.ConfigurationViewModel;
 
 
 public class addNewPerson extends AppCompatActivity {
@@ -27,6 +30,8 @@ public class addNewPerson extends AppCompatActivity {
     private Button okButton;
     private Spinner difficultySpinner;
     private EditText playerNameTextbox;
+    private Player myPlayer;
+    private Game myGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,18 @@ public class addNewPerson extends AppCompatActivity {
         difficultySpinner.setAdapter(adapter);
 
         playerNameTextbox.addTextChangedListener(nameFieldWatcher);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ConfigurationViewModel configModel = new ConfigurationViewModel(getApplication());
+                DifficultyStanding difficulty = (DifficultyStanding) difficultySpinner.getSelectedItem();
+                String playerName = playerNameTextbox.getText().toString();
+                myPlayer = new Player(playerName, difficulty, pilotPts, engrPts, tradePts, fightPts);
+                //configModel.createGame(difficulty, myPlayer);
+                Game myGame = new Game(difficulty, myPlayer);
+                Log.d("My Game's Information", myGame.toString());
+            }
+        });
     }
 
     private TextWatcher nameFieldWatcher = new TextWatcher() {
@@ -147,10 +164,4 @@ public class addNewPerson extends AppCompatActivity {
         okButton.setEnabled(totalPoints == 0 && isNameGiven);
     }
 
-    public void onOkButtonPress(View v) {
-        DifficultyStanding difficulty = (DifficultyStanding) difficultySpinner.getSelectedItem();
-        String playerName = playerNameTextbox.getText().toString();
-        new Player(playerName, difficulty, pilotPts, engrPts, tradePts, fightPts);
-        setContentView(R.layout.activity_player_info);
-    }
 }
