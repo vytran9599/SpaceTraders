@@ -5,7 +5,7 @@ public class Ship {
 
     /**
      * The default constructor for ship. When the ship is initially created
-     * It has the ship type of NAT
+     * It has the ship type of GNAT
      */
     public Ship() {
         shipType = ShipType.GNAT;
@@ -26,4 +26,6 @@ public class Ship {
     public void setShipType(ShipType newType) {
         shipType = newType;
     }
+
+
 }
