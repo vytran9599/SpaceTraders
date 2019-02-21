@@ -78,7 +78,7 @@ public class Player {
     public String toString() {
         return String.format(
                 "Name: %s, pilot points: %d, engineer points: %d, "
-                        + "trade points: %d, fight points: %d, credit: %d",
-                name, pilotPts, engrPts, tradePts, fightPts, credit);
+                        + "trade points: %d, fight points: %d, credit: %d, ship: %s",
+                name, pilotPts, engrPts, tradePts, fightPts, credit, myShip.getShipType().toString());
     }
 }
