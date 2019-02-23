@@ -22,4 +22,12 @@ public enum Resources {
     public int getValue() {
         return value;
     }
+    public static Resources getResourcesByNumber(int a) {
+        for (Resources re : values()) {
+            if (re.getValue() == a) {
+                return re;
+            }
+        }
+        return NOSPECIALRESOURCES;
+    }
 }

@@ -17,4 +17,12 @@ public enum TechLevel {
     public int getValue() {
         return value;
     }
+    public static TechLevel getLevelByNumber(int a) {
+        for (TechLevel level: values()) {
+            if (level.getValue() == a) {
+                return level;
+            }
+        }
+        return PRE_AGRICULTURE;
+    }
 }
