@@ -15,4 +15,7 @@ public class Planet {
         Planet oth = (Planet) (other);
         return oth.getName().equals(name);
     }
+    public String toString() {
+        return name;
+    }
 }

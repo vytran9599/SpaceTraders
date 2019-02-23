@@ -144,4 +144,11 @@ public class Universe {
     public HashSet<SolarSystem> getSolarSystems() {
         return solarSystems;
     }
+    public String toString() {
+        String ans = "";
+        for (SolarSystem s: solarSystems) {
+            ans += s;
+        }
+        return ans;
+    }
 }
