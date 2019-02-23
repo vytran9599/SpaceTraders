@@ -39,6 +39,15 @@ public class SolarSystem {
     public HashSet<Planet> getPlanets() {
         return planets;
     }
+    public String toString() {
+        String p = "";
+        for(Planet a:planets) {
+            p = p + a + " ";
+        }
+        return "Name of Solar System: " + name + "\n" + coord +
+                "\nTechLevel: " + tech + "\nResources: " + resource +
+                "\nPlanets: " + p + "\n";
+    }
 
 
 }

@@ -18,4 +18,7 @@ public class Coordinate {
         Coordinate coord = (Coordinate) other;
         return coord.getX() == x && coord.getY() == y;
     }
+    public String toString() {
+        return "Coordinate: (" + x + ", " + y + "). ";
+    }
 }
