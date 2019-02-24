@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.spacetraders.views;
 
 import android.arch.lifecycle.ViewModelProvider;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,10 +14,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import edu.gatech.cs2340.spacetraders.PlayerInfo;
 import edu.gatech.cs2340.spacetraders.R;
+import edu.gatech.cs2340.spacetraders.model.Coordinate;
 import edu.gatech.cs2340.spacetraders.model.DifficultyStanding;
 import edu.gatech.cs2340.spacetraders.model.Game;
 import edu.gatech.cs2340.spacetraders.model.Player;
+import edu.gatech.cs2340.spacetraders.model.SolarSystem;
+import edu.gatech.cs2340.spacetraders.model.Universe;
 import edu.gatech.cs2340.spacetraders.viewmodels.ConfigurationViewModel;
 
 
@@ -61,8 +66,11 @@ public class addNewPerson extends AppCompatActivity {
                 String playerName = playerNameTextbox.getText().toString();
                 myPlayer = new Player(playerName, difficulty, pilotPts, engrPts, tradePts, fightPts);
                 //config.createGame(difficulty, myPlayer);
+                Universe myUniverse = new Universe();
                 Game myGame = new Game(difficulty, myPlayer);
+                startActivity(new Intent(addNewPerson.this, PlayerInfo.class));
                 Log.d("My Game's Information", myGame.toString());
+                Log.d("My Universe Information", myUniverse.toString());
             }
         });
     }
