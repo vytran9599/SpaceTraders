@@ -8,13 +8,19 @@ public class SolarSystem {
     private String name;
     private TechLevel tech;
     private Resources resource;
+    private GovType gov;
+    private PirateLevel pirate;
+    private PoliceLevel police;
     private HashSet<Planet> planets;
 
-    public SolarSystem(Coordinate coor, String nam, TechLevel tec, Resources recourc, HashSet<Planet> planet) {
+    public SolarSystem(Coordinate coor, String nam, TechLevel tec, Resources recourc, GovType g, PirateLevel pi, PoliceLevel po, HashSet<Planet> planet) {
         coord = coor;
         name = nam;
         tech = tec;
         resource = recourc;
+        gov = g;
+        pirate = pi;
+        police = po;
         planets = planet;
     }
 
@@ -36,6 +42,9 @@ public class SolarSystem {
     public Resources getResource() {
         return resource;
     }
+    public GovType getGovLevel() {return gov;}
+    public PirateLevel getPirateLevel() {return pirate;}
+    public PoliceLevel getPoliceLevel() {return police;}
     public HashSet<Planet> getPlanets() {
         return planets;
     }
@@ -46,7 +55,9 @@ public class SolarSystem {
         }
         return "Name of Solar System: " + name + "\n" + coord +
                 "\nTechLevel: " + tech + "\nResources: " + resource +
-                "\nPlanets: " + p + "\n";
+                "\nGovernment Type: " + gov + "\nPirate Level: " +
+                pirate + "\nPolice Level: " + police + "\nPlanets: " +
+                p + "\n";
     }
 
 
