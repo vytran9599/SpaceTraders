@@ -140,7 +140,7 @@ public class Universe {
             GovType gov = GovType.getTypeByNumber((int) (Math.random() * 4));
             PirateLevel pirate = PirateLevel.getLevelByNumber((int) (Math.random() * 3));
             PoliceLevel police = PoliceLevel.getLevelByNumber((int) (Math.random() * 3));
-            solarSystems.add(new SolarSystem(co, name, level, re, planets));
+            solarSystems.add(new SolarSystem(co, name, level, re, gov, pirate, police, planets));
         }
 
     }
