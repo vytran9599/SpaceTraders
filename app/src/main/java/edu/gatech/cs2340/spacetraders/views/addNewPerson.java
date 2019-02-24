@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetraders.views;
 
+import android.arch.lifecycle.ViewModelProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -55,10 +56,11 @@ public class addNewPerson extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //ConfigurationViewModel configModel = new ConfigurationViewModel(getApplication());
+                //ConfigurationViewModel config = new ViewModelProvider();
                 DifficultyStanding difficulty = (DifficultyStanding) difficultySpinner.getSelectedItem();
                 String playerName = playerNameTextbox.getText().toString();
                 myPlayer = new Player(playerName, difficulty, pilotPts, engrPts, tradePts, fightPts);
-                //configModel.createGame(difficulty, myPlayer);
+                //config.createGame(difficulty, myPlayer);
                 Game myGame = new Game(difficulty, myPlayer);
                 Log.d("My Game's Information", myGame.toString());
             }
