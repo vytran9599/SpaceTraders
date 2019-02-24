@@ -4,11 +4,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/star_background"
     tools:context=".views.addNewPerson">
 
-    <EditText
-        android:id="@+id/nameText"
-        android:layout_width="403dp"
+    <Button
+        android:id="@+id/PilotPlusButton"
+        android:layout_width="58dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="12dp"
+        android:onClick="pilotPlusButtonOnClick"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/FighterPlusButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toEndOf="@+id/pilotPoints"
+        app:layout_constraintTop_toBottomOf="@+id/totalPoints"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/TraderPlusButton"
+        android:layout_width="58dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="12dp"
+        android:onClick="traderPlusButtonOnClick"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/EngineerPlusButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toEndOf="@+id/traderPoints" />
+
+    <Button
+        android:id="@+id/EngineerPlusButton"
+        android:layout_width="58dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="164dp"
+        android:onClick="engineerPlusButtonOnClick"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toEndOf="@+id/engineerPoints" />
+
+    <Button
+        android:id="@+id/EngineerMinusButton"
+        android:layout_width="58dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:onClick="engineerMinusButtonOnClick"
+        android:text="-"
+        app:layout_constraintBaseline_toBaselineOf="@+id/engineerPoints"
+        app:layout_constraintStart_toEndOf="@+id/textView10" />
+
+    <Button
+        android:id="@+id/TraderMinusButton"
+        android:layout_width="58dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:onClick="traderMinusButtonOnClick"
+        android:text="-"
+        app:layout_constraintBaseline_toBaselineOf="@+id/traderPoints"
+        app:layout_constraintStart_toEndOf="@+id/textView9" />
+
+    <Button
+        android:id="@+id/PilotMinusButton"
+        android:layout_width="58dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:onClick="pilotMinusButtonOnClick"
+        android:text="-"
+        app:layout_constraintBaseline_toBaselineOf="@+id/pilotPoints"
+        app:layout_constraintStart_toEndOf="@+id/textView8" />
+
+    <Button
+        android:id="@+id/FighterMinusButton"
+        android:layout_width="58dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:onClick="fighterMinusButtonOnClick"
+        android:text="-"
+        app:layout_constraintBaseline_toBaselineOf="@+id/fighterPoints"
+        app:layout_constraintStart_toEndOf="@+id/textView6" />
+
+    <Spinner
+        android:id="@+id/difficultyLevel"
+        android:layout_width="311dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/difficultyText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -18,200 +129,204 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Player Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/difLevel"
-        android:layout_width="439dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="Difficulty Level"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.716" />
-
-    <TextView
-        android:id="@+id/skillPoints"
-        android:layout_width="389dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Skill Points: \nYou are allowed no more than 16  skill points in total"
+        android:textColor="@android:color/background_light"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.013"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintVertical_bias="0.156" />
 
     <TextView
-        android:id="@+id/pPoints"
-        android:layout_width="wrap_content"
+        android:id="@+id/nameText"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Pilot: "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.022"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/pEnter"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Player"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.298">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/nump"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number" />
-    </android.support.design.widget.TextInputLayout>
-
-    <TextView
-        android:id="@+id/tPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Trader:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tEnter"
-        android:layout_width="406dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/numt"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:inputType="number" />
-    </android.support.design.widget.TextInputLayout>
-
-    <TextView
-        android:id="@+id/fPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Fighter: "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.481" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/fEnter"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/numf"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:inputType="number" />
-    </android.support.design.widget.TextInputLayout>
-
-    <TextView
-        android:id="@+id/ePoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="336dp"
-        android:layout_marginRight="336dp"
-        android:layout_marginBottom="8dp"
-        android:text="Engineer: "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.568" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/eEnter"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/nume"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:inputType="number" />
-    </android.support.design.widget.TextInputLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/Ok"
+        android:id="@+id/FighterPlusButton"
+        android:layout_width="58dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="12dp"
+        android:onClick="fighterPlusButtonOnClick"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/TraderPlusButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toEndOf="@+id/fighterPoints" />
+
+
+    <TextView
+        android:id="@+id/fighterPoints"
+        android:layout_width="25dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="0"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/FighterPlusButton"
+        app:layout_constraintStart_toEndOf="@+id/FighterMinusButton" />
+
+    <TextView
+        android:id="@+id/pilotPoints"
+        android:layout_width="25dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="0"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/PilotPlusButton"
+        app:layout_constraintStart_toEndOf="@+id/PilotMinusButton" />
+
+    <TextView
+        android:id="@+id/traderPoints"
+        android:layout_width="25dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="0"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/TraderPlusButton"
+        app:layout_constraintStart_toEndOf="@+id/TraderMinusButton" />
+
+    <TextView
+        android:id="@+id/engineerPoints"
+        android:layout_width="25dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="0"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/EngineerPlusButton"
+        app:layout_constraintStart_toEndOf="@+id/EngineerMinusButton" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Fighter"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/FighterMinusButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Pilot"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/PilotMinusButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Trader"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/TraderMinusButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="Engineer"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/EngineerMinusButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Ability Points:"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.325" />
+
+    <TextView
+        android:id="@+id/totalPoints"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="16"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.697"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.332" />
+
+    <Button
+        android:id="@+id/OkButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -220,23 +335,42 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:enabled="false"
+        android:onClick="onOkButtonPress"
         android:text="OK"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906" />
+        app:layout_constraintVertical_bias="0.907" />
 
-    <Spinner
-        android:id="@+id/difficulty"
-        android:layout_width="419dp"
+    <EditText
+        android:id="@+id/playerName"
+        android:name=""
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:dropDownWidth="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:singleLine="true"
+        android:textAllCaps="false"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="24sp"
+        app:backgroundTint="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/difficultyText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.758" />
+        app:layout_constraintVertical_bias="0.6" />
+
 
 </android.support.constraint.ConstraintLayout>

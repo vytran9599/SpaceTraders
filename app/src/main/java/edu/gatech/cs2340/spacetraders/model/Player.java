@@ -4,6 +4,7 @@ public class Player {
     private String name;
     private int pilotPts, engrPts, tradePts, fightPts, credit;
     private Ship myShip;
+    private DifficultyStanding difficulty;
 
     /**
      * The constructor for creating a player with raw information
@@ -13,8 +14,9 @@ public class Player {
      * @param tradePts the trade points of the player
      * @param fightPts the fight points of the player
      */
-    public Player(String name, int pilotPts, int engrPts, int tradePts, int fightPts) {
+    public Player(String name,DifficultyStanding difficulty, int pilotPts, int engrPts, int tradePts, int fightPts) {
         this.name = name;
+        this.difficulty = difficulty;
         this.pilotPts = pilotPts;
         this.engrPts = engrPts;
         this.tradePts = tradePts;
@@ -76,7 +78,7 @@ public class Player {
     public String toString() {
         return String.format(
                 "Name: %s, pilot points: %d, engineer points: %d, "
-                         + "trade points: %d, fight points: %d, credit: %d",
-                name, pilotPts, engrPts, tradePts, fightPts, credit);
+                        + "trade points: %d, fight points: %d, credit: %d, ship: %s",
+                name, pilotPts, engrPts, tradePts, fightPts, credit, myShip.getShipType().toString());
     }
 }

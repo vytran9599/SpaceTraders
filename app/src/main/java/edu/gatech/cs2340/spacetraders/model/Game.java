@@ -5,7 +5,7 @@ public class Game {
     private Player thisPlayer;
 
     public Game() {
-        this(DifficultyStanding.EASY, new Player("Bob", 4, 4, 4, 4));
+        this(DifficultyStanding.EASY, new Player("Bob",DifficultyStanding.EASY,4, 4, 4, 4));
     }
     /**
      * The constructor of game
@@ -41,4 +41,10 @@ public class Game {
     public String toString() {
         return String.format("Difficulty standing: %s, player: %s", ds, thisPlayer);
     }
+
+    /**
+     * getter method for player
+     * @return player
+     */
+    public Player getPlayer() { return thisPlayer; }
 }
