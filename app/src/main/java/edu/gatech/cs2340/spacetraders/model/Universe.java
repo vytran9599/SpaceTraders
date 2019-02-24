@@ -137,6 +137,9 @@ public class Universe {
             }
             TechLevel level = TechLevel.getLevelByNumber((int) (Math.random() * 7));
             Resources re = Resources.getResourcesByNumber((int) (Math.random() * 15));
+            GovType gov = GovType.getTypeByNumber((int) (Math.random() * 4));
+            PirateLevel pirate = PirateLevel.getLevelByNumber((int) (Math.random() * 3));
+            PoliceLevel police = PoliceLevel.getLevelByNumber((int) (Math.random() * 3));
             solarSystems.add(new SolarSystem(co, name, level, re, planets));
         }
 

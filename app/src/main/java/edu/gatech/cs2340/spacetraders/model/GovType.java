@@ -5,7 +5,7 @@ public enum GovType {
     DICTATORSHIP (1),
     MILITARY (2),
     MONARCHY (3),
-    SOCIALIST (5);
+    SOCIALIST (4);
 
     private final int value;
 
