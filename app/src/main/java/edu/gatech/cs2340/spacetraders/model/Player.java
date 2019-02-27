@@ -1,10 +1,13 @@
 package edu.gatech.cs2340.spacetraders.model;
 
+import java.util.HashMap;
+
 public class Player {
     private String name;
     private int pilotPts, engrPts, tradePts, fightPts, credit;
     private Ship myShip;
     private DifficultyStanding difficulty;
+    private HashMap<TradeGood, Integer> personalGoods;
 
     /**
      * The constructor for creating a player with raw information
@@ -23,6 +26,35 @@ public class Player {
         this.fightPts = fightPts;
         credit = 1000;
         myShip = new Ship();
+        personalGoods = new HashMap<>();
+    }
+    public TradeGood hasGood(TradeGood good) {
+        for( TradeGood g: personalGoods.keySet()) {
+            if (g.getName().equals(good.getName())) {
+                if (personalGoods.get(g) > 0) {
+                    return g;
+                } else {
+                    return null;
+                }
+            }
+        }
+        return null;
+    }
+    public void lessGood(TradeGood good) {
+        TradeGood g = hasGood(good);
+        if (g != null && personalGoods.get(g) > 0) {
+            personalGoods.put(g, personalGoods.get(g) - 1);
+        }
+    }
+    public void moreGood(TradeGood good) {
+        if (hasGood(good) != null) {
+            personalGoods.put(hasGood(good), personalGoods.get(hasGood(good)) + 1);
+        } else {
+            personalGoods.put(good, 1);
+        }
+    }
+    public HashMap<TradeGood, Integer> getPersonalGoods() {
+        return personalGoods;
     }
 
 
@@ -68,7 +100,9 @@ public class Player {
     public int getCredit(){
         return credit;
     }
-
+    public void setCredit(int a) {
+        credit = a;
+    }
 
     /**
      * The toString of player
