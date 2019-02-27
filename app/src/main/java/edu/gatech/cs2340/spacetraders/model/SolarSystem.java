@@ -11,9 +11,10 @@ public class SolarSystem {
     private GovType gov;
     private PirateLevel pirate;
     private PoliceLevel police;
+    private Condition condition;
     private HashSet<Planet> planets;
 
-    public SolarSystem(Coordinate coor, String nam, TechLevel tec, Resources recourc, GovType g, PirateLevel pi, PoliceLevel po, HashSet<Planet> planet) {
+    public SolarSystem(Coordinate coor, String nam, TechLevel tec, Resources recourc, GovType g, PirateLevel pi, PoliceLevel po, Condition cond, HashSet<Planet> planet) {
         coord = coor;
         name = nam;
         tech = tec;
@@ -22,6 +23,7 @@ public class SolarSystem {
         pirate = pi;
         police = po;
         planets = planet;
+        condition = cond;
     }
 
     @Override
@@ -48,6 +50,9 @@ public class SolarSystem {
     public HashSet<Planet> getPlanets() {
         return planets;
     }
+    public Condition getCondition() {
+        return condition;
+    }
     public String toString() {
         String p = "";
         for(Planet a:planets) {
@@ -56,8 +61,8 @@ public class SolarSystem {
         return "Name of Solar System: " + name + "\n" + coord +
                 "\nTechLevel: " + tech + "\nResources: " + resource +
                 "\nGovernment Type: " + gov + "\nPirate Level: " +
-                pirate + "\nPolice Level: " + police + "\nPlanets: " +
-                p + "\n";
+                pirate + "\nPolice Level: " + police + "\nCondition: " + condition
+                + "\nPlanets: " + p + "\n";
     }
 
 
