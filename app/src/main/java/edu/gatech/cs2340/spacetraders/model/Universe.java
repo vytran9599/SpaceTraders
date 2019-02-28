@@ -1,9 +1,13 @@
 package edu.gatech.cs2340.spacetraders.model;
 
+import android.util.Log;
+
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Universe {
-    HashSet<SolarSystem> solarSystems;
+    private HashSet<SolarSystem> solarSystems;
+    private ArrayList<String> solarNames;
     private final String[] names = {
             "Acamar",
             "Adahn",		// The alternate personality for The Nameless One in "Planescape: Torment"
@@ -128,6 +132,7 @@ public class Universe {
 
     public Universe() {
         solarSystems = new HashSet<>();
+        solarNames = new ArrayList<>();
         while (solarSystems.size() < 10) {
             Coordinate co = new Coordinate((int) (Math.random() * 150 + 1), (int) (Math.random() * 100 + 1));
             String name = names[(int) (Math.random() * names.length)];
@@ -139,11 +144,23 @@ public class Universe {
             Condition cond = Condition.getConditionByNumber((int) (Math.random() * 20));
             HashSet<Planet> planets = new HashSet<>();
             while (planets.size() < 3) {
-                planets.add(new Planet(names[(int) (Math.random() * names.length)], new Market(cond, re, level)));
+                Market mar = new Market(cond, re, level);
+                planets.add(new Planet(names[(int) (Math.random() * names.length)], mar));
+                //test code
+                //Log.d("market: " , mar.toString());
             }
             solarSystems.add(new SolarSystem(co, name, level, re, gov, pirate, police, cond, planets));
+            solarNames.add(name);
         }
+    }
 
+    public SolarSystem getSolarSystemByName(String name) {
+        for (SolarSystem s:solarSystems) {
+            if (s.getName().equals(name)) {
+                return s;
+            }
+        }
+        throw new java.util.NoSuchElementException("No solar system with name " + name + "exist in this universe.");
     }
     public HashSet<SolarSystem> getSolarSystems() {
         return solarSystems;

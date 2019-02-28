@@ -53,9 +53,9 @@ public class Market {
             }
 
             //when CR is present, price is unusually low || when ER is present, price is unusually high
-            if (good.getCr().getValue() == res.getValue()) {
+            if (good.getCr() != null && good.getCr().getValue() == res.getValue()) {
                 finalPrice = finalPrice / 2;
-            } else if (good.getEr().getValue() == res.getValue()) {
+            } else if (good.getEr() != null && good.getEr().getValue() == res.getValue()) {
                 finalPrice = finalPrice * 2;
             }
 
@@ -101,6 +101,13 @@ public class Market {
             }
         }
 
+    }
+    public String toString() {
+        String str = "";
+        for (TradeGood g:marketGoods.keySet()) {
+            str += g.getName() + ": " + marketGoods.get(g) + "  ";
+        }
+        return str;
     }
     public HashMap<TradeGood, Integer> getMarketGoods() {
         return marketGoods;

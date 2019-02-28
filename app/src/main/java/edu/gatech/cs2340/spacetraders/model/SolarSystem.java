@@ -29,7 +29,7 @@ public class SolarSystem {
     @Override
     public boolean equals(Object other) {
         SolarSystem newP = (SolarSystem) other;
-        return newP.getName().equals(name) && newP.getCoordinate().equals(coord);
+        return newP.getName().equals(name) || newP.getCoordinate().equals(coord);
     }
 
     public Coordinate getCoordinate() {
@@ -49,6 +49,22 @@ public class SolarSystem {
     public PoliceLevel getPoliceLevel() {return police;}
     public HashSet<Planet> getPlanets() {
         return planets;
+    }
+    public boolean hasPlanet(String name) {
+        for(Planet a:planets) {
+            if (a.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public Planet getPlanetByName(String name) {
+        for(Planet p:planets) {
+            if (p.getName().equals(name)) {
+                return p;
+            }
+        }
+        throw new java.util.NoSuchElementException("No planet with name " + name + " exist in the solar system " + name + ".");
     }
     public Condition getCondition() {
         return condition;
