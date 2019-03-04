@@ -336,7 +336,6 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:enabled="false"
-        android:onClick="onOkButtonPress"
         android:text="OK"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

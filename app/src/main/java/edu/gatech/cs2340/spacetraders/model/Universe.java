@@ -162,9 +162,11 @@ public class Universe {
         }
         throw new java.util.NoSuchElementException("No solar system with name " + name + "exist in this universe.");
     }
+
     public HashSet<SolarSystem> getSolarSystems() {
         return solarSystems;
     }
+
     public String toString() {
         String ans = "\n";
         for (SolarSystem s: solarSystems) {
