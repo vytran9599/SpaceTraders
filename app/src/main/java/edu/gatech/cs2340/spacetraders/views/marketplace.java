@@ -249,6 +249,7 @@ public class marketplace extends AppCompatActivity {
             sellerFoodText.setText(Integer.toString(++sellerFood));
             creditsTotal += foodSellPrice;
             creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
         }
     }
 
@@ -268,6 +269,7 @@ public class marketplace extends AppCompatActivity {
             sellerOreText.setText(Integer.toString(++sellerOre));
             creditsTotal += oreSellPrice;
             creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
         }
     }
 
@@ -287,6 +289,7 @@ public class marketplace extends AppCompatActivity {
             sellerGamesText.setText(Integer.toString(++sellerGames));
             creditsTotal += gamesSellPrice;
             creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
         }
     }
 
@@ -306,6 +309,7 @@ public class marketplace extends AppCompatActivity {
             sellerFirearmsText.setText(Integer.toString(++sellerFirearms));
             creditsTotal += firearmsSellPrice;
             creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
         }
     }
 
@@ -325,6 +329,7 @@ public class marketplace extends AppCompatActivity {
             sellerMedicineText.setText(Integer.toString(++sellerMedicine));
             creditsTotal += medicineSellPrice;
             creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
         }
     }
 
@@ -344,11 +349,12 @@ public class marketplace extends AppCompatActivity {
             sellerMachinesText.setText(Integer.toString(++sellerMachines));
             creditsTotal += machinesSellPrice;
             creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
         }
     }
 
     public void narcoticsBuyOnClick(View v) {
-        if (sellerNarcotics > 0 && creditsTotal >= waterBuyPrice && capacity < capacityLimit) {
+        if (sellerNarcotics > 0 && creditsTotal >= narcoticsBuyPrice && capacity < capacityLimit) {
             playerNarcoticsText.setText(Integer.toString(++playerNarcotics));
             sellerNarcoticsText.setText(Integer.toString(--sellerNarcotics));
             creditsTotal -= narcoticsBuyPrice;
@@ -363,11 +369,12 @@ public class marketplace extends AppCompatActivity {
             sellerNarcoticsText.setText(Integer.toString(++sellerNarcotics));
             creditsTotal += narcoticsSellPrice;
             creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
         }
     }
 
     public void robotsBuyOnClick(View v) {
-        if (sellerRobots > 0 && creditsTotal >= waterBuyPrice && capacity < capacityLimit) {
+        if (sellerRobots > 0 && creditsTotal >= robotsBuyPrice && capacity < capacityLimit) {
             playerRobotsText.setText(Integer.toString(++playerRobots));
             sellerRobotsText.setText(Integer.toString(--sellerRobots));
             creditsTotal -= robotsBuyPrice;
@@ -382,16 +389,137 @@ public class marketplace extends AppCompatActivity {
             sellerRobotsText.setText(Integer.toString(++sellerRobots));
             creditsTotal += robotsSellPrice;
             creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
         }
     }
 
     public void waterAllOnClick(View v) {
         if (playerWater > 0) {
             creditsTotal += playerWater * waterSellPrice;
-            playerWaterText.setText(Integer.toString(0));
+            creditsText.setText(Integer.toString(creditsTotal));
             sellerWater += playerWater;
+            capacity -= playerWater;
+            capacityText.setText(Integer.toString(capacity));
             sellerWaterText.setText(Integer.toString(sellerWater));
             playerWater = 0;
+            playerWaterText.setText(Integer.toString(playerWater));
+        }
+    }
+
+    public void fursAllOnClick(View v) {
+        if (playerFurs > 0) {
+            creditsTotal += playerFurs * fursSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerFurs += playerFurs;
+            capacity -= playerFurs;
+            capacityText.setText(Integer.toString(capacity));
+            sellerFursText.setText(Integer.toString(sellerFurs));
+            playerFurs = 0;
+            playerFursText.setText(Integer.toString(playerFurs));
+        }
+    }
+
+    public void foodAllOnClick(View v) {
+        if (playerFood > 0) {
+            creditsTotal += playerFood * foodSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerFood += playerFood;
+            capacity -= playerFood;
+            capacityText.setText(Integer.toString(capacity));
+            sellerFoodText.setText(Integer.toString(sellerFood));
+            playerFood = 0;
+            playerFoodText.setText(Integer.toString(playerFood));
+        }
+    }
+
+    public void oreAllOnClick(View v) {
+        if (playerOre > 0) {
+            creditsTotal += playerOre * oreSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerOre += playerOre;
+            capacity -= playerOre;
+            capacityText.setText(Integer.toString(capacity));
+            sellerOreText.setText(Integer.toString(sellerOre));
+            playerOre = 0;
+            playerOreText.setText(Integer.toString(playerOre));
+        }
+    }
+
+    public void gamesAllOnClick(View v) {
+        if (playerGames > 0) {
+            creditsTotal += playerGames * gamesSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerGames += playerGames;
+            capacity -= playerGames;
+            capacityText.setText(Integer.toString(capacity));
+            sellerGamesText.setText(Integer.toString(sellerGames));
+            playerGames = 0;
+            playerGamesText.setText(Integer.toString(playerGames));
+        }
+    }
+
+    public void firearmsAllOnClick(View v) {
+        if (playerFirearms > 0) {
+            creditsTotal += playerFirearms * firearmsSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerFirearms += playerFirearms;
+            capacity -= playerFirearms;
+            capacityText.setText(Integer.toString(capacity));
+            sellerFirearmsText.setText(Integer.toString(sellerFirearms));
+            playerFirearms = 0;
+            playerFirearmsText.setText(Integer.toString(playerFirearms));
+        }
+    }
+
+    public void medicineAllOnClick(View v) {
+        if (playerMedicine > 0) {
+            creditsTotal += playerMedicine * medicineSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerMedicine += playerMedicine;
+            capacity -= playerMedicine;
+            capacityText.setText(Integer.toString(capacity));
+            sellerMedicineText.setText(Integer.toString(sellerMedicine));
+            playerMedicine = 0;
+            playerMedicineText.setText(Integer.toString(playerMedicine));
+        }
+    }
+
+    public void machinesAllOnClick(View v) {
+        if (playerMachines > 0) {
+            creditsTotal += playerMachines * machinesSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerMachines += playerMachines;
+            capacity -= playerMachines;
+            capacityText.setText(Integer.toString(capacity));
+            sellerMachinesText.setText(Integer.toString(sellerMachines));
+            playerMachines = 0;
+            playerMachinesText.setText(Integer.toString(playerMachines));
+        }
+    }
+
+    public void narcoticsAllOnClick(View v) {
+        if (playerNarcotics > 0) {
+            creditsTotal += playerNarcotics * narcoticsSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerNarcotics += playerNarcotics;
+            capacity -= playerNarcotics;
+            capacityText.setText(Integer.toString(capacity));
+            sellerNarcoticsText.setText(Integer.toString(sellerNarcotics));
+            playerNarcotics = 0;
+            playerNarcoticsText.setText(Integer.toString(playerNarcotics));
+        }
+    }
+
+    public void robotsAllOnClick(View v) {
+        if (playerRobots > 0) {
+            creditsTotal += playerRobots * robotsSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerRobots += playerRobots;
+            capacity -= playerRobots;
+            capacityText.setText(Integer.toString(capacity));
+            sellerRobotsText.setText(Integer.toString(sellerRobots));
+            playerRobots = 0;
+            playerRobotsText.setText(Integer.toString(playerRobots));
         }
     }
 

@@ -83,9 +83,10 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/waterSellMax"
+                android:id="@+id/waterSellAll"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
+                android:onClick="waterAllOnClick"
                 android:gravity="center|bottom"
                 android:padding="5dp"
                 android:text="ALL"
@@ -140,9 +141,10 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/fursSellMax"
+                android:id="@+id/fursSellAll"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
+                android:onClick="fursAllOnClick"
                 android:gravity="center|bottom"
                 android:padding="5dp"
                 android:text="ALL"
@@ -197,9 +199,10 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/foodSellMax"
+                android:id="@+id/foodSellAll"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
+                android:onClick="foodAllOnClick"
                 android:gravity="center|bottom"
                 android:padding="5dp"
                 android:text="ALL"
@@ -254,9 +257,10 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/oreSellMax"
+                android:id="@+id/oreSellAll"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
+                android:onClick="oreAllOnClick"
                 android:gravity="center|bottom"
                 android:padding="5dp"
                 android:text="ALL"
@@ -311,9 +315,10 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/gamesSellMax"
+                android:id="@+id/gamesSellAll"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
+                android:onClick="gamesAllOnClick"
                 android:gravity="center|bottom"
                 android:padding="5dp"
                 android:text="ALL"
@@ -368,9 +373,10 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/firearmsSellMax"
+                android:id="@+id/firearmsSellAll"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
+                android:onClick="firearmsAllOnClick"
                 android:gravity="center|bottom"
                 android:padding="5dp"
                 android:text="ALL"
@@ -425,9 +431,10 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/medicineSellMax"
+                android:id="@+id/medicineSellAll"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
+                android:onClick="medicineAllOnClick"
                 android:gravity="center|bottom"
                 android:padding="5dp"
                 android:text="ALL"
@@ -482,9 +489,10 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/machinesSellMax"
+                android:id="@+id/machinesSellAll"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
+                android:onClick="machinesAllOnClick"
                 android:gravity="center|bottom"
                 android:padding="5dp"
                 android:text="ALL"
@@ -539,9 +547,10 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/narcoticsSellMax"
+                android:id="@+id/narcoticsSellAll"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
+                android:onClick="narcoticsAllOnClick"
                 android:gravity="center|bottom"
                 android:padding="5dp"
                 android:text="ALL"
@@ -596,9 +605,10 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/robotsSellMax"
+                android:id="@+id/robotsSellAll"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
+                android:onClick="robotsAllOnClick"
                 android:gravity="center|bottom"
                 android:padding="5dp"
                 android:text="ALL"
@@ -622,7 +632,7 @@
 
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="88dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
