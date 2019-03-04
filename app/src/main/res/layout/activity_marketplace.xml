@@ -8,6 +8,7 @@
     tools:context=".views.marketplace">
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -17,7 +18,7 @@
         <TableRow>
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -34,6 +35,15 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="Price"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
         </TableRow>
 
 
@@ -51,6 +61,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/playerWater"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -61,22 +72,27 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/waterSell"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
+                android:onClick="waterSellOnClick"
+                android:gravity="center|bottom"
+                android:padding="4dp"
                 android:text="-"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/waterSellMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="ALL"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/waterSellPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -97,11 +113,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Furs"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/playerFurs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -112,22 +129,27 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/fursSell"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
+                android:gravity="center|bottom"
+                android:padding="4dp"
+                android:onClick="fursSellOnClick"
                 android:text="-"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/fursSellMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="ALL"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/fursSellPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -148,11 +170,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Food"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/playerFood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -163,22 +186,27 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/foodSell"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
+                android:gravity="center|bottom"
+                android:padding="4dp"
+                android:onClick="foodSellOnClick"
                 android:text="-"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/foodSellMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="ALL"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/foodSellPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -199,11 +227,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Ore"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/playerOre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -214,22 +243,27 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/oreSell"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
+                android:gravity="center|bottom"
+                android:padding="4dp"
+                android:onClick="oreSellOnClick"
                 android:text="-"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/oreSellMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="ALL"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/oreSellPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -250,11 +284,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Games"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/playerGames"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -265,22 +300,27 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/gamesSell"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
+                android:gravity="center|bottom"
+                android:padding="4dp"
                 android:text="-"
+                android:onClick="gamesSellOnClick"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/gamesSellMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="ALL"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/gamesSellPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -301,11 +341,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Firearms"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/playerFirearms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -316,22 +357,27 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button11"
+                android:id="@+id/firearmsSell"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
+                android:gravity="center|bottom"
+                android:padding="4dp"
                 android:text="-"
+                android:onClick="firearmsSellOnClick"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button12"
+                android:id="@+id/firearmsSellMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="ALL"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/firearmsSellPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -352,11 +398,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Medicine"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/playerMedicine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -367,22 +414,27 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button13"
+                android:id="@+id/medicineSell"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
+                android:gravity="center|bottom"
+                android:padding="4dp"
+                android:onClick="medicineSellOnClick"
                 android:text="-"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button14"
+                android:id="@+id/medicineSellMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="ALL"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/medicineSellPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -403,11 +455,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Machines"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/playerMachines"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -418,22 +471,27 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button15"
+                android:id="@+id/machinesSell"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
+                android:gravity="center|bottom"
+                android:padding="4dp"
+                android:onClick="machinesSellOnClick"
                 android:text="-"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button16"
+                android:id="@+id/machinesSellMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="ALL"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/machinesSellPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -454,11 +512,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Narcotics"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/playerNarcotics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -469,22 +528,27 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button17"
+                android:id="@+id/narcoticsSell"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
+                android:gravity="center|bottom"
+                android:padding="4dp"
+                android:onClick="narcoticsSellOnClick"
                 android:text="-"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button18"
+                android:id="@+id/narcoticsSellMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="ALL"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/narcoticsSellPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -505,11 +569,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Robots"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/playerRobots"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -520,22 +585,27 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button19"
+                android:id="@+id/robotsSell"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
+                android:gravity="center|bottom"
+                android:padding="4dp"
+                android:onClick="robotsSellOnClick"
                 android:text="-"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button20"
+                android:id="@+id/robotsSellMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="ALL"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/robotsSellPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -547,65 +617,16 @@
 
         </TableRow>
 
+
         <TableRow>
 
-            <TextView
-                android:layout_width="159dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="2dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="Water"
-                android:textSize="16sp"
-                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="0"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/button21"
-                android:layout_width="40dp"
-                android:layout_height="25dp"
-                android:gravity="center_horizontal"
-                android:text="-"
-                android:textSize="10sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/button22"
-                android:layout_width="40dp"
-                android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="0"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Goods"
+                android:text="Buy"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -617,13 +638,22 @@
                 android:text="Buy"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3
+"
+                android:gravity="center"
+                android:text="Buy"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </TableRow>
 
         <TableRow>
 
             <TextView
-                android:layout_width="159dp"
+                android:layout_width="123dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="2dp"
                 android:layout_weight="1"
@@ -634,6 +664,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/sellerWater"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -644,22 +675,38 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button23"
+                android:id="@+id/waterBuy"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
-                android:text="-"
-                android:textSize="10sp"
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:onClick="waterBuyOnClick"
+                android:text="+"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button24"
+                android:id="@+id/waterBuyMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="MAX"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/waterBuyPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/waterTargetPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -680,11 +727,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Furs"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/sellerFurs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -695,22 +743,38 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button25"
+                android:id="@+id/fursBuy"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
-                android:text="-"
-                android:textSize="10sp"
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:onClick="fursBuyOnClick"
+                android:text="+"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button26"
+                android:id="@+id/fursBuyMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="MAX"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/fursBuyPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/fursTargetPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -731,11 +795,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Food"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/sellerFood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -746,22 +811,38 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button27"
+                android:id="@+id/foodBuy"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
-                android:text="-"
-                android:textSize="10sp"
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:onClick="foodBuyOnClick"
+                android:text="+"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button28"
+                android:id="@+id/foodBuyMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="MAX"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/foodBuyPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/foodTargetPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -782,11 +863,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Ore"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/sellerOre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -797,22 +879,38 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button29"
+                android:id="@+id/oreBuy"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
-                android:text="-"
-                android:textSize="10sp"
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:onClick="oreBuyOnClick"
+                android:text="+"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button30"
+                android:id="@+id/oreBuyMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="MAX"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/oreBuyPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/oreTargetPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -833,11 +931,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Games"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/sellerGames"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -848,22 +947,38 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button31"
+                android:id="@+id/gamesBuy"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
-                android:text="-"
-                android:textSize="10sp"
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:onClick="gamesBuyOnClick"
+                android:text="+"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button32"
+                android:id="@+id/gamesBuyMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="MAX"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/gamesBuyPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/gamesTargetPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -884,11 +999,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Firearms"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/sellerFirearms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -899,22 +1015,38 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button33"
+                android:id="@+id/firearmsBuy"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
-                android:text="-"
-                android:textSize="10sp"
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:onClick="firearmsBuyOnClick"
+                android:text="+"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button34"
+                android:id="@+id/firearmsBuyMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="MAX"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/firearmsBuyPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/firearmsTargetPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -935,11 +1067,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Medicine"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/sellerMedicine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -950,22 +1083,38 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button35"
+                android:id="@+id/medicineBuy"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
-                android:text="-"
-                android:textSize="10sp"
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:onClick="medicineBuyOnClick"
+                android:text="+"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button36"
+                android:id="@+id/medicineBuyMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="MAX"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/medicineBuyPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/medicineTargetPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -986,11 +1135,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Machines"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/sellerMachines"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -1001,22 +1151,38 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button37"
+                android:id="@+id/machinesBuy"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
-                android:text="-"
-                android:textSize="10sp"
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:onClick="machinesBuyOnClick"
+                android:text="+"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button38"
+                android:id="@+id/machinesBuyMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="MAX"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/machinesBuyPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/machinesTargetPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -1037,11 +1203,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Narcotics"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/sellerNarcotics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -1052,22 +1219,38 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button39"
+                android:id="@+id/narcoticsBuy"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
-                android:text="-"
-                android:textSize="10sp"
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:onClick="narcoticsBuyOnClick"
+                android:text="+"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button40"
+                android:id="@+id/narcoticsBuyMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="MAX"
+                android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/narcoticsBuyPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/narcoticsTargetPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -1088,11 +1271,12 @@
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="Water"
+                android:text="Robots"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/sellerRobots"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -1103,20 +1287,35 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button41"
+                android:id="@+id/robotsBuy"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:gravity="center_horizontal"
-                android:text="-"
-                android:textSize="10sp"
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:onClick="robotsBuyOnClick"
+                android:text="+"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button42"
+                android:id="@+id/robotsBuyMax"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
+                android:gravity="center|bottom"
+                android:padding="5dp"
+                android:text="MAX"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/robotsBuyPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -1130,56 +1329,6 @@
 
         </TableRow>
 
-        <TableRow>
-
-            <TextView
-                android:layout_width="159dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="2dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="Water"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="0"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/button43"
-                android:layout_width="40dp"
-                android:layout_height="25dp"
-                android:gravity="center_horizontal"
-                android:text="-"
-                android:textSize="10sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/button44"
-                android:layout_width="40dp"
-                android:layout_height="25dp"
-                android:text="+"
-                android:textSize="10sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="0"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-        </TableRow>
 
     </TableLayout>
 
@@ -1193,19 +1342,83 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginRight="108dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="28dp"
         android:text="Credits:"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.988" />
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+    <TextView
+        android:id="@+id/creditsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toEndOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/capacityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toEndOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Capacity:"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="/"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/capacityText"
+        app:layout_constraintStart_toEndOf="@+id/capacityText" />
+
+    <TextView
+        android:id="@+id/capacityLimitText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toEndOf="@+id/capacityText" />
 
 </android.support.constraint.ConstraintLayout>
