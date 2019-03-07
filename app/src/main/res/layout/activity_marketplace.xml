@@ -701,6 +701,7 @@
                 android:layout_height="25dp"
                 android:gravity="center|bottom"
                 android:padding="5dp"
+                android:onClick="waterMaxOnClick"
                 android:text="MAX"
                 android:textSize="12dp" />
 
@@ -769,6 +770,7 @@
                 android:layout_height="25dp"
                 android:gravity="center|bottom"
                 android:padding="5dp"
+                android:onClick="fursMaxOnClick"
                 android:text="MAX"
                 android:textSize="12dp" />
 
@@ -837,6 +839,7 @@
                 android:layout_height="25dp"
                 android:gravity="center|bottom"
                 android:padding="5dp"
+                android:onClick="foodMaxOnClick"
                 android:text="MAX"
                 android:textSize="12dp" />
 
@@ -904,6 +907,7 @@
                 android:layout_width="40dp"
                 android:layout_height="25dp"
                 android:gravity="center|bottom"
+                android:onClick="oreMaxOnClick"
                 android:padding="5dp"
                 android:text="MAX"
                 android:textSize="12dp" />
@@ -973,6 +977,7 @@
                 android:layout_height="25dp"
                 android:gravity="center|bottom"
                 android:padding="5dp"
+                android:onClick="gamesMaxOnClick"
                 android:text="MAX"
                 android:textSize="12dp" />
 
@@ -1041,6 +1046,7 @@
                 android:layout_height="25dp"
                 android:gravity="center|bottom"
                 android:padding="5dp"
+                android:onClick="firearmsMaxOnClick"
                 android:text="MAX"
                 android:textSize="12dp" />
 
@@ -1109,6 +1115,7 @@
                 android:layout_height="25dp"
                 android:gravity="center|bottom"
                 android:padding="5dp"
+                android:onClick="medicineMaxOnClick"
                 android:text="MAX"
                 android:textSize="12dp" />
 
@@ -1177,6 +1184,7 @@
                 android:layout_height="25dp"
                 android:gravity="center|bottom"
                 android:padding="5dp"
+                android:onClick="machinesMaxOnClick"
                 android:text="MAX"
                 android:textSize="12dp" />
 
@@ -1245,6 +1253,7 @@
                 android:layout_height="25dp"
                 android:gravity="center|bottom"
                 android:padding="5dp"
+                android:onClick="narcoticsMaxOnClick"
                 android:text="MAX"
                 android:textSize="12dp" />
 
@@ -1313,6 +1322,7 @@
                 android:layout_height="25dp"
                 android:gravity="center|bottom"
                 android:padding="5dp"
+                android:onClick="robotsMaxOnClick"
                 android:text="MAX"
                 android:textSize="12dp" />
 
