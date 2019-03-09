@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -73,6 +74,13 @@ public class addNewPerson extends AppCompatActivity {
                 Log.d("My Universe Information", myUniverse.toString());
             }
         });
+        for (int i = 0; i < 9; i++) {
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCgit checkH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            Button btn = new Button(this);
+        }
     }
 
     private TextWatcher nameFieldWatcher = new TextWatcher() {
