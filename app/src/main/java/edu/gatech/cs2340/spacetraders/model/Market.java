@@ -8,7 +8,7 @@ import java.util.HashMap;
 import edu.gatech.cs2340.spacetraders.R;
 
 public class Market {
-    private HashMap<TradeGood, Integer> marketGoods = new HashMap<>();
+    private HashMap<Integer, Integer> marketGoods = new HashMap<>();
     private Condition thisCondition;
     private Resources thisResource;
     private TechLevel techLevel;
@@ -33,83 +33,83 @@ public class Market {
             TradeGood good = goods[i];
 
             //planet is too weak to produce the product. Player cannot buy it, planet market doesn't produce.
-            if (tech.getValue() < good.getMtlp()) {
+            if (tech.getValue() < goods[i].getMtlp()) {
                 continue;
             }
 
             //generates amount of this product in the market - between 1 to 50
             int amountProduced = (int) (Math.random() * 50 + 1);
-            if (good.getTtp() == tech.getValue()) {
+            if (goods[i].getTtp() == tech.getValue()) {
                 amountProduced += 20;
             }
 
             //economic model:
-            int finalPrice = good.getBasePrice();
-            finalPrice = finalPrice + good.getIpl() * (int) (tech.getValue() - good.getMtlp() + Math.random() * good.getVar() * 0.01);
+            int finalPrice = goods[i].getBasePrice();
+            finalPrice = finalPrice + goods[i].getIpl() * (int) (tech.getValue() - goods[i].getMtlp() + Math.random() * goods[i].getVar() * 0.01);
 
             //if condition causes the price to increase astronomically
-            if (good.getIe().getValue() == cond.getValue()) {
+            if (goods[i].getIe().getValue() == cond.getValue()) {
                 finalPrice = finalPrice * 3;
             }
 
             //when CR is present, price is unusually low || when ER is present, price is unusually high
-            if (good.getCr() != null && good.getCr().getValue() == res.getValue()) {
+            if (goods[i].getCr() != null && goods[i].getCr().getValue() == res.getValue()) {
                 finalPrice = finalPrice / 2;
-            } else if (good.getEr() != null && good.getEr().getValue() == res.getValue()) {
+            } else if (goods[i].getEr() != null && goods[i].getEr().getValue() == res.getValue()) {
                 finalPrice = finalPrice * 2;
             }
 
             //sets the final price for the product and add it to market
-            good.setFinalPrice(finalPrice);
-            marketGoods.put(good, amountProduced);
+            goods[i].setFinalPrice(finalPrice);
+            marketGoods.put(i, amountProduced);
         }
     }
 
-    public void buyInPlanet(Player player, TradeGood good) {
-        for (TradeGood g:marketGoods.keySet()) {
-            if (g.getName().equals(good.getName())) {
-                int price = g.getFinalPrice();
-                if (player.getCredit() < price) {
-                    Log.d("invalid action: ", "you're too poor to purchase this item.");
-                    return;
-                }
-                if (marketGoods.get(g) <1) {
-                    Log.d("invalid action: ", "This item is sold out");
-                    return;
-                }
-                player.setCredit(player.getCredit() - price);
-                marketGoods.put(g, marketGoods.get(g) - 1);
-                player.moreGood(g);
-                return;
-            }
-        }
-    }
-    public void sellInPlanet(Player player, TradeGood good) {
-        if (techLevel.getValue() < good.getMtlu()) {
-            Log.d("Invalid action: ", "The tech level of current planet is too low for you to sell the good.");
-            return;
-        }
-        for (TradeGood g:marketGoods.keySet()) {
-            if (g.getName().equals(good.getName())) {
-                if (player.hasGood(good) !=null) {
-                    int price = g.getFinalPrice();
-                    player.setCredit(player.getCredit() + price);
-                    marketGoods.put(g, marketGoods.get(g) + 1);
-                    player.lessGood(good);
-                    return;
-                }
-            }
-        }
-
-    }
+//    public void buyInPlanet(Player player, TradeGood good) {
+//        for (TradeGood g:marketGoods.keySet()) {
+//            if (g.getName().equals(good.getName())) {
+//                int price = g.getFinalPrice();
+//                if (player.getCredit() < price) {
+//                    Log.d("invalid action: ", "you're too poor to purchase this item.");
+//                    return;
+//                }
+//                if (marketGoods.get(g) <1) {
+//                    Log.d("invalid action: ", "This item is sold out");
+//                    return;
+//                }
+//                player.setCredit(player.getCredit() - price);
+//                marketGoods.put(g, marketGoods.get(g) - 1);
+//                player.moreGood(g);
+//                return;
+//            }
+//        }
+//    }
+//    public void sellInPlanet(Player player, TradeGood good) {
+//        if (techLevel.getValue() < good.getMtlu()) {
+//            Log.d("Invalid action: ", "The tech level of current planet is too low for you to sell the good.");
+//            return;
+//        }
+//        for (TradeGood g:marketGoods.keySet()) {
+//            if (g.getName().equals(good.getName())) {
+//                if (player.hasGood(good) !=null) {
+//                    int price = g.getFinalPrice();
+//                    player.setCredit(player.getCredit() + price);
+//                    marketGoods.put(g, marketGoods.get(g) + 1);
+//                    player.lessGood(good);
+//                    return;
+//                }
+//            }
+//        }
+//
+//    }
     public String toString() {
         String str = "";
-        for (TradeGood g:marketGoods.keySet()) {
-            str += g.getName() + ": " + marketGoods.get(g) + "  ";
+        for (Integer g:marketGoods.keySet()) {
+            str += goods[g] + ": " + marketGoods.get(g) + "  ";
         }
         return str;
     }
-    public HashMap<TradeGood, Integer> getMarketGoods() {
+    public HashMap<Integer, Integer> getMarketGoods() {
         return marketGoods;
     }
 }

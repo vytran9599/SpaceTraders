@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import edu.gatech.cs2340.spacetraders.R;
+import edu.gatech.cs2340.spacetraders.model.Condition;
+import edu.gatech.cs2340.spacetraders.model.Market;
+import edu.gatech.cs2340.spacetraders.model.Resources;
+import edu.gatech.cs2340.spacetraders.model.TradeGood;
 
 public class marketplace extends AppCompatActivity {
 
@@ -42,7 +46,7 @@ public class marketplace extends AppCompatActivity {
         setContentView(R.layout.activity_marketplace);
 
         creditsText = findViewById(R.id.creditsText);
-        creditsTotal = 1000;
+        creditsTotal = addNewPerson.getPlayer().getCredit();
         creditsText.setText(Integer.toString(creditsTotal));
 
         playerWaterText = findViewById(R.id.playerWater);
@@ -88,17 +92,17 @@ public class marketplace extends AppCompatActivity {
         narcoticsSellPriceText = findViewById(R.id.narcoticsSellPrice);
         robotsSellPriceText = findViewById(R.id.robotsSellPrice);
 
-        playerWater = 1;
-        playerFurs = 2;
-        playerFood = 5;
-        playerOre = 1;
-        playerGames = 0;
-        playerFirearms = 0;
-        playerMedicine = 0;
-        playerNarcotics = 0;
-        playerRobots = 0;
+        playerWater = addNewPerson.getPlayer().getPersonalGoods().get(0);
+        playerFurs = addNewPerson.getPlayer().getPersonalGoods().get(1);
+        playerFood = addNewPerson.getPlayer().getPersonalGoods().get(2);
+        playerOre = addNewPerson.getPlayer().getPersonalGoods().get(3);
+        playerGames = addNewPerson.getPlayer().getPersonalGoods().get(4);
+        playerFirearms = addNewPerson.getPlayer().getPersonalGoods().get(5);
+        playerMedicine = addNewPerson.getPlayer().getPersonalGoods().get(6);
+        playerNarcotics = addNewPerson.getPlayer().getPersonalGoods().get(7);
+        playerRobots = addNewPerson.getPlayer().getPersonalGoods().get(8);
 
-        sellerWater = 10;
+        sellerWater = 5;
         sellerFurs = 2;
         sellerFood = 7;
         sellerOre = 10;

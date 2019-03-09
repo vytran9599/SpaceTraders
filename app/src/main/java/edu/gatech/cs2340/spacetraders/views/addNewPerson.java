@@ -33,7 +33,7 @@ public class addNewPerson extends AppCompatActivity {
     private Button okButton;
     private Spinner difficultySpinner;
     private EditText playerNameTextbox;
-    private Player myPlayer;
+    private static Player myPlayer;
     //private Game myGame;
 
     @Override
@@ -88,6 +88,10 @@ public class addNewPerson extends AppCompatActivity {
 
     public Universe getMyUniverse() {
         return myUniverse;
+    }
+
+    public static Player getPlayer() {
+        return myPlayer;
     }
 
     public void pilotPlusButtonOnClick(View v) {
