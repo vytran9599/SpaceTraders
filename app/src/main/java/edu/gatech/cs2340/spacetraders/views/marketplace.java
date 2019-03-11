@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import edu.gatech.cs2340.spacetraders.R;
+import edu.gatech.cs2340.spacetraders.model.Player;
+import edu.gatech.cs2340.spacetraders.model.SolarSystem;
 
 public class marketplace extends AppCompatActivity {
 
@@ -35,6 +37,13 @@ public class marketplace extends AppCompatActivity {
             firearmsBuyPriceText, medicineBuyPriceText, machinesBuyPriceText, narcoticsBuyPriceText, robotsBuyPriceText;
     private TextView creditsText;
     private int creditsTotal;
+    private Player myPlayer;
+    private SolarSystem mySolarSystem;
+
+    public marketplace(Player myPlayer, SolarSystem mySolarSystem) {
+        this.myPlayer = myPlayer;
+        this.mySolarSystem = mySolarSystem;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +51,7 @@ public class marketplace extends AppCompatActivity {
         setContentView(R.layout.activity_marketplace);
 
         creditsText = findViewById(R.id.creditsText);
-        creditsTotal = 1000;
+        creditsTotal = myPlayer.getCredit();
         creditsText.setText(Integer.toString(creditsTotal));
 
         playerWaterText = findViewById(R.id.playerWater);

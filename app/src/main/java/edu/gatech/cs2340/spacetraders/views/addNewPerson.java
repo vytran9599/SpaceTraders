@@ -18,6 +18,7 @@ import edu.gatech.cs2340.spacetraders.R;
 import edu.gatech.cs2340.spacetraders.model.DifficultyStanding;
 import edu.gatech.cs2340.spacetraders.model.Game;
 import edu.gatech.cs2340.spacetraders.model.Player;
+import edu.gatech.cs2340.spacetraders.model.SolarSystem;
 import edu.gatech.cs2340.spacetraders.model.Universe;
 
 
@@ -35,6 +36,8 @@ public class addNewPerson extends AppCompatActivity {
     private Spinner difficultySpinner;
     private EditText playerNameTextbox;
     private Player myPlayer;
+    private marketplace myMarketplace;
+    private SolarSystem mySolarSystem;
     //private Game myGame;
 
     @Override
@@ -62,6 +65,7 @@ public class addNewPerson extends AppCompatActivity {
                 String playerName = playerNameTextbox.getText().toString();
                 myPlayer = new Player(playerName, difficulty, pilotPts, engrPts, tradePts, fightPts);
                 myUniverse = new Universe();
+                myMarketplace = new marketplace(myPlayer, mySolarSystem);
                 Game myGame = new Game(difficulty, myPlayer);
                 startActivity(new Intent(addNewPerson.this, MainGame.class));
                 Log.d("My Game's Information", myGame.toString());
