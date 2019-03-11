@@ -1,6 +1,5 @@
 package edu.gatech.cs2340.spacetraders.views;
 
-import android.arch.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,18 +14,16 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import edu.gatech.cs2340.spacetraders.PlayerInfo;
 import edu.gatech.cs2340.spacetraders.R;
-import edu.gatech.cs2340.spacetraders.model.Coordinate;
 import edu.gatech.cs2340.spacetraders.model.DifficultyStanding;
 import edu.gatech.cs2340.spacetraders.model.Game;
 import edu.gatech.cs2340.spacetraders.model.Player;
-import edu.gatech.cs2340.spacetraders.model.SolarSystem;
 import edu.gatech.cs2340.spacetraders.model.Universe;
-import edu.gatech.cs2340.spacetraders.viewmodels.ConfigurationViewModel;
 
 
 public class addNewPerson extends AppCompatActivity {
+
+    public Universe myUniverse;
 
     private final int ABILITY_POINTS = 16;
     private boolean isNameGiven;
@@ -38,7 +35,7 @@ public class addNewPerson extends AppCompatActivity {
     private Spinner difficultySpinner;
     private EditText playerNameTextbox;
     private Player myPlayer;
-    private Game myGame;
+    //private Game myGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,15 +58,12 @@ public class addNewPerson extends AppCompatActivity {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ConfigurationViewModel configModel = new ConfigurationViewModel(getApplication());
-                //ConfigurationViewModel config = new ViewModelProvider();
                 DifficultyStanding difficulty = (DifficultyStanding) difficultySpinner.getSelectedItem();
                 String playerName = playerNameTextbox.getText().toString();
                 myPlayer = new Player(playerName, difficulty, pilotPts, engrPts, tradePts, fightPts);
-                //config.createGame(difficulty, myPlayer);
-                Universe myUniverse = new Universe();
+                myUniverse = new Universe();
                 Game myGame = new Game(difficulty, myPlayer);
-                startActivity(new Intent(addNewPerson.this, PlayerInfo.class));
+                startActivity(new Intent(addNewPerson.this, MainGame.class));
                 Log.d("My Game's Information", myGame.toString());
                 Log.d("My Universe Information", myUniverse.toString());
             }
@@ -99,6 +93,10 @@ public class addNewPerson extends AppCompatActivity {
         public void afterTextChanged(Editable s) {
         }
     };
+
+    public Universe getMyUniverse() {
+        return myUniverse;
+    }
 
     public void pilotPlusButtonOnClick(View v) {
         if (pilotPts < 10 && pointsGiven < ABILITY_POINTS) {
