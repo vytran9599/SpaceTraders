@@ -76,7 +76,7 @@ public class addNewPerson extends AppCompatActivity {
         });
         for (int i = 0; i < 9; i++) {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCgit checkH_PARENT,
+                    LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
             Button btn = new Button(this);
