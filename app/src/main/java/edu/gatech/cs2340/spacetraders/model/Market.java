@@ -8,7 +8,8 @@ import java.util.HashMap;
 import edu.gatech.cs2340.spacetraders.R;
 
 public class Market {
-    private HashMap<TradeGood, Integer> marketGoods = new HashMap<>();
+    //private HashMap<TradeGood, Integer> marketGoods = new HashMap<>();
+    private int[] marketGoodCounts;
     private Condition thisCondition;
     private Resources thisResource;
     private TechLevel techLevel;
@@ -29,6 +30,7 @@ public class Market {
         thisCondition = cond;
         thisResource = res;
         techLevel = tech;
+        marketGoodCounts = new int[goods.length];
         for (int i = 0; i < goods.length; i++) {
             TradeGood good = goods[i];
 
@@ -61,55 +63,70 @@ public class Market {
 
             //sets the final price for the product and add it to market
             good.setFinalPrice(finalPrice);
-            marketGoods.put(good, amountProduced);
+            marketGoodCounts[i] = amountProduced;
         }
     }
 
-    public void buyInPlanet(Player player, TradeGood good) {
-        for (TradeGood g:marketGoods.keySet()) {
-            if (g.getName().equals(good.getName())) {
-                int price = g.getFinalPrice();
-                if (player.getCredit() < price) {
-                    Log.d("invalid action: ", "you're too poor to purchase this item.");
-                    return;
-                }
-                if (marketGoods.get(g) <1) {
-                    Log.d("invalid action: ", "This item is sold out");
-                    return;
-                }
-                player.setCredit(player.getCredit() - price);
-                marketGoods.put(g, marketGoods.get(g) - 1);
-                player.moreGood(g);
-                return;
-            }
+    public void buyInPlanet(Player player, String goodName) {
+        int index = getIndexByName(goodName);
+        if (index < 0 || index >= goods.length) {
+            return;
         }
+        TradeGood thisGood = goods[index];
+        int price = thisGood.getFinalPrice();
+        if (player.getCredit() < price) {
+            Log.d("invalid action: ", "you're too poor to purchase this item.");
+            return;
+        }
+        if (marketGoodCounts[index] <1) {
+            Log.d("invalid action: ", "This item is sold out");
+            return;
+        }
+        marketGoodCounts[index]--;
+        player.moreGood(thisGood);
+        return;
     }
-    public void sellInPlanet(Player player, TradeGood good) {
-        if (techLevel.getValue() < good.getMtlu()) {
+    public void sellInPlanet(Player player, String goodName) {
+        int index = getIndexByName(goodName);
+        if (index < 0 || index >= goods.length) {
+            return;
+        }
+        TradeGood thisGood = goods[index];
+        if (techLevel.getValue() < thisGood.getMtlu()) {
             Log.d("Invalid action: ", "The tech level of current planet is too low for you to sell the good.");
             return;
         }
-        for (TradeGood g:marketGoods.keySet()) {
-            if (g.getName().equals(good.getName())) {
-                if (player.hasGood(good) !=null) {
-                    int price = g.getFinalPrice();
-                    player.setCredit(player.getCredit() + price);
-                    marketGoods.put(g, marketGoods.get(g) + 1);
-                    player.lessGood(good);
-                    return;
-                }
-            }
+        if (player.hasGood(goodName)) {
+            marketGoodCounts[index]++;
+            player.lessGood(thisGood);
+            return;
+        } else {
+            Log.d("invalid action: ", "you have nothing to sell");
         }
 
     }
     public String toString() {
         String str = "";
-        for (TradeGood g:marketGoods.keySet()) {
-            str += g.getName() + ": " + marketGoods.get(g) + "  ";
+        for (int i = 0; i < goods.length; i++) {
+            str += goods[i].getName() + ": " + marketGoodCounts[i] + "  ";
         }
         return str;
     }
-    public HashMap<TradeGood, Integer> getMarketGoods() {
-        return marketGoods;
+    public int[] getMarketGoodCounts() {
+        return marketGoodCounts;
     }
+    public TradeGood[] getGoods() {
+        return goods;
+    }
+    public int getIndexByName(String n) {
+        for (int i = 0; i < goods.length; i++) {
+            TradeGood g = goods[i];
+            if (g.getName().equals(n)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
 }

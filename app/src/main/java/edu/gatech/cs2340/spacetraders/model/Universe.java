@@ -8,6 +8,8 @@ import java.util.HashSet;
 public class Universe {
     private HashSet<SolarSystem> solarSystems;
     private ArrayList<String> solarNames;
+    private SolarSystem currentSolarSystem;
+    private Planet currentPlanet;
     private final String[] names = {
             "Acamar",
             "Adahn",		// The alternate personality for The Nameless One in "Planescape: Torment"
@@ -145,11 +147,20 @@ public class Universe {
             HashSet<Planet> planets = new HashSet<>();
             while (planets.size() < 3) {
                 Market mar = new Market(cond, re, level);
-                planets.add(new Planet(names[(int) (Math.random() * names.length)], mar));
+                Planet pp = new Planet(names[(int) (Math.random() * names.length)], mar);
+                if (currentPlanet == null) {
+                     currentPlanet = pp;
+                }
+                planets.add(pp);
                 //test code
                 //Log.d("market: " , mar.toString());
             }
-            solarSystems.add(new SolarSystem(co, name, level, re, gov, pirate, police, cond, planets));
+            SolarSystem ss = new SolarSystem(co, name, level, re, gov, pirate, police, cond, planets);
+            if (currentSolarSystem == null) {
+                currentSolarSystem = ss;
+            }
+            solarSystems.add(ss);
+
             solarNames.add(name);
         }
     }
@@ -163,10 +174,33 @@ public class Universe {
         throw new java.util.NoSuchElementException("No solar system with name " + name + "exist in this universe.");
     }
 
+    public Planet getPlanetByName(String name) {
+        for (SolarSystem s:solarSystems) {
+            for (Planet p: s.getPlanets()) {
+                if (name.equals(p.getName())) {
+                    return p;
+                }
+            }
+        }
+        throw new java.util.NoSuchElementException("No planet with name " + name + " exist in this universe");
+    }
+
     public HashSet<SolarSystem> getSolarSystems() {
         return solarSystems;
     }
 
+    public SolarSystem getCurrentSolarSystem() {
+        return currentSolarSystem;
+    }
+    public Planet getCurrentPlanet() {
+        return currentPlanet;
+    }
+    public void setCurrentSolarSystem(SolarSystem s) {
+        currentSolarSystem = s;
+    }
+    public void setCurrentPlanet(Planet p) {
+        currentPlanet = p;
+    }
     public String toString() {
         String ans = "\n";
         for (SolarSystem s: solarSystems) {
