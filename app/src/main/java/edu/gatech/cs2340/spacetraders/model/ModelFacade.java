@@ -23,6 +23,7 @@ public class ModelFacade {
      * Make a new Model instance (should have parameters of the data entered by the player)
      */
     private ModelFacade() {
+        myGame = new Game();
     }
 
     public void setGame(Game a) {
