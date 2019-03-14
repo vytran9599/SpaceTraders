@@ -1,7 +1,11 @@
 package edu.gatech.cs2340.spacetraders.model;
 
+import android.util.Log;
+
 public class Ship {
     private ShipType shipType;
+    private int maxCapacity;
+    private int capacity;
 
     /**
      * The default constructor for ship. When the ship is initially created
@@ -9,6 +13,8 @@ public class Ship {
      */
     public Ship() {
         shipType = ShipType.GNAT;
+        maxCapacity = 20;
+        capacity = 0;
     }
 
     /**
@@ -17,6 +23,20 @@ public class Ship {
      */
     public ShipType getShipType() {
         return shipType;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+    public void setCapacity(int c) {
+        capacity = c;
+        Log.d("entered setCapacity() "," new capacity: " + capacity);
+    }
+    public int getMaxCapacity() {
+        return maxCapacity;
+    }
+    public void setMaxCapacity(int m) {
+        maxCapacity = m;
     }
 
     /**

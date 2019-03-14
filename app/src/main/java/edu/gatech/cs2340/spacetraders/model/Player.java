@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetraders.model;
 
+import android.util.Log;
+
 import java.util.HashMap;
 
 public class Player {
@@ -52,18 +54,21 @@ public class Player {
     }
     public void lessGood(TradeGood good) {
         int index = getIndexByName(good.getName());
-        if (index > 0 && index < goods.length) {
+        if (index >= 0 && index < goods.length) {
             if (personalGoodCounts[index] > 0) {
                 personalGoodCounts[index]--;
                 credit = credit + good.getFinalPrice();
+                myShip.setCapacity(myShip.getCapacity() - 1);
             }
         }
     }
     public void moreGood(TradeGood good) {
         int index = getIndexByName(good.getName());
-        if (index > 0 && index < goods.length) {
+        if (index >= 0 && index < goods.length && myShip.getCapacity() < myShip.getMaxCapacity()) {
                 personalGoodCounts[index]++;
+                myShip.setCapacity(myShip.getCapacity() + 1);
                 credit = credit - good.getFinalPrice();
+                Log.d("entered moreGood", "More " + good.getName());
         }
     }
     public int[] getPersonalGoodCounts() {
@@ -77,6 +82,10 @@ public class Player {
             }
         }
         return -1;
+    }
+
+    public boolean haveSpace() {
+        return myShip.getCapacity() < myShip.getMaxCapacity();
     }
 
 
@@ -124,6 +133,12 @@ public class Player {
     }
     public void setCredit(int a) {
         credit = a;
+    }
+    public Ship getMyShip() {
+        return myShip;
+    }
+    public void setMyShip(Ship s) {
+        myShip = s;
     }
 
     /**
