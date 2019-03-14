@@ -83,6 +83,7 @@ public class Market {
             return;
         }
         marketGoodCounts[index]--;
+        Log.d("entered buy in planet", player.getName() + " bought " + goodName + ".");
         player.moreGood(thisGood);
         return;
     }
@@ -126,6 +127,11 @@ public class Market {
             }
         }
         return -1;
+    }
+
+    public int getPriceOf(String n) {
+        int index = getIndexByName(n);
+        return goods[index].getFinalPrice();
     }
 
 
