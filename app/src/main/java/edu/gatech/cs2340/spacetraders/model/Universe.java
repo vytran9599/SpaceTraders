@@ -180,6 +180,7 @@ public class Universe {
 
     public void travel(String solarSysName) {
         currentSolarSystem = getSolarSystemByName(solarSysName);
+        currentPlanet = currentSolarSystem.getRandomPlanet();
     }
 
     public SolarSystem getSolarSystemByName(String name) {
