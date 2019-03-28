@@ -178,7 +178,12 @@ public class Universe {
         return travelables;
     }
 
-    public void travel(String solarSysName) {
+    public void travel(String solarSysName, Player player) {
+        SolarSystem newS = getSolarSystemByName(solarSysName);
+        int a = newS.getCoordinate().getX() + newS.getCoordinate().getY();
+        int b = currentSolarSystem.getCoordinate().getX() + currentSolarSystem.getCoordinate().getY();
+        int distance = Math.abs(a - b);
+        player.getMyShip().setFuel(player.getMyShip().getFuel() - distance);
         currentSolarSystem = getSolarSystemByName(solarSysName);
         currentPlanet = currentSolarSystem.getRandomPlanet();
     }
