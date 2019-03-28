@@ -21,6 +21,7 @@ public class Game {
         myUniverse = u;
     }
 
+
     /**
      * setter method for the difficulty standing of this game
      * @param ds the new difficulty standing
