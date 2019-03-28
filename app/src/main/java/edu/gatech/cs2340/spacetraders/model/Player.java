@@ -39,7 +39,7 @@ public class Player {
         this.tradePts = tradePts;
         this.fightPts = fightPts;
         credit = 1000;
-        myShip = new Ship();
+        myShip = new Ship(pilotPts);
         personalGoodCounts = new int[goods.length];
     }
     public boolean hasGood(String goodName) {

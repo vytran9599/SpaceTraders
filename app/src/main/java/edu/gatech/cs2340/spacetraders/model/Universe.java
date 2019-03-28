@@ -165,6 +165,23 @@ public class Universe {
         }
     }
 
+    public ArrayList<SolarSystem> getSolarSystemsToTravel(int fuel) {
+        ArrayList<SolarSystem> travelables = new ArrayList<>();
+        for (SolarSystem s:solarSystems) {
+            int a = s.getCoordinate().getX() + s.getCoordinate().getY();
+            int b = currentSolarSystem.getCoordinate().getX() + currentSolarSystem.getCoordinate().getY();
+            int distance = Math.abs(a - b);
+            if (fuel >= distance) {
+                travelables.add(s);
+            }
+        }
+        return travelables;
+    }
+
+    public void travel(String solarSysName) {
+        currentSolarSystem = getSolarSystemByName(solarSysName);
+    }
+
     public SolarSystem getSolarSystemByName(String name) {
         for (SolarSystem s:solarSystems) {
             if (s.getName().equals(name)) {
