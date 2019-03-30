@@ -214,7 +214,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/planetText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -224,5 +224,98 @@
         android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/planet_text"
         app:layout_constraintStart_toEndOf="@+id/planet_text" />
+
+    <TextView
+        android:id="@+id/resText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="planetname"
+        android:textColor="@color/ic_launcher_background"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/planet_text2"
+        app:layout_constraintStart_toEndOf="@+id/planet_text2" />
+
+    <TextView
+        android:id="@+id/techText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="planetname"
+        android:textColor="@color/ic_launcher_background"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/planet_text3"
+        app:layout_constraintStart_toEndOf="@+id/planet_text3" />
+
+    <TextView
+        android:id="@+id/govText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="planetname"
+        android:textColor="@color/ic_launcher_background"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/planet_text4"
+        app:layout_constraintStart_toEndOf="@+id/planet_text4" />
+
+    <TextView
+        android:id="@+id/polText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="planetname"
+        android:textColor="@color/ic_launcher_background"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/planet_text5"
+        app:layout_constraintStart_toEndOf="@+id/planet_text5" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="planetname"
+        android:textColor="@color/ic_launcher_background"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/planet_text6"
+        app:layout_constraintStart_toEndOf="@+id/planet_text6" />
+
+    <Button
+        android:id="@+id/SSLeft"
+        android:layout_width="56dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginBottom="299dp"
+        android:text="<"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/universe_button"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/SSRight"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="306dp"
+        android:text=">"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toEndOf="@+id/SSLeft"
+        app:layout_constraintTop_toBottomOf="@+id/ShipStats" />
 
 </android.support.constraint.ConstraintLayout>
