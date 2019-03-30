@@ -6,15 +6,17 @@ public class Ship {
     private ShipType shipType;
     private int maxCapacity;
     private int capacity;
+    private int fuel;
 
     /**
      * The default constructor for ship. When the ship is initially created
      * It has the ship type of GNAT
      */
-    public Ship() {
+    public Ship(int p) {
         shipType = ShipType.GNAT;
         maxCapacity = 20;
         capacity = 0;
+        fuel = p * 50;
     }
 
     /**
@@ -24,7 +26,12 @@ public class Ship {
     public ShipType getShipType() {
         return shipType;
     }
-
+    public void setFuel(int f) {
+        fuel = f;
+    }
+    public int getFuel() {
+        return fuel;
+    }
     public int getCapacity() {
         return capacity;
     }

@@ -31,7 +31,20 @@ public class SolarSystem {
         SolarSystem newP = (SolarSystem) other;
         return newP.getName().equals(name) || newP.getCoordinate().equals(coord);
     }
-
+    public Planet getRandomPlanet() {
+        int i = 0;
+        int rand = (int) Math.random() * 3;
+        //Planet ans = null;
+        Planet ans = null;
+        for (Planet p:planets) {
+            ans = p;
+            if (i == rand) {
+                return p;
+            }
+            i++;
+        }
+        return ans;
+    }
     public Coordinate getCoordinate() {
         return coord;
     }
