@@ -171,7 +171,7 @@ public class Universe {
             int a = s.getCoordinate().getX() + s.getCoordinate().getY();
             int b = currentSolarSystem.getCoordinate().getX() + currentSolarSystem.getCoordinate().getY();
             int distance = Math.abs(a - b);
-            if (fuel >= distance) {
+            if (fuel >= distance && !s.getName().equals(currentSolarSystem.getName())) {
                 travelables.add(s);
             }
         }
