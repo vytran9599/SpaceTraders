@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class MainGame extends AppCompatActivity {
     private Player myPlayer;
     private ArrayList<SolarSystem> SSTravelList;
 
-
+    private ProgressBar fuelBar;
     private int indexSS;
     private TextView planetText, resText, techText, govText, polText, pirText, fuelText, costText;
 
@@ -47,11 +48,11 @@ public class MainGame extends AppCompatActivity {
             System.out.print(s.getName() + " ");
         }
         System.out.println("\nselected ss: " + selectedSS.getName() + " should be: " + SSTravelList.get(0).getName());
-        setText();
+        set();
         updateText();
     }
 
-    public void setText() {
+    public void set() {
         planetText = findViewById(R.id.planetText);
         resText = findViewById(R.id.resText);
         techText = findViewById(R.id.techText);
@@ -60,6 +61,10 @@ public class MainGame extends AppCompatActivity {
         pirText = findViewById(R.id.pirText);
         fuelText = findViewById(R.id.fuelText);
         costText = findViewById(R.id.costText);
+
+        fuelBar = findViewById(R.id.fuelBar);
+        fuelBar.setScaleY(3);
+        fuelBar.setMax(myPlayer.getMyShip().getFuel());
     }
 
     public void updateText() {
@@ -74,6 +79,8 @@ public class MainGame extends AppCompatActivity {
         int b = currentSS.getCoordinate().getX() + currentSS.getCoordinate().getY();
         int distance = Math.abs(a - b);
         costText.setText(Integer.toString(distance));
+
+        fuelBar.setProgress(myPlayer.getMyShip().getFuel());
     }
 
     public void updateTextStuck() {
