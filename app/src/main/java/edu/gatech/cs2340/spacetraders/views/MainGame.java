@@ -3,6 +3,7 @@ package edu.gatech.cs2340.spacetraders.views;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -34,7 +35,17 @@ public class MainGame extends AppCompatActivity {
         myUniverse = ModelFacade.getInstance().getGame().getMyUniverse();
         myPlayer = ModelFacade.getInstance().getGame().getPlayer();
         SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());
-        selectedSS = SSTravelList.get(indexSS);
+
+        indexSS = 0;
+        if (indexSS > -1 && indexSS < SSTravelList.size()) {
+            selectedSS = SSTravelList.get(indexSS);
+        } else {
+            Log.d("Error:", " not enough fuel to travel to any solar systems");
+        }
+        for (SolarSystem s:SSTravelList) {
+            System.out.print(s.getName() + " ");
+        }
+        System.out.println("\nselected ss: " + selectedSS.getName() + " should be: " + SSTravelList.get(0).getName());
         setText();
         updateText();
     }
@@ -69,26 +80,39 @@ public class MainGame extends AppCompatActivity {
 
 
     public void SSLeftButtonOnClick(View v) {
-        if (indexSS == 0) {
-            indexSS = SSTravelList.size();
+        if (SSTravelList.size() == 0) {
+            Log.d("Sad Life: ","Not enough fuel to travel to any other solar system, you're stuck on " + selectedSS.getName());
+        } else {
+            if (indexSS == 0) {
+                indexSS = SSTravelList.size();
+            }
+            selectedSS = SSTravelList.get(--indexSS);
+            updateText();
         }
-        selectedSS = SSTravelList.get(--indexSS);
-        updateText();
     }
 
     public void SSRightButtonOnClick(View v) {
-        selectedSS = SSTravelList.get(++indexSS % SSTravelList.size());
-        if (indexSS == SSTravelList.size()) {
-            indexSS = 0;
+        if (SSTravelList.size() == 0) {
+            Log.d("Sad Life: ","Not enough fuel to travel to any other solar system, you're stuck on " + selectedSS.getName());
+        } else {
+            selectedSS = SSTravelList.get(++indexSS % SSTravelList.size());
+            if (indexSS == SSTravelList.size()) {
+                indexSS = 0;
+            }
+            updateText();
         }
-        updateText();
     }
 
     public void travelButtonOnClick(View v) {
         myUniverse.travel(selectedSS.getName(), myPlayer);
-        SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());
-        indexSS = 0;
-        selectedSS = SSTravelList.get(indexSS);
         updateText();
+        SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());
+        if (SSTravelList.size() == 0) {
+            Log.d("Error: ","You don't have enough fuel to travel to any other solar systems");
+        } else {
+            indexSS = 0;
+            selectedSS = SSTravelList.get(indexSS);
+            updateText();
+        }
     }
 }
