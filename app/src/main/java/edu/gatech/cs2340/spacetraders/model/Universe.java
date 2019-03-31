@@ -183,7 +183,13 @@ public class Universe {
         int a = newS.getCoordinate().getX() + newS.getCoordinate().getY();
         int b = currentSolarSystem.getCoordinate().getX() + currentSolarSystem.getCoordinate().getY();
         int distance = Math.abs(a - b);
+
+        System.out.println("fuel before travel: " + player.getMyShip().getFuel());
+
         player.getMyShip().setFuel(player.getMyShip().getFuel() - distance);
+
+        System.out.println("new solar: " + newS.getName() + " distance: " + distance + " new fuel:" + player.getMyShip().getFuel());
+
         currentSolarSystem = getSolarSystemByName(solarSysName);
         currentPlanet = currentSolarSystem.getRandomPlanet();
     }
