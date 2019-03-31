@@ -16,7 +16,7 @@ public class Ship {
         shipType = ShipType.GNAT;
         maxCapacity = 20;
         capacity = 0;
-        fuel = p * 50;
+        fuel = p * 25 + 25;
     }
 
     /**

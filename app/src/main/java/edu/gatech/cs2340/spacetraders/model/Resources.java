@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.spacetraders.model;
 
 public enum Resources {
-    NOSPECIALRESOURCES (0),
+    NOSPECRESOURCES (0),
     MINERALRICH (1),
     MINERALPOOR (2),
     DESERT (3),
@@ -28,6 +28,6 @@ public enum Resources {
                 return re;
             }
         }
-        return NOSPECIALRESOURCES;
+        return NOSPECRESOURCES;
     }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,19 +21,20 @@ import edu.gatech.cs2340.spacetraders.model.Universe;
 public class MainGame extends AppCompatActivity {
 
     private Universe myUniverse;
-    private SolarSystem selectedSS;
+    private SolarSystem selectedSS, currentSS;
     private Player myPlayer;
     private ArrayList<SolarSystem> SSTravelList;
 
-
+    private ProgressBar fuelBar;
     private int indexSS;
-    private TextView planetText, resText, techText, govText, polText, pirText, fuelText;
+    private TextView planetText, resText, techText, govText, polText, pirText, fuelText, costText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_info);
         myUniverse = ModelFacade.getInstance().getGame().getMyUniverse();
+        currentSS = ModelFacade.getInstance().getGame().getMyUniverse().getCurrentSolarSystem();
         myPlayer = ModelFacade.getInstance().getGame().getPlayer();
         SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());
 
@@ -46,11 +48,11 @@ public class MainGame extends AppCompatActivity {
             System.out.print(s.getName() + " ");
         }
         System.out.println("\nselected ss: " + selectedSS.getName() + " should be: " + SSTravelList.get(0).getName());
-        setText();
+        set();
         updateText();
     }
 
-    public void setText() {
+    public void set() {
         planetText = findViewById(R.id.planetText);
         resText = findViewById(R.id.resText);
         techText = findViewById(R.id.techText);
@@ -58,6 +60,11 @@ public class MainGame extends AppCompatActivity {
         polText = findViewById(R.id.polText);
         pirText = findViewById(R.id.pirText);
         fuelText = findViewById(R.id.fuelText);
+        costText = findViewById(R.id.costText);
+
+        fuelBar = findViewById(R.id.fuelBar);
+        fuelBar.setScaleY(3);
+        fuelBar.setMax(myPlayer.getMyShip().getFuel());
     }
 
     public void updateText() {
@@ -68,6 +75,22 @@ public class MainGame extends AppCompatActivity {
         polText.setText(selectedSS.getPoliceLevel().toString());
         pirText.setText(selectedSS.getPirateLevel().toString());
         fuelText.setText(Integer.toString(myPlayer.getMyShip().getFuel()));
+        int a = selectedSS.getCoordinate().getX() + selectedSS.getCoordinate().getY();
+        int b = currentSS.getCoordinate().getX() + currentSS.getCoordinate().getY();
+        int distance = Math.abs(a - b);
+        costText.setText(Integer.toString(distance));
+
+        fuelBar.setProgress(myPlayer.getMyShip().getFuel());
+    }
+
+    public void updateTextStuck() {
+        planetText.setText("none");
+        resText.setText("none");
+        techText.setText("none");
+        govText.setText("none");
+        polText.setText("none");
+        pirText.setText("none");
+        costText.setText(Integer.toString(0));
     }
 
     public void marketplaceButtonOnClick(View v) {
@@ -105,10 +128,12 @@ public class MainGame extends AppCompatActivity {
 
     public void travelButtonOnClick(View v) {
         myUniverse.travel(selectedSS.getName(), myPlayer);
-        updateText();
         SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());
+        currentSS = ModelFacade.getInstance().getGame().getMyUniverse().getCurrentSolarSystem();
+        updateText();
         if (SSTravelList.size() == 0) {
             Log.d("Error: ","You don't have enough fuel to travel to any other solar systems");
+            updateTextStuck();
         } else {
             indexSS = 0;
             selectedSS = SSTravelList.get(indexSS);
