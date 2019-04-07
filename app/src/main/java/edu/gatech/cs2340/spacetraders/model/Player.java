@@ -1,7 +1,5 @@
 package edu.gatech.cs2340.spacetraders.model;
 
-import android.util.Log;
-
 import java.util.HashMap;
 
 public class Player {
@@ -9,7 +7,7 @@ public class Player {
     private int pilotPts, engrPts, tradePts, fightPts, credit;
     private Ship myShip;
     private DifficultyStanding difficulty;
-    private int[] personalGoodCounts;
+    private HashMap<TradeGood, Integer> personalGoods;
     private  TradeGood[] goods = {
             new TradeGood("Water", 0, 0, 2, 3, 4, Condition.DROUGHT, Resources.LOTSOFWATER, Resources.DESERT, 30, 50, 30 ),
             new TradeGood("Furs", 0, 0, 0, 10, 10, Condition.COLD, Resources.RICHFAUNA, Resources.LIFELESS, 230, 280, 250),
@@ -39,53 +37,44 @@ public class Player {
         this.tradePts = tradePts;
         this.fightPts = fightPts;
         credit = 1000;
-        myShip = new Ship(pilotPts);
-        personalGoodCounts = new int[goods.length];
+        myShip = new Ship();
+        personalGoods = new HashMap<>();
+        for (int i = 0; i < 10; i++) {
+            personalGoods.put(goods[i], 0);
+        }
     }
-    public boolean hasGood(String goodName) {
-        int index = getIndexByName(goodName);
-        if (index < 0 || index >= personalGoodCounts.length) {
-            return false;
+
+    public void changeNumGoods(int x, int change) {
+        personalGoods.put(goods[x], change);
+    }
+
+    public TradeGood hasGood(TradeGood good) {
+        for( TradeGood g: personalGoods.keySet()) {
+            if (g.getName().equals(good.getName())) {
+                if (personalGoods.get(g) > 0) {
+                    return g;
+                } else {
+                    return null;
+                }
+            }
         }
-        if (personalGoodCounts[index] > 0) {
-            return true;
-        }
-        return false;
+        return null;
     }
     public void lessGood(TradeGood good) {
-        int index = getIndexByName(good.getName());
-        if (index >= 0 && index < goods.length) {
-            if (personalGoodCounts[index] > 0) {
-                personalGoodCounts[index]--;
-                credit = credit + good.getFinalPrice();
-                myShip.setCapacity(myShip.getCapacity() - 1);
-            }
+        TradeGood g = hasGood(good);
+        if (g != null && personalGoods.get(g) > 0) {
+            personalGoods.put(g, personalGoods.get(g) - 1);
         }
     }
     public void moreGood(TradeGood good) {
-        int index = getIndexByName(good.getName());
-        if (index >= 0 && index < goods.length && myShip.getCapacity() < myShip.getMaxCapacity()) {
-                personalGoodCounts[index]++;
-                myShip.setCapacity(myShip.getCapacity() + 1);
-                credit = credit - good.getFinalPrice();
-                Log.d("entered moreGood", "More " + good.getName());
+        if (hasGood(good) != null) {
+            personalGoods.put(hasGood(good), personalGoods.get(hasGood(good)) + 1);
+        } else {
+            personalGoods.put(good, 1);
         }
     }
-    public int[] getPersonalGoodCounts() {
-        return personalGoodCounts;
-    }
-
-    public int getIndexByName(String n) {
-        for (int i = 0; i < goods.length; i++) {
-            if (goods[i].getName().equals(n)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public boolean haveSpace() {
-        return myShip.getCapacity() < myShip.getMaxCapacity();
+    public HashMap<TradeGood, Integer> getPersonalGoods() {
+        return personalGoods;
     }
 
 
@@ -133,12 +122,6 @@ public class Player {
     }
     public void setCredit(int a) {
         credit = a;
-    }
-    public Ship getMyShip() {
-        return myShip;
-    }
-    public void setMyShip(Ship s) {
-        myShip = s;
     }
 
     /**

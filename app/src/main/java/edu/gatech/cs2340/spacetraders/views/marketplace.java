@@ -1,6 +1,5 @@
 package edu.gatech.cs2340.spacetraders.views;
 
-import android.arch.lifecycle.ViewModelProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,19 +7,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import edu.gatech.cs2340.spacetraders.R;
-import edu.gatech.cs2340.spacetraders.model.Market;
-import edu.gatech.cs2340.spacetraders.model.ModelFacade;
-import edu.gatech.cs2340.spacetraders.model.Player;
-import edu.gatech.cs2340.spacetraders.model.TradeGood;
-import edu.gatech.cs2340.spacetraders.model.Universe;
-import edu.gatech.cs2340.spacetraders.viewmodels.ConfigurationViewModel;
-import edu.gatech.cs2340.spacetraders.viewmodels.MarketViewModel;
 
 public class marketplace extends AppCompatActivity {
 
     private int capacity, capacityLimit;
-    private Player myPlayer;
-    private Market myMarket;
     private TextView capacityLimitText, capacityText;
 
     private int playerWater, playerFurs, playerFood, playerOre, playerGames,
@@ -45,23 +35,16 @@ public class marketplace extends AppCompatActivity {
             firearmsBuyPriceText, medicineBuyPriceText, machinesBuyPriceText, narcoticsBuyPriceText, robotsBuyPriceText;
     private TextView creditsText;
     private int creditsTotal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marketplace);
-        myPlayer = ModelFacade.getInstance().getGame().getPlayer();
-        myMarket = ModelFacade.getInstance().getGame().getMyUniverse().getCurrentPlanet().getMarket();
 
-        setNames();
-        updatePlayerValues();
-        updateSellerValues();
-        updatePricesValue();
-
-    }
-    public void setNames() {
-        capacityText = findViewById(R.id.capacityText);
-        capacityLimitText = findViewById(R.id.capacityLimitText);
         creditsText = findViewById(R.id.creditsText);
+        creditsTotal = 1000;
+        creditsText.setText(Integer.toString(creditsTotal));
+
         playerWaterText = findViewById(R.id.playerWater);
         playerFursText = findViewById(R.id.playerFurs);
         playerFoodText = findViewById(R.id.playerFood);
@@ -104,113 +87,48 @@ public class marketplace extends AppCompatActivity {
         machinesSellPriceText = findViewById(R.id.machinesSellPrice);
         narcoticsSellPriceText = findViewById(R.id.narcoticsSellPrice);
         robotsSellPriceText = findViewById(R.id.robotsSellPrice);
-    }
 
-    public void generalBuy(String goodName) {
-        myMarket.buyInPlanet(myPlayer, goodName);
-        updatePlayerValues();
-        updateSellerValues();
-    }
-    public void generalSell(String goodName) {
-        myMarket.sellInPlanet(myPlayer, goodName);
-        updatePlayerValues();
-        updateSellerValues();
-    }
+        playerWater = 1;
+        playerFurs = 2;
+        playerFood = 5;
+        playerOre = 1;
+        playerGames = 0;
+        playerFirearms = 0;
+        playerMedicine = 0;
+        playerNarcotics = 0;
+        playerRobots = 0;
 
-    public void waterBuyOnClick(View v) {
-        generalBuy("Water");
-    }
+        sellerWater = 10;
+        sellerFurs = 2;
+        sellerFood = 7;
+        sellerOre = 10;
+        sellerGames = 0;
+        sellerFirearms = 0;
+        sellerMedicine = 0;
+        sellerNarcotics = 0;
+        sellerRobots = 0;
 
-    public void waterSellOnClick(View v) {
-        generalSell("Water");
-    }
+        waterBuyPrice = 100;
+        fursBuyPrice = 20;
+        foodBuyPrice = 25;
+        oreBuyPrice = 10;
+        gamesBuyPrice = 0;
+        firearmsBuyPrice = 0;
+        medicineBuyPrice = 0;
+        machinesBuyPrice = 0;
+        narcoticsBuyPrice = 0;
+        robotsBuyPrice = 0;
 
-    public void updatePlayerValues() {
-
-        creditsTotal = myPlayer.getCredit();
-        creditsText.setText(Integer.toString(creditsTotal));
-        capacity = myPlayer.getMyShip().getCapacity();
-        capacityLimit = myPlayer.getMyShip().getMaxCapacity();
-        capacityText.setText(Integer.toString(capacity));
-        capacityLimitText.setText(Integer.toString(capacityLimit));
-        int[] personalCounts = myPlayer.getPersonalGoodCounts();
-        playerWater = personalCounts[0];
-        playerFurs = personalCounts[1];
-        playerFood = personalCounts[2];
-        playerOre = personalCounts[3];
-        playerGames = personalCounts[4];
-        playerFirearms = personalCounts[5];
-        playerMedicine = personalCounts[6];
-        playerMachines = personalCounts[7];
-        playerNarcotics = personalCounts[8];
-        playerRobots = personalCounts[9];
-
-        playerWaterText.setText(Integer.toString(playerWater));
-        playerFursText.setText(Integer.toString(playerFurs));
-        playerFoodText.setText(Integer.toString(playerFood));
-        playerOreText.setText(Integer.toString(playerOre));
-        playerGamesText.setText(Integer.toString(playerGames));
-        playerFirearmsText.setText(Integer.toString(playerFirearms));
-        playerMedicineText.setText(Integer.toString(playerMedicine));
-        playerMachinesText.setText(Integer.toString(playerMachines));
-        playerNarcoticsText.setText(Integer.toString(playerNarcotics));
-        playerRobotsText.setText(Integer.toString(playerRobots));
-
-    }
-
-    public void updateSellerValues() {
-        int[] marketCounts = myMarket.getMarketGoodCounts();
-        sellerWater = marketCounts[0];
-        sellerFurs = marketCounts[1];
-        sellerFood = marketCounts[2];
-        sellerOre = marketCounts[3];
-        sellerGames = marketCounts[4];
-        sellerFirearms = marketCounts[5];
-        sellerMedicine = marketCounts[6];
-        sellerMachines = marketCounts[7];
-        sellerNarcotics = marketCounts[8];
-        sellerRobots = marketCounts[9];
-
-        sellerWaterText.setText(Integer.toString(sellerWater));
-        sellerFursText.setText(Integer.toString(sellerFurs));
-        sellerFoodText.setText(Integer.toString(sellerFood));
-        sellerOreText.setText(Integer.toString(sellerOre));
-        sellerGamesText.setText(Integer.toString(sellerGames));
-        sellerFirearmsText.setText(Integer.toString(sellerFirearms));
-        sellerMedicineText.setText(Integer.toString(sellerMedicine));
-        sellerMachinesText.setText(Integer.toString(sellerMachines));
-        sellerNarcoticsText.setText(Integer.toString(sellerNarcotics));
-        sellerRobotsText.setText(Integer.toString(sellerRobots));
-    }
-
-    public void updatePricesValue() {
-        TradeGood[] goods = myMarket.getGoods();
-        int[] prices = new int[10];
-        for (int i = 0; i < goods.length; i++) {
-            prices[i] = goods[i].getFinalPrice();
-        }
-
-        waterBuyPrice = prices[0];
-        fursBuyPrice = prices[1];
-        foodBuyPrice = prices[2];
-        oreBuyPrice = prices[3];
-        gamesBuyPrice = prices[4];
-        firearmsBuyPrice = prices[5];
-        medicineBuyPrice = prices[6];
-        machinesBuyPrice = prices[7];
-        narcoticsBuyPrice = prices[8];
-        robotsBuyPrice = prices[9];
-
-        waterSellPrice = prices[0];
-        fursSellPrice = prices[1];
-        foodSellPrice = prices[2];
-        oreSellPrice = prices[3];
-        gamesSellPrice = prices[4];
-        firearmsSellPrice = prices[5];
-        medicineSellPrice = prices[6];
-        machinesSellPrice = prices[7];
-        narcoticsSellPrice = prices[8];
-        robotsSellPrice = prices[9];
+        waterSellPrice = 50;
+        fursSellPrice = 100;
+        foodSellPrice = 30;
+        oreSellPrice = 50;
+        gamesSellPrice = 0;
+        firearmsSellPrice = 0;
+        medicineSellPrice = 0;
+        machinesSellPrice = 0;
+        narcoticsSellPrice = 0;
+        robotsSellPrice = 0;
 
         waterBuyPriceText.setText(Integer.toString(waterBuyPrice));
         fursBuyPriceText.setText(Integer.toString(fursBuyPrice));
@@ -233,197 +151,525 @@ public class marketplace extends AppCompatActivity {
         machinesSellPriceText.setText(Integer.toString(machinesSellPrice));
         narcoticsSellPriceText.setText(Integer.toString(narcoticsSellPrice));
         robotsSellPriceText.setText(Integer.toString(robotsSellPrice));
+
+        playerWaterText.setText(Integer.toString(playerWater));
+        playerFursText.setText(Integer.toString(playerFurs));
+        playerFoodText.setText(Integer.toString(playerFood));
+        playerOreText.setText(Integer.toString(playerOre));
+        playerGamesText.setText(Integer.toString(playerGames));
+        playerFirearmsText.setText(Integer.toString(playerFirearms));
+        playerMedicineText.setText(Integer.toString(playerMedicine));
+        playerMachinesText.setText(Integer.toString(playerMachines));
+        playerNarcoticsText.setText(Integer.toString(playerNarcotics));
+        playerRobotsText.setText(Integer.toString(playerRobots));
+
+        sellerWaterText.setText(Integer.toString(sellerWater));
+        sellerFursText.setText(Integer.toString(sellerFurs));
+        sellerFoodText.setText(Integer.toString(sellerFood));
+        sellerOreText.setText(Integer.toString(sellerOre));
+        sellerGamesText.setText(Integer.toString(sellerGames));
+        sellerFirearmsText.setText(Integer.toString(sellerFirearms));
+        sellerMedicineText.setText(Integer.toString(sellerMedicine));
+        sellerMachinesText.setText(Integer.toString(sellerMachines));
+        sellerNarcoticsText.setText(Integer.toString(sellerNarcotics));
+        sellerRobotsText.setText(Integer.toString(sellerRobots));
+
+        capacity = playerWater +
+                playerFurs +
+                playerFood +
+                playerOre +
+                playerGames +
+                playerFirearms +
+                playerMedicine +
+                playerNarcotics +
+                playerRobots;
+
+        capacityLimit = 20;
+
+        capacityText = findViewById(R.id.capacityText);
+        capacityText.setText(Integer.toString(capacity));
+        capacityLimitText = findViewById(R.id.capacityLimitText);
+        capacityLimitText.setText(Integer.toString(capacityLimit));
+
+    }
+
+    public void waterBuyOnClick(View v) {
+        if (sellerWater > 0 && creditsTotal >= waterBuyPrice &&  capacity < capacityLimit) {
+            playerWaterText.setText(Integer.toString(++playerWater));
+            sellerWaterText.setText(Integer.toString(--sellerWater));
+            creditsTotal -= waterBuyPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(++capacity));
+        }
+    }
+
+    public void waterSellOnClick(View v) {
+        if (playerWater > 0) {
+            playerWaterText.setText(Integer.toString(--playerWater));
+            sellerWaterText.setText(Integer.toString(++sellerWater));
+            creditsTotal += waterSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
+        }
     }
 
     public void fursBuyOnClick(View v) {
-        generalBuy("Furs");
+        if (sellerFurs > 0 && creditsTotal >= fursBuyPrice && capacity < capacityLimit) {
+            playerFursText.setText(Integer.toString(++playerFurs));
+            sellerFursText.setText(Integer.toString(--sellerFurs));
+            creditsTotal -= fursBuyPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(++capacity));
+        }
     }
 
     public void fursSellOnClick(View v) {
-        generalSell("Furs");
+        if (playerFurs > 0) {
+            playerFursText.setText(Integer.toString(--playerFurs));
+            sellerFursText.setText(Integer.toString(++sellerFurs));
+            creditsTotal += fursSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
+        }
     }
 
     public void foodBuyOnClick(View v) {
-        generalBuy("Food");
+        if (sellerFood > 0 && creditsTotal >= foodBuyPrice && capacity < capacityLimit) {
+            playerFoodText.setText(Integer.toString(++playerFood));
+            sellerFoodText.setText(Integer.toString(--sellerFood));
+            creditsTotal -= foodBuyPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(++capacity));
+        }
     }
 
     public void foodSellOnClick(View v) {
-        generalSell("Food");
+        if (playerFood > 0) {
+            playerFoodText.setText(Integer.toString(--playerFood));
+            sellerFoodText.setText(Integer.toString(++sellerFood));
+            creditsTotal += foodSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
+        }
     }
 
     public void oreBuyOnClick(View v) {
-        generalBuy("Ore");
+        if (sellerOre > 0 && creditsTotal >= oreBuyPrice && capacity < capacityLimit) {
+            playerOreText.setText(Integer.toString(++playerOre));
+            sellerOreText.setText(Integer.toString(--sellerOre));
+            creditsTotal -= oreBuyPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(++capacity));
+        }
     }
 
     public void oreSellOnClick(View v) {
-        generalSell("Ore");
+        if (playerOre > 0) {
+            playerOreText.setText(Integer.toString(--playerOre));
+            sellerOreText.setText(Integer.toString(++sellerOre));
+            creditsTotal += oreSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
+        }
     }
 
     public void gamesBuyOnClick(View v) {
-        generalBuy("Games");
+        if (sellerGames > 0 && creditsTotal >= gamesBuyPrice && capacity < capacityLimit) {
+            playerGamesText.setText(Integer.toString(++playerGames));
+            sellerGamesText.setText(Integer.toString(--sellerGames));
+            creditsTotal -= firearmsBuyPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(++capacity));
+        }
     }
 
     public void gamesSellOnClick(View v) {
-        generalSell("Games");
+        if (playerGames > 0) {
+            playerGamesText.setText(Integer.toString(--playerGames));
+            sellerGamesText.setText(Integer.toString(++sellerGames));
+            creditsTotal += gamesSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
+        }
     }
 
     public void firearmsBuyOnClick(View v) {
-        generalBuy("Firearms");
+        if (sellerFirearms > 0 && creditsTotal >= firearmsBuyPrice && capacity < capacityLimit) {
+            playerFirearmsText.setText(Integer.toString(++playerFirearms));
+            sellerFirearmsText.setText(Integer.toString(--sellerFirearms));
+            creditsTotal -= firearmsBuyPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(++capacity));
+        }
     }
 
     public void firearmsSellOnClick(View v) {
-        generalSell("Firearms");
+        if (playerFirearms > 0) {
+            playerFirearmsText.setText(Integer.toString(--playerFirearms));
+            sellerFirearmsText.setText(Integer.toString(++sellerFirearms));
+            creditsTotal += firearmsSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
+        }
     }
 
     public void medicineBuyOnClick(View v) {
-        generalBuy("Medicine");
+        if (sellerMedicine > 0 && creditsTotal >= medicineBuyPrice && capacity < capacityLimit) {
+            playerMedicineText.setText(Integer.toString(++playerMedicine));
+            sellerMedicineText.setText(Integer.toString(--sellerMedicine));
+            creditsTotal -= medicineBuyPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(++capacity));
+        }
     }
 
     public void medicineSellOnClick(View v) {
-        generalSell("Medicine");
+        if (playerMedicine > 0 ) {
+            playerMedicineText.setText(Integer.toString(--playerMedicine));
+            sellerMedicineText.setText(Integer.toString(++sellerMedicine));
+            creditsTotal += medicineSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
+        }
     }
 
     public void machinesBuyOnClick(View v) {
-        generalBuy("Machines");
+        if (sellerMachines > 0 && creditsTotal >= machinesBuyPrice && capacity < capacityLimit) {
+            playerMachinesText.setText(Integer.toString(++playerMachines));
+            sellerMachinesText.setText(Integer.toString(--sellerMachines));
+            creditsTotal -= machinesBuyPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(++capacity));
+        }
     }
 
     public void machinesSellOnClick(View v) {
-        generalSell("Machines");
+        if (playerMachines > 0) {
+            playerMachinesText.setText(Integer.toString(--playerMachines));
+            sellerMachinesText.setText(Integer.toString(++sellerMachines));
+            creditsTotal += machinesSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
+        }
     }
 
     public void narcoticsBuyOnClick(View v) {
-        generalBuy("Narcotics");
+        if (sellerNarcotics > 0 && creditsTotal >= narcoticsBuyPrice && capacity < capacityLimit) {
+            playerNarcoticsText.setText(Integer.toString(++playerNarcotics));
+            sellerNarcoticsText.setText(Integer.toString(--sellerNarcotics));
+            creditsTotal -= narcoticsBuyPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(++capacity));
+        }
     }
 
     public void narcoticsSellOnClick(View v) {
-        generalSell("Narcotics");
+        if (playerNarcotics > 0) {
+            playerNarcoticsText.setText(Integer.toString(--playerNarcotics));
+            sellerNarcoticsText.setText(Integer.toString(++sellerNarcotics));
+            creditsTotal += narcoticsSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
+        }
     }
 
     public void robotsBuyOnClick(View v) {
-        generalBuy("Robots");
+        if (sellerRobots > 0 && creditsTotal >= robotsBuyPrice && capacity < capacityLimit) {
+            playerRobotsText.setText(Integer.toString(++playerRobots));
+            sellerRobotsText.setText(Integer.toString(--sellerRobots));
+            creditsTotal -= robotsBuyPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(++capacity));
+        }
     }
 
     public void robotsSellOnClick(View v) {
-        generalSell("Robots");
+        if (playerRobots > 0) {
+            playerRobotsText.setText(Integer.toString(--playerRobots));
+            sellerRobotsText.setText(Integer.toString(++sellerRobots));
+            creditsTotal += robotsSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(--capacity));
+        }
     }
 
     public void waterAllOnClick(View v) {
-        while (playerWater > 0) {
-            generalSell("Water");
+        if (playerWater > 0) {
+            creditsTotal += playerWater * waterSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerWater += playerWater;
+            capacity -= playerWater;
+            capacityText.setText(Integer.toString(capacity));
+            sellerWaterText.setText(Integer.toString(sellerWater));
+            playerWater = 0;
+            playerWaterText.setText(Integer.toString(playerWater));
         }
     }
 
     public void fursAllOnClick(View v) {
-        while (playerFurs > 0) {
-            generalSell("Furs");
+        if (playerFurs > 0) {
+            creditsTotal += playerFurs * fursSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerFurs += playerFurs;
+            capacity -= playerFurs;
+            capacityText.setText(Integer.toString(capacity));
+            sellerFursText.setText(Integer.toString(sellerFurs));
+            playerFurs = 0;
+            playerFursText.setText(Integer.toString(playerFurs));
         }
     }
 
     public void foodAllOnClick(View v) {
-        while (playerFood > 0) {
-            generalSell("Food");
+        if (playerFood > 0) {
+            creditsTotal += playerFood * foodSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerFood += playerFood;
+            capacity -= playerFood;
+            capacityText.setText(Integer.toString(capacity));
+            sellerFoodText.setText(Integer.toString(sellerFood));
+            playerFood = 0;
+            playerFoodText.setText(Integer.toString(playerFood));
         }
     }
 
     public void oreAllOnClick(View v) {
-        while (playerOre > 0) {
-            generalSell("Ore");
+        if (playerOre > 0) {
+            creditsTotal += playerOre * oreSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerOre += playerOre;
+            capacity -= playerOre;
+            capacityText.setText(Integer.toString(capacity));
+            sellerOreText.setText(Integer.toString(sellerOre));
+            playerOre = 0;
+            playerOreText.setText(Integer.toString(playerOre));
         }
     }
 
     public void gamesAllOnClick(View v) {
-        while (playerGames > 0) {
-            generalSell("Games");
+        if (playerGames > 0) {
+            creditsTotal += playerGames * gamesSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerGames += playerGames;
+            capacity -= playerGames;
+            capacityText.setText(Integer.toString(capacity));
+            sellerGamesText.setText(Integer.toString(sellerGames));
+            playerGames = 0;
+            playerGamesText.setText(Integer.toString(playerGames));
         }
     }
 
     public void firearmsAllOnClick(View v) {
-        while (playerFirearms > 0) {
-            generalSell("Firearms");
+        if (playerFirearms > 0) {
+            creditsTotal += playerFirearms * firearmsSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerFirearms += playerFirearms;
+            capacity -= playerFirearms;
+            capacityText.setText(Integer.toString(capacity));
+            sellerFirearmsText.setText(Integer.toString(sellerFirearms));
+            playerFirearms = 0;
+            playerFirearmsText.setText(Integer.toString(playerFirearms));
         }
     }
 
     public void medicineAllOnClick(View v) {
-        while (playerMedicine > 0) {
-            generalSell("Medicine");
+        if (playerMedicine > 0) {
+            creditsTotal += playerMedicine * medicineSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerMedicine += playerMedicine;
+            capacity -= playerMedicine;
+            capacityText.setText(Integer.toString(capacity));
+            sellerMedicineText.setText(Integer.toString(sellerMedicine));
+            playerMedicine = 0;
+            playerMedicineText.setText(Integer.toString(playerMedicine));
         }
     }
 
     public void machinesAllOnClick(View v) {
-        while (playerMachines > 0) {
-            generalSell("Machines");
+        if (playerMachines > 0) {
+            creditsTotal += playerMachines * machinesSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerMachines += playerMachines;
+            capacity -= playerMachines;
+            capacityText.setText(Integer.toString(capacity));
+            sellerMachinesText.setText(Integer.toString(sellerMachines));
+            playerMachines = 0;
+            playerMachinesText.setText(Integer.toString(playerMachines));
         }
     }
 
     public void narcoticsAllOnClick(View v) {
-        while (playerNarcotics > 0) {
-            generalSell("Narcotics");
+        if (playerNarcotics > 0) {
+            creditsTotal += playerNarcotics * narcoticsSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerNarcotics += playerNarcotics;
+            capacity -= playerNarcotics;
+            capacityText.setText(Integer.toString(capacity));
+            sellerNarcoticsText.setText(Integer.toString(sellerNarcotics));
+            playerNarcotics = 0;
+            playerNarcoticsText.setText(Integer.toString(playerNarcotics));
         }
     }
 
     public void robotsAllOnClick(View v) {
-        while (playerRobots > 0) {
-            generalSell("Robots");
+        if (playerRobots > 0) {
+            creditsTotal += playerRobots * robotsSellPrice;
+            creditsText.setText(Integer.toString(creditsTotal));
+            sellerRobots += playerRobots;
+            capacity -= playerRobots;
+            capacityText.setText(Integer.toString(capacity));
+            sellerRobotsText.setText(Integer.toString(sellerRobots));
+            playerRobots = 0;
+            playerRobotsText.setText(Integer.toString(playerRobots));
         }
     }
 
     public void waterMaxOnClick(View v) {
-        while (sellerWater > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Water") && myPlayer.haveSpace()) {
-            generalBuy("Water");
+        if(sellerWater > 0) {
+            while(creditsTotal >= waterBuyPrice && capacity < capacityLimit && sellerWater > 0) {
+                sellerWater--;
+                playerWater++;
+                creditsTotal-= waterBuyPrice;
+                capacity++;
+            }
+            playerWaterText.setText(Integer.toString(playerWater));
+            sellerWaterText.setText(Integer.toString(sellerWater));
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(capacity));
         }
     }
 
     public void fursMaxOnClick(View v) {
-        while (sellerFurs > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Furs") && myPlayer.haveSpace()) {
-            generalBuy("Furs");
+        if(sellerFurs > 0) {
+            while(creditsTotal >= waterBuyPrice && capacity < capacityLimit && sellerFurs > 0) {
+                sellerFurs--;
+                playerFurs++;
+                creditsTotal-= fursBuyPrice;
+                capacity++;
+            }
+            playerFursText.setText(Integer.toString(playerFurs));
+            sellerFursText.setText(Integer.toString(sellerFurs));
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(capacity));
         }
     }
 
     public void foodMaxOnClick(View v) {
-        while (sellerFood > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Food") && myPlayer.haveSpace()) {
-            generalBuy("Food");
+        if(sellerFood > 0) {
+            while(creditsTotal >= waterBuyPrice && capacity < capacityLimit && sellerFood > 0) {
+                sellerFood--;
+                playerFood++;
+                creditsTotal-= foodBuyPrice;
+                capacity++;
+            }
+            playerFoodText.setText(Integer.toString(playerFood));
+            sellerFoodText.setText(Integer.toString(sellerFood));
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(capacity));
         }
     }
 
     public void oreMaxOnClick(View v) {
-        while (sellerOre > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Ore") && myPlayer.haveSpace()) {
-            generalBuy("Ore");
+        if(sellerOre > 0) {
+            while(creditsTotal >= oreBuyPrice && capacity < capacityLimit && sellerOre > 0) {
+                sellerOre--;
+                playerOre++;
+                creditsTotal-= oreBuyPrice;
+                capacity++;
+            }
+            playerOreText.setText(Integer.toString(playerOre));
+            sellerOreText.setText(Integer.toString(sellerOre));
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(capacity));
         }
     }
 
     public void gamesMaxOnClick(View v) {
-        while (sellerGames > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Games") && myPlayer.haveSpace()) {
-            generalBuy("Games");
+        if(sellerGames > 0) {
+            while(creditsTotal >= gamesBuyPrice && capacity < capacityLimit && sellerGames > 0) {
+                sellerGames--;
+                playerGames++;
+                creditsTotal-= gamesBuyPrice;
+                capacity++;
+            }
+            playerGamesText.setText(Integer.toString(playerGames));
+            sellerGamesText.setText(Integer.toString(sellerGames));
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(capacity));
         }
     }
 
     public void firearmsMaxOnClick(View v) {
-        while (sellerFirearms > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Firearms") && myPlayer.haveSpace()) {
-            generalBuy("Firearms");
+        if(sellerFirearms > 0) {
+            while(creditsTotal >= firearmsBuyPrice && capacity < capacityLimit && sellerFirearms > 0) {
+                sellerFirearms--;
+                playerFirearms++;
+                creditsTotal-= firearmsBuyPrice;
+                capacity++;
+            }
+            playerFirearmsText.setText(Integer.toString(playerFirearms));
+            sellerFirearmsText.setText(Integer.toString(sellerFirearms));
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(capacity));
         }
     }
 
     public void medicineMaxOnClick(View v) {
-        while (sellerMedicine > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Medicine") && myPlayer.haveSpace()) {
-            generalBuy("Medicine");
+        if(sellerMedicine > 0) {
+            while(creditsTotal >= medicineBuyPrice && capacity < capacityLimit && sellerMedicine > 0) {
+                sellerMedicine--;
+                playerMedicine++;
+                creditsTotal-= medicineBuyPrice;
+                capacity++;
+            }
+            playerMedicineText.setText(Integer.toString(playerMedicine));
+            sellerMedicineText.setText(Integer.toString(sellerMedicine));
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(capacity));
         }
     }
 
     public void machinesMaxOnClick(View v) {
-        while (sellerMachines > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Machines") && myPlayer.haveSpace()) {
-            generalBuy("Machines");
+        if(sellerMachines > 0) {
+            while(creditsTotal >= machinesBuyPrice && capacity < capacityLimit && sellerMachines > 0) {
+                sellerMachines--;
+                playerMachines++;
+                creditsTotal-= machinesBuyPrice;
+                capacity++;
+            }
+            playerMachinesText.setText(Integer.toString(playerMachines));
+            sellerMachinesText.setText(Integer.toString(sellerMachines));
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(capacity));
         }
     }
 
     public void narcoticsMaxOnClick(View v) {
-        while (sellerNarcotics > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Narcotics") && myPlayer.haveSpace()) {
-            generalBuy("Narcotics");
+        if(sellerNarcotics > 0) {
+            while(creditsTotal >= waterBuyPrice && capacity < capacityLimit && sellerNarcotics > 0) {
+                sellerNarcotics--;
+                playerNarcotics++;
+                creditsTotal-= waterBuyPrice;
+                capacity++;
+            }
+            playerNarcoticsText.setText(Integer.toString(playerNarcotics));
+            sellerNarcoticsText.setText(Integer.toString(sellerNarcotics));
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(capacity));
         }
     }
 
     public void robotsMaxOnClick(View v) {
-        while (sellerRobots > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Robots") && myPlayer.haveSpace()) {
-            generalBuy("Robots");
+        if(sellerRobots > 0) {
+            while(creditsTotal >= robotsBuyPrice && capacity < capacityLimit && sellerRobots > 0) {
+                sellerRobots--;
+                playerRobots++;
+                creditsTotal-= waterBuyPrice;
+                capacity++;
+            }
+            playerRobotsText.setText(Integer.toString(playerRobots));
+            sellerRobotsText.setText(Integer.toString(sellerRobots));
+            creditsText.setText(Integer.toString(creditsTotal));
+            capacityText.setText(Integer.toString(capacity));
         }
     }
 }
