@@ -153,7 +153,7 @@ public class MainGame extends AppCompatActivity {
 
     /**
      * travel button
-     * @param v view
+     * @param v view object
      */
     public void travelButtonOnClick(View v) {
         myUniverse.travel(selectedSS.getName(), myPlayer);
