@@ -93,6 +93,10 @@ public class MainGame extends AppCompatActivity {
         costText.setText(Integer.toString(0));
     }
 
+    public void menuButtonOnClick(View v) {
+        startActivity(new Intent(MainGame.this, MainActivity.class));
+    }
+
     public void marketplaceButtonOnClick(View v) {
         startActivity(new Intent(MainGame.this, marketplace.class));
     }
