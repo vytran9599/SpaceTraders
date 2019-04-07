@@ -39,4 +39,5 @@ dependencies {
     annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
 //if using java 8,ignore above line and add the following line
     implementation "android.arch.lifecycle:common-java8:$lifecycle_version"
+    implementation 'com.jjoe64:graphview:4.2.2'
 }

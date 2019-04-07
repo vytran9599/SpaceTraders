@@ -9,12 +9,13 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.jjoe64.graphview.GraphView;
+
 import java.util.ArrayList;
 
 import edu.gatech.cs2340.spacetraders.R;
 import edu.gatech.cs2340.spacetraders.model.ModelFacade;
 import edu.gatech.cs2340.spacetraders.model.Player;
-import edu.gatech.cs2340.spacetraders.model.Ship;
 import edu.gatech.cs2340.spacetraders.model.SolarSystem;
 import edu.gatech.cs2340.spacetraders.model.Universe;
 
@@ -29,20 +30,25 @@ public class MainGame extends AppCompatActivity {
     private ArrayList<SolarSystem> SSTravelList;
 
     private ProgressBar fuelBar;
+    private GraphView map;
     private int indexSS;
+    private Button travelButton;
     private TextView planetText, resText, techText, govText, polText, pirText, fuelText, costText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_player_info);
+        setContentView(R.layout.activity_main_game);
+
         myUniverse = ModelFacade.getInstance().getGame().getMyUniverse();
         currentSS = ModelFacade.getInstance().getGame().getMyUniverse().getCurrentSolarSystem();
         myPlayer = ModelFacade.getInstance().getGame().getPlayer();
         SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());
 
+        map = findViewById(R.id.map);
+
         indexSS = 0;
-        if (indexSS > -1 && indexSS < SSTravelList.size()) {
+        if (indexSS < SSTravelList.size()) {
             selectedSS = SSTravelList.get(indexSS);
         } else {
             Log.d("Error:", " not enough fuel to travel to any solar systems");
@@ -70,6 +76,8 @@ public class MainGame extends AppCompatActivity {
         fuelBar = findViewById(R.id.fuelBar);
         fuelBar.setScaleY(3);
         fuelBar.setMax(myPlayer.getMyShip().getFuel());
+
+        travelButton = findViewById(R.id.travelButton);
     }
 
     //was public
@@ -89,8 +97,7 @@ public class MainGame extends AppCompatActivity {
         fuelBar.setProgress(myPlayer.getMyShip().getFuel());
     }
 
-    //was public
-    private void updateTextStuck() {
+    public void updateStuck() {
         planetText.setText("none");
         resText.setText("none");
         techText.setText("none");
@@ -98,6 +105,8 @@ public class MainGame extends AppCompatActivity {
         polText.setText("none");
         pirText.setText("none");
         costText.setText(Integer.toString(0));
+
+        travelButton.setEnabled(false);
     }
 
     /**
@@ -159,14 +168,23 @@ public class MainGame extends AppCompatActivity {
         myUniverse.travel(selectedSS.getName(), myPlayer);
         SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());
         currentSS = ModelFacade.getInstance().getGame().getMyUniverse().getCurrentSolarSystem();
+        pirateEncounter();
         updateText();
         if (SSTravelList.size() == 0) {
             Log.d("Error: ","You don't have enough fuel to travel to any other solar systems");
-            updateTextStuck();
+            updateStuck();
         } else {
             indexSS = 0;
             selectedSS = SSTravelList.get(indexSS);
             updateText();
+        }
+    }
+
+    public void pirateEncounter() {
+        int pirateLvl = currentSS.getPirateLevel().getValue();
+        int chance = (int) (Math.random() * 10);
+        if (pirateLvl >= chance) {
+            startActivity(new Intent(MainGame.this, PirateEncounterActivity.class));
         }
     }
 }

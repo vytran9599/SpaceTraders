@@ -54,7 +54,7 @@ public class SolarSystem {
      */
     public Planet getRandomPlanet() {
         int i = 0;
-        int rand = (int) Math.random() * 3;
+        int rand = (int) (Math.random() * 3);
         //Planet ans = null;
         Planet ans = null;
         for (Planet p:planets) {
