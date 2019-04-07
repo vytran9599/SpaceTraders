@@ -19,6 +19,9 @@ import edu.gatech.cs2340.spacetraders.model.Player;
 import edu.gatech.cs2340.spacetraders.model.SolarSystem;
 import edu.gatech.cs2340.spacetraders.model.Universe;
 
+/**
+ * Main Game class
+ */
 public class MainGame extends AppCompatActivity {
 
     private Universe myUniverse;
@@ -53,12 +56,14 @@ public class MainGame extends AppCompatActivity {
         for (SolarSystem s:SSTravelList) {
             System.out.print(s.getName() + " ");
         }
-        System.out.println("\nselected ss: " + selectedSS.getName() + " should be: " + SSTravelList.get(0).getName());
+        System.out.println("\nselected ss: " + selectedSS.getName() + " should be: "
+                + SSTravelList.get(0).getName());
         set();
         updateText();
     }
 
-    public void set() {
+    //was public
+    private void set() {
         planetText = findViewById(R.id.planetText);
         resText = findViewById(R.id.resText);
         techText = findViewById(R.id.techText);
@@ -75,7 +80,8 @@ public class MainGame extends AppCompatActivity {
         travelButton = findViewById(R.id.travelButton);
     }
 
-    public void updateText() {
+    //was public
+    private void updateText() {
         planetText.setText(selectedSS.getName());
         resText.setText(selectedSS.getResource().toString());
         techText.setText(selectedSS.getTechLevel().toString());
@@ -103,18 +109,31 @@ public class MainGame extends AppCompatActivity {
         travelButton.setEnabled(false);
     }
 
+    /**
+     * marketplace button
+     * @param v view
+     */
     public void marketplaceButtonOnClick(View v) {
         startActivity(new Intent(MainGame.this, marketplace.class));
     }
 
+    /**
+     * Current information button
+     * @param v view
+     */
     public void currentSSInfoButtonOnClick(View v) {
         startActivity(new Intent(MainGame.this, CurrentSS.class));
     }
 
 
+    /**
+     * Left button on click
+     * @param v view
+     */
     public void SSLeftButtonOnClick(View v) {
         if (SSTravelList.size() == 0) {
-            Log.d("Sad Life: ","Not enough fuel to travel to any other solar system, you're stuck on " + selectedSS.getName());
+            Log.d("Sad Life: ","Not enough fuel to travel to any other solar system, " +
+                    "you're stuck on " + selectedSS.getName());
         } else {
             if (indexSS == 0) {
                 indexSS = SSTravelList.size();
@@ -124,9 +143,14 @@ public class MainGame extends AppCompatActivity {
         }
     }
 
+    /**
+     * SS right button click
+     * @param v view
+     */
     public void SSRightButtonOnClick(View v) {
         if (SSTravelList.size() == 0) {
-            Log.d("Sad Life: ","Not enough fuel to travel to any other solar system, you're stuck on " + selectedSS.getName());
+            Log.d("Sad Life: ","Not enough fuel to travel to any other solar system, " +
+                    "you're stuck on " + selectedSS.getName());
         } else {
             selectedSS = SSTravelList.get(++indexSS % SSTravelList.size());
             if (indexSS == SSTravelList.size()) {
@@ -136,6 +160,10 @@ public class MainGame extends AppCompatActivity {
         }
     }
 
+    /**
+     * travel button
+     * @param v view object
+     */
     public void travelButtonOnClick(View v) {
         myUniverse.travel(selectedSS.getName(), myPlayer);
         SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());

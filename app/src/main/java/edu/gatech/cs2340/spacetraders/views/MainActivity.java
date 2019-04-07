@@ -16,17 +16,22 @@ import android.widget.Button;
 
 import edu.gatech.cs2340.spacetraders.R;
 
+/**
+ * Main activity class
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final Animation animation = new AlphaAnimation(1 , 0); // Change alpha from fully visible to invisible
+        //Change alpha from fully visible to invisible
+        final Animation animation = new AlphaAnimation(1 , 0);
         animation.setDuration(1500); // duration - half a second
         animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
         animation.setRepeatCount(Animation.INFINITE); // Repeat animation infinitely
-        animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
+        // Reverse animation at the end so the button will fade back in
+        animation.setRepeatMode(Animation.REVERSE);
         Button newPlayer = findViewById(R.id.newPlayer);
         newPlayer.startAnimation(animation);
         newPlayer.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }

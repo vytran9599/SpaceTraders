@@ -16,6 +16,9 @@ import edu.gatech.cs2340.spacetraders.model.Universe;
 import edu.gatech.cs2340.spacetraders.viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.spacetraders.viewmodels.MarketViewModel;
 
+/**
+ * marketplace class
+ */
 public class marketplace extends AppCompatActivity {
 
     private int capacity, capacityLimit;
@@ -30,19 +33,27 @@ public class marketplace extends AppCompatActivity {
             sellerFirearms, sellerMedicine, sellerMachines, sellerNarcotics,
             sellerRobots;
     private int waterSellPrice, fursSellPrice, foodSellPrice, oreSellPrice, gamesSellPrice,
-            firearmsSellPrice, medicineSellPrice, machinesSellPrice, narcoticsSellPrice, robotsSellPrice;
+            firearmsSellPrice, medicineSellPrice, machinesSellPrice, narcoticsSellPrice,
+            robotsSellPrice;
     private int waterBuyPrice, fursBuyPrice, foodBuyPrice, oreBuyPrice, gamesBuyPrice,
             firearmsBuyPrice, medicineBuyPrice, machinesBuyPrice, narcoticsBuyPrice, robotsBuyPrice;
-    private TextView playerWaterText, playerFursText, playerFoodText, playerOreText, playerGamesText,
+    private TextView playerWaterText, playerFursText, playerFoodText, playerOreText,
+            playerGamesText,
             playerFirearmsText, playerMedicineText, playerMachinesText, playerNarcoticsText,
             playerRobotsText;
-    private TextView sellerWaterText, sellerFursText, sellerFoodText, sellerOreText, sellerGamesText,
+    private TextView sellerWaterText, sellerFursText, sellerFoodText, sellerOreText,
+            sellerGamesText,
             sellerFirearmsText, sellerMedicineText, sellerMachinesText, sellerNarcoticsText,
             sellerRobotsText;
-    private TextView waterSellPriceText, fursSellPriceText, foodSellPriceText, oreSellPriceText, gamesSellPriceText,
-            firearmsSellPriceText, medicineSellPriceText, machinesSellPriceText, narcoticsSellPriceText, robotsSellPriceText;
-    private TextView waterBuyPriceText, fursBuyPriceText, foodBuyPriceText, oreBuyPriceText, gamesBuyPriceText,
-            firearmsBuyPriceText, medicineBuyPriceText, machinesBuyPriceText, narcoticsBuyPriceText, robotsBuyPriceText;
+    private TextView waterSellPriceText, fursSellPriceText, foodSellPriceText, oreSellPriceText,
+            gamesSellPriceText,
+            firearmsSellPriceText, medicineSellPriceText, machinesSellPriceText,
+            narcoticsSellPriceText,
+            robotsSellPriceText;
+    private TextView waterBuyPriceText, fursBuyPriceText, foodBuyPriceText, oreBuyPriceText,
+            gamesBuyPriceText,
+            firearmsBuyPriceText, medicineBuyPriceText, machinesBuyPriceText, narcoticsBuyPriceText,
+            robotsBuyPriceText;
     private TextView creditsText;
     private int creditsTotal;
     @Override
@@ -50,7 +61,8 @@ public class marketplace extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marketplace);
         myPlayer = ModelFacade.getInstance().getGame().getPlayer();
-        myMarket = ModelFacade.getInstance().getGame().getMyUniverse().getCurrentPlanet().getMarket();
+        myMarket = ModelFacade.getInstance().getGame().getMyUniverse().
+                getCurrentPlanet().getMarket();
 
         setNames();
         updatePlayerValues();
@@ -58,7 +70,8 @@ public class marketplace extends AppCompatActivity {
         updatePricesValue();
 
     }
-    public void setNames() {
+    //was public
+    private void setNames() {
         capacityText = findViewById(R.id.capacityText);
         capacityLimitText = findViewById(R.id.capacityLimitText);
         creditsText = findViewById(R.id.creditsText);
@@ -106,26 +119,38 @@ public class marketplace extends AppCompatActivity {
         robotsSellPriceText = findViewById(R.id.robotsSellPrice);
     }
 
-    public void generalBuy(String goodName) {
+    //was public
+    private void generalBuy(String goodName) {
         myMarket.buyInPlanet(myPlayer, goodName);
         updatePlayerValues();
         updateSellerValues();
     }
-    public void generalSell(String goodName) {
+
+    //was public
+    private void generalSell(String goodName) {
         myMarket.sellInPlanet(myPlayer, goodName);
         updatePlayerValues();
         updateSellerValues();
     }
 
+    /**
+     * water buying
+     * @param v view
+     */
     public void waterBuyOnClick(View v) {
         generalBuy("Water");
     }
 
+    /**
+     * water selling
+     * @param v view
+     */
     public void waterSellOnClick(View v) {
         generalSell("Water");
     }
 
-    public void updatePlayerValues() {
+    //was public
+    private void updatePlayerValues() {
 
         creditsTotal = myPlayer.getCredit();
         creditsText.setText(Integer.toString(creditsTotal));
@@ -158,7 +183,8 @@ public class marketplace extends AppCompatActivity {
 
     }
 
-    public void updateSellerValues() {
+    //was public
+    private void updateSellerValues() {
         int[] marketCounts = myMarket.getMarketGoodCounts();
         sellerWater = marketCounts[0];
         sellerFurs = marketCounts[1];
@@ -183,7 +209,8 @@ public class marketplace extends AppCompatActivity {
         sellerRobotsText.setText(Integer.toString(sellerRobots));
     }
 
-    public void updatePricesValue() {
+    //was public
+    private void updatePricesValue() {
         TradeGood[] goods = myMarket.getGoods();
         int[] prices = new int[10];
         for (int i = 0; i < goods.length; i++) {
@@ -235,194 +262,356 @@ public class marketplace extends AppCompatActivity {
         robotsSellPriceText.setText(Integer.toString(robotsSellPrice));
     }
 
+    /**
+     * fur buying
+     * @param v view
+     */
     public void fursBuyOnClick(View v) {
         generalBuy("Furs");
     }
 
+    /**
+     * fur sell
+     * @param v view
+     */
     public void fursSellOnClick(View v) {
         generalSell("Furs");
     }
 
+    /**
+     * food buy
+     * @param v view
+     */
     public void foodBuyOnClick(View v) {
         generalBuy("Food");
     }
 
+    /**
+     * food sell
+     * @param v view
+     */
     public void foodSellOnClick(View v) {
         generalSell("Food");
     }
 
+    /**
+     * ore buy
+     * @param v view
+     */
     public void oreBuyOnClick(View v) {
         generalBuy("Ore");
     }
 
+    /**
+     * ore sell
+     * @param v view
+     */
     public void oreSellOnClick(View v) {
         generalSell("Ore");
     }
 
+    /**
+     * game buy
+     * @param v view
+     */
     public void gamesBuyOnClick(View v) {
         generalBuy("Games");
     }
 
+    /**
+     * game sell
+     * @param v view
+     */
     public void gamesSellOnClick(View v) {
         generalSell("Games");
     }
 
+    /**
+     * fire arm buy
+     * @param v view
+     */
     public void firearmsBuyOnClick(View v) {
         generalBuy("Firearms");
     }
 
+    /**
+     * firearm sell
+     * @param v view
+     */
     public void firearmsSellOnClick(View v) {
         generalSell("Firearms");
     }
 
+    /**
+     * medicine buy
+     * @param v view
+     */
     public void medicineBuyOnClick(View v) {
         generalBuy("Medicine");
     }
 
+    /**
+     * medicine sell
+     * @param v view
+     */
     public void medicineSellOnClick(View v) {
         generalSell("Medicine");
     }
 
+    /**
+     * machine buy
+     * @param v view
+     */
     public void machinesBuyOnClick(View v) {
         generalBuy("Machines");
     }
 
+    /**
+     * machine sell
+     * @param v view
+     */
     public void machinesSellOnClick(View v) {
         generalSell("Machines");
     }
 
+    /**
+     * narcotics buy
+     * @param v view
+     */
     public void narcoticsBuyOnClick(View v) {
         generalBuy("Narcotics");
     }
 
+    /**
+     * narcotics sell
+     * @param v view
+     */
     public void narcoticsSellOnClick(View v) {
         generalSell("Narcotics");
     }
 
+    /**
+     * robots buy
+     * @param v view
+     */
     public void robotsBuyOnClick(View v) {
         generalBuy("Robots");
     }
 
+    /**
+     * robots sell
+     * @param v view
+     */
     public void robotsSellOnClick(View v) {
         generalSell("Robots");
     }
 
+    /**
+     * water view all
+     * @param v view
+     */
     public void waterAllOnClick(View v) {
         while (playerWater > 0) {
             generalSell("Water");
         }
     }
 
+    /**
+     * fur view all
+     * @param v view
+     */
     public void fursAllOnClick(View v) {
         while (playerFurs > 0) {
             generalSell("Furs");
         }
     }
 
+    /**
+     * food view all
+     * @param v view
+     */
     public void foodAllOnClick(View v) {
         while (playerFood > 0) {
             generalSell("Food");
         }
     }
 
+    /**
+     * ore view all
+     * @param v view
+     */
     public void oreAllOnClick(View v) {
         while (playerOre > 0) {
             generalSell("Ore");
         }
     }
 
+    /**
+     * game view all
+     * @param v view
+     */
     public void gamesAllOnClick(View v) {
         while (playerGames > 0) {
             generalSell("Games");
         }
     }
 
+    /**
+     * firearms view all
+     * @param v view
+     */
     public void firearmsAllOnClick(View v) {
         while (playerFirearms > 0) {
             generalSell("Firearms");
         }
     }
 
+    /**
+     * medicine view all
+     * @param v view
+     */
     public void medicineAllOnClick(View v) {
         while (playerMedicine > 0) {
             generalSell("Medicine");
         }
     }
 
+    /**
+     * machine view all
+     * @param v view
+     */
     public void machinesAllOnClick(View v) {
         while (playerMachines > 0) {
             generalSell("Machines");
         }
     }
 
+    /**
+     * narcotic view all
+     * @param v view
+     */
     public void narcoticsAllOnClick(View v) {
         while (playerNarcotics > 0) {
             generalSell("Narcotics");
         }
     }
 
+    /**
+     * robots view all
+     * @param v view
+     */
     public void robotsAllOnClick(View v) {
         while (playerRobots > 0) {
             generalSell("Robots");
         }
     }
 
+    /**
+     * max water
+     * @param v view
+     */
     public void waterMaxOnClick(View v) {
-        while (sellerWater > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Water") && myPlayer.haveSpace()) {
+        while (sellerWater > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Water")
+                && myPlayer.haveSpace()) {
             generalBuy("Water");
         }
     }
 
+    /**
+     * max fur
+     * @param v view
+     */
     public void fursMaxOnClick(View v) {
-        while (sellerFurs > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Furs") && myPlayer.haveSpace()) {
+        while (sellerFurs > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Furs")
+                && myPlayer.haveSpace()) {
             generalBuy("Furs");
         }
     }
 
+    /**
+     * max food
+     * @param v view
+     */
     public void foodMaxOnClick(View v) {
-        while (sellerFood > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Food") && myPlayer.haveSpace()) {
+        while (sellerFood > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Food")
+                && myPlayer.haveSpace()) {
             generalBuy("Food");
         }
     }
 
+    /**
+     * max ore
+     * @param v view
+     */
     public void oreMaxOnClick(View v) {
-        while (sellerOre > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Ore") && myPlayer.haveSpace()) {
+        while (sellerOre > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Ore")
+                && myPlayer.haveSpace()) {
             generalBuy("Ore");
         }
     }
 
+    /**
+     * max games
+     * @param v view
+     */
     public void gamesMaxOnClick(View v) {
-        while (sellerGames > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Games") && myPlayer.haveSpace()) {
+        while (sellerGames > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Games")
+                && myPlayer.haveSpace()) {
             generalBuy("Games");
         }
     }
 
+    /**
+     * max firearms
+     * @param v view
+     */
     public void firearmsMaxOnClick(View v) {
-        while (sellerFirearms > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Firearms") && myPlayer.haveSpace()) {
+        while (sellerFirearms > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Firearms")
+                && myPlayer.haveSpace()) {
             generalBuy("Firearms");
         }
     }
 
+    /**
+     * max medicine
+     * @param v view
+     */
     public void medicineMaxOnClick(View v) {
-        while (sellerMedicine > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Medicine") && myPlayer.haveSpace()) {
+        while (sellerMedicine > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Medicine")
+                && myPlayer.haveSpace()) {
             generalBuy("Medicine");
         }
     }
 
+    /**
+     * max machines
+     * @param v view
+     */
     public void machinesMaxOnClick(View v) {
-        while (sellerMachines > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Machines") && myPlayer.haveSpace()) {
+        while (sellerMachines > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Machines")
+                && myPlayer.haveSpace()) {
             generalBuy("Machines");
         }
     }
 
+    /**
+     * max narcotics
+     * @param v view
+     */
     public void narcoticsMaxOnClick(View v) {
-        while (sellerNarcotics > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Narcotics") && myPlayer.haveSpace()) {
+        while (sellerNarcotics > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Narcotics")
+                && myPlayer.haveSpace()) {
             generalBuy("Narcotics");
         }
     }
 
+    /**
+     * max robots
+     * @param v view
+     */
     public void robotsMaxOnClick(View v) {
-        while (sellerRobots > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Robots") && myPlayer.haveSpace()) {
+        while (sellerRobots > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Robots")
+                && myPlayer.haveSpace()) {
             generalBuy("Robots");
         }
     }

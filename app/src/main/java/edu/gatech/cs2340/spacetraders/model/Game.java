@@ -2,17 +2,30 @@ package edu.gatech.cs2340.spacetraders.model;
 
 import android.util.Log;
 
+/**
+ * Game class
+ */
 public class Game {
     private DifficultyStanding ds;
-    private Player thisPlayer;
-    private Universe myUniverse;
-    public Game() {
-        this(DifficultyStanding.EASY, new Player("Bob",DifficultyStanding.EASY,4, 4, 4, 4), new Universe());
-    }
+    //added final
+    private final Player thisPlayer;
+    //added final
+    private final Universe myUniverse;
+
     /**
-     * The constructor of game
-     * @param ds the difficulty standing of this game
-     * @param player the player of this game
+     * Game constructor
+     */
+    public Game() {
+        this(DifficultyStanding.EASY, new Player("Bob",DifficultyStanding.EASY,
+                4, 4, 4, 4), new Universe());
+    }
+
+    /**
+     /* *
+     * Constructor
+     * @param ds difficulty standing
+     * @param player player
+     * @param u universe
      */
     public Game(DifficultyStanding ds, Player player, Universe u) {
         Log.d("game created","yuh yuh");
@@ -37,6 +50,11 @@ public class Game {
     public DifficultyStanding getDS() {
         return ds;
     }
+
+    /**
+     * Get Universe
+     * @return Universe
+     */
     public Universe getMyUniverse() {
         return myUniverse;
     }

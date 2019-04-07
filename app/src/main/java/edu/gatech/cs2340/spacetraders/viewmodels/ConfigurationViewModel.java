@@ -10,27 +10,32 @@ import edu.gatech.cs2340.spacetraders.model.ModelFacade;
 import edu.gatech.cs2340.spacetraders.model.Player;
 import edu.gatech.cs2340.spacetraders.model.Universe;
 
-/*
-* This class handles the user input events and sets up the data for the model to be initialized
-*
-* */
+/**
+ * This class handles the user input events and
+ * sets up the data for the model to be initialized
+ */
 public class ConfigurationViewModel extends AndroidViewModel {
     private Game myGame;
     //private Player myPlayer;
+
+    /**
+     * Constructor
+     * @param application application
+     */
     public ConfigurationViewModel(Application application) {
         super(application);
     }
-    public void createGame(DifficultyStanding ds, Player p, Universe u) {
-        Log.d("u know ur in here","yuh yuh");
-        myGame = new Game(ds, p, u);
-    }
-    public Player getPlayer() {
-        return myGame.getPlayer();
-    }
-    public Universe getUniverse() {
-        return myGame.getMyUniverse();
-    }
-    public Game getGame() {
-        return myGame;
-    }
+//    public void createGame(DifficultyStanding ds, Player p, Universe u) {
+//        Log.d("u know ur in here","yuh yuh");
+//        myGame = new Game(ds, p, u);
+//    }
+//    public Player getPlayer() {
+//        return myGame.getPlayer();
+//    }
+//    public Universe getUniverse() {
+//        return myGame.getMyUniverse();
+//    }
+//    public Game getGame() {
+//        return myGame;
+//    }
 }

@@ -1,5 +1,8 @@
 package edu.gatech.cs2340.spacetraders.model;
 
+/**
+ * resources class
+ */
 public enum Resources {
     NOSPECRESOURCES (0),
     MINERALRICH (1),
@@ -19,9 +22,20 @@ public enum Resources {
     Resources(final int newValue) {
         value = newValue;
     }
+
+    /**
+     * getters for value
+     * @return integer
+     */
     public int getValue() {
         return value;
     }
+
+    /**
+     * getters for resources
+     * @param a integer
+     * @return resources
+     */
     public static Resources getResourcesByNumber(int a) {
         for (Resources re : values()) {
             if (re.getValue() == a) {

@@ -10,6 +10,9 @@ import edu.gatech.cs2340.spacetraders.R;
 import edu.gatech.cs2340.spacetraders.model.ModelFacade;
 import edu.gatech.cs2340.spacetraders.model.SolarSystem;
 
+/**
+ * CurrentSS class
+ */
 public class CurrentSS extends AppCompatActivity {
 
     private SolarSystem currentSS;
@@ -25,7 +28,8 @@ public class CurrentSS extends AppCompatActivity {
         updateText();
     }
 
-    public void setText() {
+    //was public
+    private void setText() {
         planetText = findViewById(R.id.planetText);
         resText = findViewById(R.id.resText);
         techText = findViewById(R.id.techText);
@@ -34,7 +38,8 @@ public class CurrentSS extends AppCompatActivity {
         pirText = findViewById(R.id.pirText);
     }
 
-    public void updateText() {
+    //was public
+    private void updateText() {
         planetText.setText(currentSS.getName());
         resText.setText(currentSS.getResource().toString());
         techText.setText(currentSS.getTechLevel().toString());
