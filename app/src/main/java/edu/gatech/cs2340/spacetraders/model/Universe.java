@@ -141,8 +141,8 @@ public class Universe {
             TechLevel level = TechLevel.getLevelByNumber((int) (Math.random() * 7));
             Resources re = Resources.getResourcesByNumber((int) (Math.random() * 15));
             GovType gov = GovType.getTypeByNumber((int) (Math.random() * 4));
-            PirateLevel pirate = PirateLevel.getLevelByNumber((int) (Math.random() * 3));
-            PoliceLevel police = PoliceLevel.getLevelByNumber((int) (Math.random() * 3));
+            PirateLevel pirate = PirateLevel.getLevelByNumber((int) (Math.random() * 3.99));
+            PoliceLevel police = PoliceLevel.getLevelByNumber((int) (Math.random() * 3.99));
             Condition cond = Condition.getConditionByNumber((int) (Math.random() * 20));
             HashSet<Planet> planets = new HashSet<>();
             while (planets.size() < 3) {
