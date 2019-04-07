@@ -12,6 +12,7 @@
         <activity android:name=".views.marketplace"></activity>
         <activity android:name=".views.MainGame" />
         <activity android:name=".views.addNewPerson" />
+        <activity android:name=".views.CurrentSS" />
         <activity
             android:name=".views.MainActivity"
             android:label="@string/app_name"
