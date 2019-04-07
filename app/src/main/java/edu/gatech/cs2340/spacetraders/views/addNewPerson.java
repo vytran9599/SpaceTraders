@@ -22,7 +22,9 @@ import edu.gatech.cs2340.spacetraders.model.Player;
 import edu.gatech.cs2340.spacetraders.model.Universe;
 import edu.gatech.cs2340.spacetraders.viewmodels.ConfigurationViewModel;
 
-
+/**
+ * Class that adds new person
+ */
 public class addNewPerson extends AppCompatActivity {
 
 
@@ -51,7 +53,8 @@ public class addNewPerson extends AppCompatActivity {
         okButton = findViewById(R.id.OkButton);
         difficultySpinner = findViewById(R.id.difficultyLevel);
 
-        ArrayAdapter<DifficultyStanding> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, DifficultyStanding.values());
+        ArrayAdapter<DifficultyStanding> adapter = new ArrayAdapter<>
+                (this, android.R.layout.simple_spinner_item, DifficultyStanding.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difficultySpinner.setAdapter(adapter);
         configVM = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
@@ -60,22 +63,26 @@ public class addNewPerson extends AppCompatActivity {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DifficultyStanding difficulty = (DifficultyStanding) difficultySpinner.getSelectedItem();
+                DifficultyStanding difficulty =
+                        (DifficultyStanding) difficultySpinner.getSelectedItem();
                 String playerName = playerNameTextbox.getText().toString();
-                Player myPlayer = new Player(playerName, difficulty, pilotPts, engrPts, tradePts, fightPts);
+                Player myPlayer =
+                        new Player(playerName, difficulty, pilotPts, engrPts, tradePts, fightPts);
                 Universe myUniverse = new Universe();
                 //configVM.createGame(difficulty, myPlayer, myUniverse);
                 myGame = new Game(difficulty, myPlayer, myUniverse);
                 ModelFacade.getInstance().setGame(myGame);
                 Log.d("My Game's Information", ModelFacade.getInstance().getGame().toString());
-                Log.d("My Universe Information", ModelFacade.getInstance().getGame().getMyUniverse().toString());
+                Log.d("My Universe Information",
+                        ModelFacade.getInstance().getGame().getMyUniverse().toString());
                 startActivity(new Intent(addNewPerson.this, MainGame.class));
 
             }
         });
     }
 
-    private TextWatcher nameFieldWatcher = new TextWatcher() {
+    //added final
+    private final TextWatcher nameFieldWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         }
@@ -93,6 +100,10 @@ public class addNewPerson extends AppCompatActivity {
     };
 
 
+    /**
+     * Add value when clicked
+     * @param v view
+     */
     public void pilotPlusButtonOnClick(View v) {
         if (pilotPts < 10 && pointsGiven < ABILITY_POINTS) {
             pilotText.setText(Integer.toString(++pilotPts));
@@ -101,6 +112,10 @@ public class addNewPerson extends AppCompatActivity {
         }
     }
 
+    /**
+     * Delete value when clicked
+     * @param v view
+     */
     public void pilotMinusButtonOnClick(View v) {
         if (pilotPts > 0) {
             pilotText.setText(Integer.toString(--pilotPts));
@@ -111,6 +126,10 @@ public class addNewPerson extends AppCompatActivity {
         }
     }
 
+    /**
+     * Add value when clicked
+     * @param v view
+     */
     public void fighterPlusButtonOnClick(View v) {
         if (fightPts < 10 && pointsGiven < ABILITY_POINTS) {
             fighterText.setText(Integer.toString(++fightPts));
@@ -119,6 +138,10 @@ public class addNewPerson extends AppCompatActivity {
         }
     }
 
+    /**
+     * Delete value when clicked
+     * @param v view
+     */
     public void fighterMinusButtonOnClick(View v) {
         if (fightPts > 0) {
             fighterText.setText(Integer.toString(--fightPts));
@@ -129,6 +152,10 @@ public class addNewPerson extends AppCompatActivity {
         }
     }
 
+    /**
+     * Add value when clicked
+     * @param v view
+     */
     public void traderPlusButtonOnClick(View v) {
         if (tradePts < 10 && pointsGiven < ABILITY_POINTS) {
             traderText.setText(Integer.toString(++tradePts));
@@ -137,6 +164,10 @@ public class addNewPerson extends AppCompatActivity {
         }
     }
 
+    /**
+     * Delete value when clicked
+     * @param v view
+     */
     public void traderMinusButtonOnClick(View v) {
         if (tradePts > 0) {
             traderText.setText(Integer.toString(--tradePts));
@@ -147,6 +178,10 @@ public class addNewPerson extends AppCompatActivity {
         }
     }
 
+    /**
+     * Add value when clicked
+     * @param v view
+     */
     public void engineerPlusButtonOnClick(View v) {
         if (engrPts < 10 && pointsGiven < ABILITY_POINTS) {
             engineerText.setText(Integer.toString(++engrPts));
@@ -155,6 +190,10 @@ public class addNewPerson extends AppCompatActivity {
         }
     }
 
+    /**
+     * Delete value when clicked
+     * @param v view
+     */
     public void engineerMinusButtonOnClick(View v) {
         if (engrPts > 0) {
             engineerText.setText(Integer.toString(--engrPts));
@@ -165,14 +204,26 @@ public class addNewPerson extends AppCompatActivity {
         }
     }
 
-    public void minusAbilityPointsText(TextView totalPointsText ) {
+    //was public
+
+    /**
+     * Delete value when clicked
+     * @param totalPointsText points
+     */
+    private void minusAbilityPointsText(TextView totalPointsText ) {
         totalPointsText.setText(Integer.toString(++totalPoints));
         okButton.setEnabled(false);
     }
 
-    public void plusAbilityPointsText(TextView totalPointsText ) {
-        totalPointsText.setText(Integer.toString(--totalPoints));
-        okButton.setEnabled(totalPoints == 0 && isNameGiven);
-    }
+    //was public
+
+    /**
+     * Total point
+     * @param totalPointsText points
+     */
+    private void plusAbilityPointsText(TextView totalPointsText ) {
+            totalPointsText.setText(Integer.toString(--totalPoints));
+            okButton.setEnabled(totalPoints == 0 && isNameGiven);
+        }
 
 }

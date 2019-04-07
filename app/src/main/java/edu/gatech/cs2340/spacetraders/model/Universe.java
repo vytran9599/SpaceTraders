@@ -5,9 +5,13 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+/**
+ * Universe class
+ */
 public class Universe {
-    private HashSet<SolarSystem> solarSystems;
-    private ArrayList<String> solarNames;
+    //added final
+    private final HashSet<SolarSystem> solarSystems;
+    private final ArrayList<String> solarNames;
     private SolarSystem currentSolarSystem;
     private Planet currentPlanet;
     private final String[] names = {
@@ -132,11 +136,15 @@ public class Universe {
             "Zalkon",
             "Zuul"};
 
+    /**
+     * Universe constructor
+     */
     public Universe() {
         solarSystems = new HashSet<>();
         solarNames = new ArrayList<>();
         while (solarSystems.size() < 10) {
-            Coordinate co = new Coordinate((int) (Math.random() * 150 + 1), (int) (Math.random() * 100 + 1));
+            Coordinate co = new Coordinate((int) (Math.random() * 150 + 1),
+                    (int) (Math.random() * 100 + 1));
             String name = names[(int) (Math.random() * names.length)];
             TechLevel level = TechLevel.getLevelByNumber((int) (Math.random() * 7));
             Resources re = Resources.getResourcesByNumber((int) (Math.random() * 15));
@@ -155,7 +163,8 @@ public class Universe {
                 //test code
                 //Log.d("market: " , mar.toString());
             }
-            SolarSystem ss = new SolarSystem(co, name, level, re, gov, pirate, police, cond, planets);
+            SolarSystem ss = new SolarSystem(co, name, level, re, gov, pirate, police,
+                    cond, planets);
             if (currentSolarSystem == null) {
                 currentSolarSystem = ss;
             }
@@ -165,11 +174,17 @@ public class Universe {
         }
     }
 
+    /**
+     * get solar system travel
+     * @param fuel integer
+     * @return arraylist
+     */
     public ArrayList<SolarSystem> getSolarSystemsToTravel(int fuel) {
         ArrayList<SolarSystem> travelables = new ArrayList<>();
         for (SolarSystem s:solarSystems) {
             int a = s.getCoordinate().getX() + s.getCoordinate().getY();
-            int b = currentSolarSystem.getCoordinate().getX() + currentSolarSystem.getCoordinate().getY();
+            int b = currentSolarSystem.getCoordinate().getX() +
+                    currentSolarSystem.getCoordinate().getY();
             int distance = Math.abs(a - b);
             if (fuel >= distance && !s.getName().equals(currentSolarSystem.getName())) {
                 travelables.add(s);
@@ -178,31 +193,51 @@ public class Universe {
         return travelables;
     }
 
+    /**
+     * Travel
+     * @param solarSysName solar system name
+     * @param player player
+     */
     public void travel(String solarSysName, Player player) {
         SolarSystem newS = getSolarSystemByName(solarSysName);
         int a = newS.getCoordinate().getX() + newS.getCoordinate().getY();
-        int b = currentSolarSystem.getCoordinate().getX() + currentSolarSystem.getCoordinate().getY();
+        int b = currentSolarSystem.getCoordinate().getX() +
+                currentSolarSystem.getCoordinate().getY();
         int distance = Math.abs(a - b);
 
         System.out.println("fuel before travel: " + player.getMyShip().getFuel());
 
         player.getMyShip().setFuel(player.getMyShip().getFuel() - distance);
 
-        System.out.println("new solar: " + newS.getName() + " distance: " + distance + " new fuel:" + player.getMyShip().getFuel());
+        System.out.println("new solar: " + newS.getName() + " distance: " + distance +
+                " new fuel:" + player.getMyShip().getFuel());
 
         currentSolarSystem = getSolarSystemByName(solarSysName);
         currentPlanet = currentSolarSystem.getRandomPlanet();
     }
 
-    public SolarSystem getSolarSystemByName(String name) {
+    //was public
+
+    /**
+     * getters for solar system
+     * @param name string
+     * @return solar system
+     */
+    private SolarSystem getSolarSystemByName(String name) {
         for (SolarSystem s:solarSystems) {
             if (s.getName().equals(name)) {
                 return s;
             }
         }
-        throw new java.util.NoSuchElementException("No solar system with name " + name + "exist in this universe.");
+        throw new java.util.NoSuchElementException("No solar system with name " +
+                name + "exist in this universe.");
     }
 
+    /**
+     * get planet
+     * @param name string
+     * @return planet
+     */
     public Planet getPlanetByName(String name) {
         for (SolarSystem s:solarSystems) {
             for (Planet p: s.getPlanets()) {
@@ -211,22 +246,46 @@ public class Universe {
                 }
             }
         }
-        throw new java.util.NoSuchElementException("No planet with name " + name + " exist in this universe");
+        throw new java.util.NoSuchElementException("No planet with name " + name
+                + " exist in this universe");
     }
 
+    /**
+     * get solar system
+     * @return hashset
+     */
     public HashSet<SolarSystem> getSolarSystems() {
         return solarSystems;
     }
 
+    /**
+     * get current solar system
+     * @return solar system
+     */
     public SolarSystem getCurrentSolarSystem() {
         return currentSolarSystem;
     }
+
+    /**
+     * get current planet
+     * @return planet
+     */
     public Planet getCurrentPlanet() {
         return currentPlanet;
     }
+
+    /**
+     * set current solar system
+     * @param s solar system
+     */
     public void setCurrentSolarSystem(SolarSystem s) {
         currentSolarSystem = s;
     }
+
+    /**
+     * set current planet
+     * @param p planet
+     */
     public void setCurrentPlanet(Planet p) {
         currentPlanet = p;
     }

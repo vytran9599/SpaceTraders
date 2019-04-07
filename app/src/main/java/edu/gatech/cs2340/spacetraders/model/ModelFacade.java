@@ -16,6 +16,10 @@ public class ModelFacade {
      */
     private static final ModelFacade ourInstance = new ModelFacade();
 
+    /**
+     * getters for model facade
+     * @return model facade
+     */
     public static ModelFacade getInstance() {
         return ourInstance;
     }
@@ -26,9 +30,18 @@ public class ModelFacade {
         myGame = new Game();
     }
 
+    /**
+     * setter game
+     * @param a game
+     */
     public void setGame(Game a) {
         myGame = a;
     }
+
+    /**
+     * getters for game
+     * @return game
+     */
     public Game getGame() {
         return myGame;
     }

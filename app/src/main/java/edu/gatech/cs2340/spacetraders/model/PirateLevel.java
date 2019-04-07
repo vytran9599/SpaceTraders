@@ -1,5 +1,8 @@
 package edu.gatech.cs2340.spacetraders.model;
 
+/**
+ * Pirate level enum
+ */
 public enum PirateLevel {
     FEW (0),
     SEVERAL(1),
@@ -9,7 +12,14 @@ public enum PirateLevel {
     private final int value;
 
     PirateLevel(int v) {this.value = v;}
-    public int getValue() {return value;}
+    //was public
+    private int getValue() {return value;}
+
+    /**
+     * getters for pirate level
+     * @param a integer
+     * @return pirate level
+     */
     public static PirateLevel getLevelByNumber(int a) {
         for (PirateLevel level: values()) {
             if (level.getValue() == a) {

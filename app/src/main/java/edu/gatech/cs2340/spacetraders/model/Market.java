@@ -7,25 +7,46 @@ import java.util.HashMap;
 
 import edu.gatech.cs2340.spacetraders.R;
 
+/**
+ * Market class
+ */
 public class Market {
     //private HashMap<TradeGood, Integer> marketGoods = new HashMap<>();
-    private int[] marketGoodCounts;
-    private Condition thisCondition;
-    private Resources thisResource;
-    private TechLevel techLevel;
-    private  TradeGood[] goods = {
-            new TradeGood("Water", 0, 0, 2, 3, 4, Condition.DROUGHT, Resources.LOTSOFWATER, Resources.DESERT, 30, 50, 30 ),
-            new TradeGood("Furs", 0, 0, 0, 10, 10, Condition.COLD, Resources.RICHFAUNA, Resources.LIFELESS, 230, 280, 250),
-            new TradeGood("Food", 1, 0, 1, 5, 5, Condition.CROPFAIL, Resources.RICHSOIL, Resources.POORSOIL, 90, 160, 100),
-            new TradeGood("Ore", 2, 2, 3, 20, 10, Condition.WAR, Resources.MINERALRICH, Resources.MINERALPOOR, 350, 420, 350),
-            new TradeGood("Games", 3, 1, 6, -10, 5, Condition.BOREDOM, Resources.ARTISTIC, null, 160, 270, 250),
-            new TradeGood("Firearms", 3, 1, 5, -75, 100, Condition.WAR, Resources.WARLIKE, null, 600, 1100, 1250),
-            new TradeGood("Medicine", 4, 1, 6, -20, 10, Condition.PLAGUE, Resources.LOTSOFHERBS, null, 400, 700, 650),
-            new TradeGood("Machines", 4, 3, 5, -30, 5, Condition.LACKOOFWORKERS, null, null, 600, 800, 900),
-            new TradeGood("Narcotics", 5, 0, 5, -125, 150, Condition.BOREDOM, Resources.WEIRDMUSHROOMS, null, 2000, 3000, 3500),
-            new TradeGood("Robots", 6, 4, 7, -150, 100, Condition.LACKOOFWORKERS, null, null, 3500, 5000, 5000)
+    //added final
+    private final int[] marketGoodCounts;
+    private final Condition thisCondition;
+    private final Resources thisResource;
+    private final TechLevel techLevel;
+    private  final TradeGood[] goods = {
+            new TradeGood("Water", 0, 0, 2, 3, 4, Condition.DROUGHT,
+                    Resources.LOTSOFWATER, Resources.DESERT, 30, 50, 30 ),
+            new TradeGood("Furs", 0, 0, 0, 10, 10, Condition.COLD,
+                    Resources.RICHFAUNA, Resources.LIFELESS, 230, 280, 250),
+            new TradeGood("Food", 1, 0, 1, 5, 5, Condition.CROPFAIL,
+                    Resources.RICHSOIL, Resources.POORSOIL, 90, 160, 100),
+            new TradeGood("Ore", 2, 2, 3, 20, 10, Condition.WAR,
+                    Resources.MINERALRICH, Resources.MINERALPOOR, 350, 420, 350),
+            new TradeGood("Games", 3, 1, 6, -10, 5, Condition.BOREDOM,
+                    Resources.ARTISTIC, null, 160, 270, 250),
+            new TradeGood("Firearms", 3, 1, 5, -75, 100, Condition.WAR,
+                    Resources.WARLIKE, null, 600, 1100, 1250),
+            new TradeGood("Medicine", 4, 1, 6, -20, 10, Condition.PLAGUE,
+                    Resources.LOTSOFHERBS, null, 400, 700, 650),
+            new TradeGood("Machines", 4, 3, 5, -30, 5, Condition.LACKOOFWORKERS,
+                    null, null, 600, 800, 900),
+            new TradeGood("Narcotics", 5, 0, 5, -125, 150, Condition.BOREDOM,
+                    Resources.WEIRDMUSHROOMS, null, 2000, 3000, 3500),
+            new TradeGood("Robots", 6, 4, 7, -150, 100, Condition.LACKOOFWORKERS,
+                    null, null, 3500, 5000, 5000)
     };
     //setup the market's items
+
+    /**
+     * Market method
+     * @param cond condition
+     * @param res resources
+     * @param tech technology
+     */
     public Market(Condition cond, Resources res, TechLevel tech) {
         thisCondition = cond;
         thisResource = res;
@@ -34,7 +55,8 @@ public class Market {
         for (int i = 0; i < goods.length; i++) {
             TradeGood good = goods[i];
 
-            //planet is too weak to produce the product. Player cannot buy it, planet market doesn't produce.
+            //planet is too weak to produce the product. Player cannot buy it,
+            // planet market doesn't produce.
             if (tech.getValue() < good.getMtlp()) {
                 continue;
             }
@@ -47,14 +69,16 @@ public class Market {
 
             //economic model:
             int finalPrice = good.getBasePrice();
-            finalPrice = finalPrice + good.getIpl() * (int) (tech.getValue() - good.getMtlp() + Math.random() * good.getVar() * 0.01);
+            finalPrice = finalPrice + good.getIpl() * (int) (tech.getValue() - good.getMtlp() +
+                    Math.random() * good.getVar() * 0.01);
 
             //if condition causes the price to increase astronomically
             if (good.getIe().getValue() == cond.getValue()) {
                 finalPrice = finalPrice * 3;
             }
 
-            //when CR is present, price is unusually low || when ER is present, price is unusually high
+            //when CR is present, price is unusually low || when ER is present,
+            // price is unusually high
             if (good.getCr() != null && good.getCr().getValue() == res.getValue()) {
                 finalPrice = finalPrice / 2;
             } else if (good.getEr() != null && good.getEr().getValue() == res.getValue()) {
@@ -67,6 +91,11 @@ public class Market {
         }
     }
 
+    /**
+     * Buying method
+     * @param player player
+     * @param goodName good name
+     */
     public void buyInPlanet(Player player, String goodName) {
         int index = getIndexByName(goodName);
         if (index < 0 || index >= goods.length) {
@@ -87,6 +116,12 @@ public class Market {
         player.moreGood(thisGood);
         return;
     }
+
+    /**
+     * Selling in planet
+     * @param player player
+     * @param goodName good name
+     */
     public void sellInPlanet(Player player, String goodName) {
         int index = getIndexByName(goodName);
         if (index < 0 || index >= goods.length) {
@@ -94,7 +129,8 @@ public class Market {
         }
         TradeGood thisGood = goods[index];
         if (techLevel.getValue() < thisGood.getMtlu()) {
-            Log.d("Invalid action: ", "The tech level of current planet is too low for you to sell the good.");
+            Log.d("Invalid action: ", "The tech level of current planet " +
+                    "is too low for you to sell the good.");
             return;
         }
         if (player.hasGood(goodName)) {
@@ -113,13 +149,25 @@ public class Market {
         }
         return str;
     }
+
+    /**
+     * get market good numbers
+     * @return integer
+     */
     public int[] getMarketGoodCounts() {
         return marketGoodCounts;
     }
+
+    /**
+     * getters to get goods
+     * @return trade good
+     */
     public TradeGood[] getGoods() {
         return goods;
     }
-    public int getIndexByName(String n) {
+
+    //was public
+    private int getIndexByName(String n) {
         for (int i = 0; i < goods.length; i++) {
             TradeGood g = goods[i];
             if (g.getName().equals(n)) {
@@ -129,6 +177,11 @@ public class Market {
         return -1;
     }
 
+    /**
+     * getter for price
+     * @param n string name
+     * @return integer
+     */
     public int getPriceOf(String n) {
         int index = getIndexByName(n);
         return goods[index].getFinalPrice();
