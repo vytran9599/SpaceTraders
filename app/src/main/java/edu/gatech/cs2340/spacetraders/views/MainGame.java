@@ -104,11 +104,15 @@ public class MainGame extends AppCompatActivity {
     }
 
     public void marketplaceButtonOnClick(View v) {
-        startActivity(new Intent(MainGame.this, marketplace.class));
+        startActivity(new Intent(MainGame.this, MarketplaceActivity.class));
     }
 
     public void currentSSInfoButtonOnClick(View v) {
         startActivity(new Intent(MainGame.this, CurrentSS.class));
+    }
+
+    public void shipButtonOnClick(View v) {
+        startActivity(new Intent(MainGame.this, ShipStatsActivity.class));
     }
 
 
