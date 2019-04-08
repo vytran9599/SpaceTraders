@@ -188,6 +188,10 @@ public class MainGame extends AppCompatActivity {
         }
     }
 
+    /**
+     * menu button on click
+     * @param v view
+     */
     public void menuButtonOnClick(View v) {
         startActivity(new Intent(MainGame.this, MainActivity.class));
     }
