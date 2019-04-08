@@ -7,10 +7,22 @@ import android.support.annotation.NonNull;
 import edu.gatech.cs2340.spacetraders.model.DifficultyStanding;
 import edu.gatech.cs2340.spacetraders.model.Player;
 
+/**
+ * GameViewModel class
+ */
 public class GameViewModel extends AndroidViewModel {
+    /**
+     * Game view model constructor
+     * @param application application
+     */
     public GameViewModel(@NonNull Application application) {
         super(application);
     }
+
+    /**
+     * Add player
+     * @param name name
+     */
     public void addPlayer(String name) {
         Player myPlayer = new Player(name, DifficultyStanding.EASY,4, 4, 4, 4);
     }

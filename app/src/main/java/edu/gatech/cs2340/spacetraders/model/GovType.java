@@ -1,5 +1,8 @@
 package edu.gatech.cs2340.spacetraders.model;
 
+/**
+ * Government type
+ */
 public enum GovType {
     DEMOCRACY (0),
     DICTATORSHIP (1),
@@ -10,7 +13,13 @@ public enum GovType {
     private final int value;
 
     GovType(int v) {this.value = v;}
-    public int getValue() {return value;}
+    private int getValue() {return value;} //was public
+
+    /**
+     * Getter for type number
+     * @param a integer
+     * @return government type
+     */
     public static GovType getTypeByNumber(int a) {
         for (GovType level: values()) {
             if (level.getValue() == a) {
