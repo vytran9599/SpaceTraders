@@ -86,9 +86,9 @@ public class Ship {
 //     * Setter method for the ship type
 //     * @param newType the new ship type of this ship
 // --Commented out by Inspection STOP (4/7/19, 11:27 PM)
-    public void setShipType(ShipType newType) {
-        shipType = newType;
-    }
+    //public void setShipType(ShipType newType) {
+   //     shipType = newType;
+   // }
 
 
 }
