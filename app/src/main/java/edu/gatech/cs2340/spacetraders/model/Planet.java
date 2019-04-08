@@ -1,17 +1,35 @@
 package edu.gatech.cs2340.spacetraders.model;
 
-
+/**
+ * Planet class
+ */
 public class Planet {
-    private String name;
-    private Market thisMarket;
+    //added final
+    private final String name;
+    private final Market thisMarket;
 
+    /**
+     * Constructor for planet
+     * @param nam name
+     * @param market market
+     */
     public Planet(String nam, Market market) {
         name = nam;
         thisMarket = market;
     }
+
+    /**
+     * getters for name
+     * @return string
+     */
     public String getName() {
         return name;
     }
+
+    /**
+     * getters for market
+     * @return market
+     */
     public Market getMarket() {
         return thisMarket;
     }

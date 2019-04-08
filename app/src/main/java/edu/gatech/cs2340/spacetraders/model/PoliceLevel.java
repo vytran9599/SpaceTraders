@@ -1,5 +1,8 @@
 package edu.gatech.cs2340.spacetraders.model;
 
+/**
+ * police level class
+ */
 public enum PoliceLevel {
     FEW (0),
     SEVERAL(1),
@@ -9,7 +12,14 @@ public enum PoliceLevel {
     private final int value;
 
     PoliceLevel(int v) {this.value = v;}
-    public int getValue() {return value;}
+    //was public
+    private int getValue() {return value;}
+
+    /**
+     * getters
+     * @param a integer
+     * @return police level
+     */
     public static PoliceLevel getLevelByNumber(int a) {
         for (PoliceLevel level: values()) {
             if (level.getValue() == a) {
