@@ -25,7 +25,6 @@ import edu.gatech.cs2340.spacetraders.model.ModelFacade;
 public class MainActivity extends AppCompatActivity {
     public static final String SAVE = "MySavedGameFile";
 
-    public static final String SAVE = "MySavedGameFile";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,23 +89,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void loadGameButtonOnClick(View v) {
-        SharedPreferences loadGame = getSharedPreferences(SAVE, 0);
-        //playerOne = loadGame.getInt("Saved player name", 0);
-        Toast.makeText(getApplicationContext(),
-                "Game loaded successfully",
-                Toast.LENGTH_SHORT).show();
-    }
-    public void saveGameButtonOnClick(View v) {
-        if (ModelFacade.getInstance().getGame() != null) {
-            SharedPreferences saveGame = getSharedPreferences(SAVE, MODE_PRIVATE);
-            SharedPreferences.Editor editor = saveGame.edit();
-            editor.putString("Saved player name", ModelFacade.getInstance().getGame().getPlayer().getName());
-            editor.apply();
-            Toast.makeText(getApplicationContext(),
-                    "Game saved successfully",
-                    Toast.LENGTH_SHORT).show();
-        }
-
-    }
 }
