@@ -187,4 +187,8 @@ public class MainGame extends AppCompatActivity {
             startActivity(new Intent(MainGame.this, PirateEncounterActivity.class));
         }
     }
+
+    public void menuButtonOnClick(View v) {
+        startActivity(new Intent(MainGame.this, MainActivity.class));
+    }
 }
