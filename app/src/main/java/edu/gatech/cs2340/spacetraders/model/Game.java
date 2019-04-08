@@ -5,7 +5,7 @@ import android.util.Log;
 /**
  * Game class
  */
-public class Game {
+public class Game implements java.io.Serializable{
     private DifficultyStanding ds;
     //added final
     private final Player thisPlayer;

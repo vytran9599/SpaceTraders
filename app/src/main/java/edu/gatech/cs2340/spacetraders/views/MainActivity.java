@@ -16,21 +16,33 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 import edu.gatech.cs2340.spacetraders.R;
+import edu.gatech.cs2340.spacetraders.model.Game;
 import edu.gatech.cs2340.spacetraders.model.ModelFacade;
 
 /**
  * Main activity class
  */
 public class MainActivity extends AppCompatActivity {
-    private static final String SAVE = "MySavedGameFile";
+    public static final String SAVE = "MySavedGameFile";
+    public static final String SAVE_GAME = "SavedGame";
+    private Gson myGson;
+    //private Game saveGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Change alpha from fully visible to invisible
-        final Animation animation = new AlphaAnimation(1 , 0);
+        final Animation animation = new AlphaAnimation(1, 0);
         animation.setDuration(1500); // duration - half a second
         animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
         animation.setRepeatCount(Animation.INFINITE); // Repeat animation infinitely
@@ -47,17 +59,62 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void loadGameButtonOnClick(View v) {
-        SharedPreferences loadGame = getSharedPreferences(SAVE, 0);
-        //playerOne = loadGame.getInt("Saved player name", 0);
-        Toast.makeText(getApplicationContext(),
-                "Game loaded successfully",
-                Toast.LENGTH_SHORT).show();
+        if (myGson != null) {
+            System.out.println("myGson isn't null yay");
+            SharedPreferences loadGame = getSharedPreferences(SAVE, 0);
+            String myJson = loadGame.getString(SAVE_GAME, null);
+            Game myGame = myGson.fromJson(myJson, Game.class);
+            ModelFacade.getInstance().setGame(myGame);
+            System.out.println("name of player: " + ModelFacade.getInstance().getGame().getPlayer().getName());
+            startActivity(new Intent(MainActivity.this, MainGame.class));
+//        try
+//        {
+//            // Reading the object from a file
+//            FileInputStream file = new FileInputStream(filename);
+//            ObjectInputStream in = new ObjectInputStream(file);
+//
+//            // Method for deserialization of object
+//            object1 = (Game)in.readObject();
+//
+//            in.close();
+//            file.close();
+//
+//            System.out.println("Object has been deserialized ");
+//            System.out.println("a = " + object1.a);
+//            System.out.println("b = " + object1.b);
+//        }
+//        }
+                    Toast.makeText(getApplicationContext(),
+                            "Game loaded successfully",
+                            Toast.LENGTH_SHORT).show();
+        }
     }
     public void saveGameButtonOnClick(View v) {
         if (ModelFacade.getInstance().getGame() != null) {
+            myGson = new Gson();
+            Game myGame = ModelFacade.getInstance().getGame();
+            String json = myGson.toJson(myGame);
+//            Game myGame = ModelFacade.getInstance().getGame();
+//            String filename = "file.ser";
+//            try {
+//                //Saving of object in a file
+//                FileOutputStream file = new FileOutputStream(filename);
+//                ObjectOutputStream out = new ObjectOutputStream(file);
+//
+//                // Method for serialization of object
+//                out.writeObject(myGame);
+//
+//                out.close();
+//                file.close();
+//
+//                System.out.println("Object has been serialized");
+//            }
+//            catch (IOException ex) {
+//                System.out.println("IO Exception caught");
+//            }
             SharedPreferences saveGame = getSharedPreferences(SAVE, MODE_PRIVATE);
             SharedPreferences.Editor editor = saveGame.edit();
-            editor.putString("Saved player name", ModelFacade.getInstance().getGame().getPlayer().getName());
+            editor.putString(SAVE_GAME, json);
             editor.apply();
             Toast.makeText(getApplicationContext(),
                     "Game saved successfully",
