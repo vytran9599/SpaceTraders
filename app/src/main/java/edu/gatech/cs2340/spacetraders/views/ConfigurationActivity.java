@@ -7,9 +7,9 @@ import android.widget.Spinner;
 import android.view.View;
 
 import edu.gatech.cs2340.spacetraders.model.DifficultyStanding;
-import edu.gatech.cs2340.spacetraders.model.Game;
-import edu.gatech.cs2340.spacetraders.model.Player;
-import edu.gatech.cs2340.spacetraders.viewmodels.GameViewModel;
+//import edu.gatech.cs2340.spacetraders.model.Game;
+//import edu.gatech.cs2340.spacetraders.model.Player;
+//import edu.gatech.cs2340.spacetraders.viewmodels.GameViewModel;
 import edu.gatech.cs2340.spacetraders.R;
 
 /**
@@ -18,7 +18,7 @@ import edu.gatech.cs2340.spacetraders.R;
 public class ConfigurationActivity extends AppCompatActivity {
     //private GameViewModel viewModel;
     private Spinner difficultySpinner;
-    private Game game;
+    // --Commented out by Inspection (4/7/19, 11:27 PM):private Game game;
     //private boolean editing;
 
     @Override
@@ -33,15 +33,17 @@ public class ConfigurationActivity extends AppCompatActivity {
         difficultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difficultySpinner.setAdapter(difficultyAdapter);
 
-        difficultySpinner.setSelection(game.getDS().ordinal());
-    }
-
-    /**
-     * Actions when pressed
-     * @param view the view
-     */
-    public void onAddPressed(View view) {
-        game.setDS((DifficultyStanding) difficultySpinner.getSelectedItem());
+// --Commented out by Inspection START (4/7/19, 11:27 PM):
+//        difficultySpinner.setSelection(game.getDS().ordinal());
+//    }
+//
+//    /**
+//     * Actions when pressed
+//     * @param view the view
+//     */
+//    public void onAddPressed(View view) {
+//        game.setDS((DifficultyStanding) difficultySpinner.getSelectedItem());
+// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
         finish();
     }
 }
