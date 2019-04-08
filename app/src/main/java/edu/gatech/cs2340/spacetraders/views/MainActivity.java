@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.spacetraders.views;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,14 +14,18 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.Toast;
 
 import edu.gatech.cs2340.spacetraders.R;
+import edu.gatech.cs2340.spacetraders.model.ModelFacade;
 
 /**
  * Main activity class
  */
 public class MainActivity extends AppCompatActivity {
+    public static final String SAVE = "MySavedGameFile";
 
+    public static final String SAVE = "MySavedGameFile";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +46,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, addNewPerson.class));
             }
         });
+    }
+    public void loadGameButtonOnClick(View v) {
+        SharedPreferences loadGame = getSharedPreferences(SAVE, 0);
+        //playerOne = loadGame.getInt("Saved player name", 0);
+        Toast.makeText(getApplicationContext(),
+                "Game loaded successfully",
+                Toast.LENGTH_SHORT).show();
+    }
+    public void saveGameButtonOnClick(View v) {
+        if (ModelFacade.getInstance().getGame() != null) {
+            SharedPreferences saveGame = getSharedPreferences(SAVE, MODE_PRIVATE);
+            SharedPreferences.Editor editor = saveGame.edit();
+            editor.putString("Saved player name", ModelFacade.getInstance().getGame().getPlayer().getName());
+            editor.apply();
+            Toast.makeText(getApplicationContext(),
+                    "Game saved successfully",
+                    Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 
@@ -64,5 +88,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void loadGameButtonOnClick(View v) {
+        SharedPreferences loadGame = getSharedPreferences(SAVE, 0);
+        //playerOne = loadGame.getInt("Saved player name", 0);
+        Toast.makeText(getApplicationContext(),
+                "Game loaded successfully",
+                Toast.LENGTH_SHORT).show();
+    }
+    public void saveGameButtonOnClick(View v) {
+        if (ModelFacade.getInstance().getGame() != null) {
+            SharedPreferences saveGame = getSharedPreferences(SAVE, MODE_PRIVATE);
+            SharedPreferences.Editor editor = saveGame.edit();
+            editor.putString("Saved player name", ModelFacade.getInstance().getGame().getPlayer().getName());
+            editor.apply();
+            Toast.makeText(getApplicationContext(),
+                    "Game saved successfully",
+                    Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

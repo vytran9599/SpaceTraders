@@ -39,7 +39,6 @@ public class MainGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
-
         myUniverse = ModelFacade.getInstance().getGame().getMyUniverse();
         currentSS = ModelFacade.getInstance().getGame().getMyUniverse().getCurrentSolarSystem();
         myPlayer = ModelFacade.getInstance().getGame().getPlayer();
@@ -108,6 +107,8 @@ public class MainGame extends AppCompatActivity {
 
         travelButton.setEnabled(false);
     }
+
+
 
     /**
      * marketplace button
@@ -186,5 +187,13 @@ public class MainGame extends AppCompatActivity {
         if (pirateLvl >= chance) {
             startActivity(new Intent(MainGame.this, PirateEncounterActivity.class));
         }
+    }
+
+    /**
+     * menu button on click
+     * @param v view
+     */
+    public void menuButtonOnClick(View v) {
+        startActivity(new Intent(MainGame.this, MainActivity.class));
     }
 }
