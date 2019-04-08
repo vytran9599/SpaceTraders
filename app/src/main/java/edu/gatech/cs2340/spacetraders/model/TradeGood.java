@@ -126,20 +126,24 @@ public class TradeGood {
     public Resources getEr() {
         return er;
     }
-    /**
-     * get mtl
-     * @return int
-     */
-    public int getMtl() {
-        return mtl;
-    }
-    /**
-     * get mth
-     * @return int
-     */
-    public int getMth() {
-        return mth;
-    }
+// --Commented out by Inspection START (4/7/19, 11:27 PM):
+//    /**
+//     * get mtl
+//     * @return int
+//     */
+//    public int getMtl() {
+//        return mtl;
+//    }
+// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
+// --Commented out by Inspection START (4/7/19, 11:27 PM):
+//    /**
+//     * get mth
+//     * @return int
+//     */
+//    public int getMth() {
+//        return mth;
+//    }
+// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
     /**
      * get base price
      * @return int

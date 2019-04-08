@@ -1,6 +1,6 @@
 package edu.gatech.cs2340.spacetraders.views;
 
-import android.arch.lifecycle.ViewModelProviders;
+//import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,7 +37,6 @@ public class addNewPerson extends AppCompatActivity {
     private Button okButton;
     private Spinner difficultySpinner;
     private EditText playerNameTextbox;
-    private ConfigurationViewModel configVM;
     private Game myGame;
 
     @Override
@@ -57,7 +56,8 @@ public class addNewPerson extends AppCompatActivity {
                 (this, android.R.layout.simple_spinner_item, DifficultyStanding.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difficultySpinner.setAdapter(adapter);
-        configVM = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
+        //ConfigurationViewModel configVM;
+        //configVM = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
         playerNameTextbox.addTextChangedListener(nameFieldWatcher);
         okButton.setOnClickListener(new View.OnClickListener() {

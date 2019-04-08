@@ -59,7 +59,8 @@
                 android:gravity="center"
                 android:text="Water"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/playerWater"
@@ -117,7 +118,8 @@
                 android:gravity="center"
                 android:text="Furs"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/playerFurs"
@@ -175,7 +177,8 @@
                 android:gravity="center"
                 android:text="Food"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/playerFood"
@@ -233,7 +236,8 @@
                 android:gravity="center"
                 android:text="Ore"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/playerOre"
@@ -291,7 +295,8 @@
                 android:gravity="center"
                 android:text="Games"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/playerGames"
@@ -349,7 +354,8 @@
                 android:gravity="center"
                 android:text="Firearms"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/playerFirearms"
@@ -407,7 +413,8 @@
                 android:gravity="center"
                 android:text="Medicine"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/playerMedicine"
@@ -465,7 +472,8 @@
                 android:gravity="center"
                 android:text="Machines"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/playerMachines"
@@ -523,7 +531,8 @@
                 android:gravity="center"
                 android:text="Narcotics"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/playerNarcotics"
@@ -581,7 +590,8 @@
                 android:gravity="center"
                 android:text="Robots"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/playerRobots"
@@ -672,7 +682,8 @@
                 android:gravity="center"
                 android:text="Water"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/sellerWater"
@@ -741,7 +752,8 @@
                 android:gravity="center"
                 android:text="Furs"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/sellerFurs"
@@ -810,7 +822,8 @@
                 android:gravity="center"
                 android:text="Food"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/sellerFood"
@@ -879,7 +892,8 @@
                 android:gravity="center"
                 android:text="Ore"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/sellerOre"
@@ -948,7 +962,8 @@
                 android:gravity="center"
                 android:text="Games"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/sellerGames"
@@ -1017,7 +1032,8 @@
                 android:gravity="center"
                 android:text="Firearms"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/sellerFirearms"
@@ -1086,7 +1102,8 @@
                 android:gravity="center"
                 android:text="Medicine"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/sellerMedicine"
@@ -1155,7 +1172,8 @@
                 android:gravity="center"
                 android:text="Machines"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/sellerMachines"
@@ -1224,7 +1242,8 @@
                 android:gravity="center"
                 android:text="Narcotics"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/sellerNarcotics"
@@ -1293,7 +1312,8 @@
                 android:gravity="center"
                 android:text="Robots"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="2dp" />
 
             <TextView
                 android:id="@+id/sellerRobots"
