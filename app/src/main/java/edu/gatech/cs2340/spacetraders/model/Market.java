@@ -3,9 +3,9 @@ package edu.gatech.cs2340.spacetraders.model;
 
 import android.util.Log;
 
-import java.util.HashMap;
+//import java.util.HashMap;
 
-import edu.gatech.cs2340.spacetraders.R;
+//import edu.gatech.cs2340.spacetraders.R;
 
 /**
  * Market class
@@ -14,8 +14,6 @@ public class Market {
     //private HashMap<TradeGood, Integer> marketGoods = new HashMap<>();
     //added final
     private final int[] marketGoodCounts;
-    private final Condition thisCondition;
-    private final Resources thisResource;
     private final TechLevel techLevel;
     private  final TradeGood[] goods = {
             new TradeGood("Water", 0, 0, 2, 3, 4, Condition.DROUGHT,
@@ -48,8 +46,10 @@ public class Market {
      * @param tech technology
      */
     public Market(Condition cond, Resources res, TechLevel tech) {
-        thisCondition = cond;
-        thisResource = res;
+        //Condition thisCondition;
+        //thisCondition = cond;
+        //Resources thisResource;
+        //thisResource = res;
         techLevel = tech;
         marketGoodCounts = new int[goods.length];
         for (int i = 0; i < goods.length; i++) {
@@ -114,7 +114,7 @@ public class Market {
         marketGoodCounts[index]--;
         Log.d("entered buy in planet", player.getName() + " bought " + goodName + ".");
         player.moreGood(thisGood);
-        return;
+        //return;
     }
 
     /**
@@ -136,18 +136,18 @@ public class Market {
         if (player.hasGood(goodName)) {
             marketGoodCounts[index]++;
             player.lessGood(thisGood);
-            return;
+            //return;
         } else {
             Log.d("invalid action: ", "you have nothing to sell");
         }
 
     }
     public String toString() {
-        String str = "";
+        StringBuilder str = new StringBuilder();
         for (int i = 0; i < goods.length; i++) {
-            str += goods[i].getName() + ": " + marketGoodCounts[i] + "  ";
+            str.append(goods[i].getName()).append(": ").append(marketGoodCounts[i]).append("  ");
         }
-        return str;
+        return str.toString();
     }
 
     /**

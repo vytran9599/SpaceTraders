@@ -2,20 +2,20 @@ package edu.gatech.cs2340.spacetraders.viewmodels;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
-import android.util.Log;
+//import android.util.Log;
 
-import edu.gatech.cs2340.spacetraders.model.DifficultyStanding;
-import edu.gatech.cs2340.spacetraders.model.Game;
-import edu.gatech.cs2340.spacetraders.model.ModelFacade;
-import edu.gatech.cs2340.spacetraders.model.Player;
-import edu.gatech.cs2340.spacetraders.model.Universe;
+//import edu.gatech.cs2340.spacetraders.model.DifficultyStanding;
+//import edu.gatech.cs2340.spacetraders.model.Game;
+//import edu.gatech.cs2340.spacetraders.model.ModelFacade;
+//import edu.gatech.cs2340.spacetraders.model.Player;
+//import edu.gatech.cs2340.spacetraders.model.Universe;
 
 /**
  * This class handles the user input events and
  * sets up the data for the model to be initialized
  */
 public class ConfigurationViewModel extends AndroidViewModel {
-    private Game myGame;
+    // --Commented out by Inspection (4/7/19, 11:27 PM):private Game myGame;
     //private Player myPlayer;
 
     /**

@@ -9,16 +9,18 @@ import edu.gatech.cs2340.spacetraders.model.Planet;
 /**
  * Market view model class
  */
-public class MarketViewModel extends AndroidViewModel {
+class MarketViewModel extends AndroidViewModel {
     private Market myMarket;
 
-    /**
-     * Constructor
-     * @param application application
-     */
-    public MarketViewModel(Application application) {
-        super(application);
-    }
+// --Commented out by Inspection START (4/7/19, 11:27 PM):
+//    /**
+//     * Constructor
+//     * @param application application
+//     */
+//    public MarketViewModel(Application application) {
+//        super(application);
+//    }
+// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
 
     /**
      * settes method
@@ -28,11 +30,13 @@ public class MarketViewModel extends AndroidViewModel {
         myMarket = p.getMarket();
     }
 
-    /**
-     * getters method
-     * @return market
-     */
-    public Market getMyMarket() {
-        return myMarket;
-    }
+// --Commented out by Inspection START (4/7/19, 11:27 PM):
+//    /**
+//     * getters method
+//     * @return market
+//     */
+//    public Market getMyMarket() {
+//        return myMarket;
+//    }
+// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
 }

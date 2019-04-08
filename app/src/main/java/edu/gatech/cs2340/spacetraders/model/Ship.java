@@ -71,18 +71,21 @@ public class Ship {
         return maxCapacity;
     }
 
-    /**
-     * setter max
-     * @param m integer
-     */
-    public void setMaxCapacity(int m) {
-        maxCapacity = m;
-    }
-
-    /**
-     * Setter method for the ship type
-     * @param newType the new ship type of this ship
-     */
+// --Commented out by Inspection START (4/7/19, 11:27 PM):
+//    /**
+//     * setter max
+//     * @param m integer
+//     */
+// --Commented out by Inspection START (4/7/19, 11:27 PM):
+////    public void setMaxCapacity(int m) {
+////        maxCapacity = m;
+////    }
+//// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
+//
+//    /**
+//     * Setter method for the ship type
+//     * @param newType the new ship type of this ship
+// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
     public void setShipType(ShipType newType) {
         shipType = newType;
     }

@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.jjoe64.graphview.GraphView;
+//import com.jjoe64.graphview.GraphView;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ public class MainGame extends AppCompatActivity {
     private ArrayList<SolarSystem> SSTravelList;
 
     private ProgressBar fuelBar;
-    private GraphView map;
+
     private int indexSS;
     private Button travelButton;
     private TextView planetText, resText, techText, govText, polText, pirText, fuelText, costText;
@@ -43,8 +43,8 @@ public class MainGame extends AppCompatActivity {
         currentSS = ModelFacade.getInstance().getGame().getMyUniverse().getCurrentSolarSystem();
         myPlayer = ModelFacade.getInstance().getGame().getPlayer();
         SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());
-
-        map = findViewById(R.id.map);
+        //GraphView map;
+        //map = findViewById(R.id.map);
 
         indexSS = 0;
         if (indexSS < SSTravelList.size()) {
@@ -96,7 +96,7 @@ public class MainGame extends AppCompatActivity {
         fuelBar.setProgress(myPlayer.getMyShip().getFuel());
     }
 
-    public void updateStuck() {
+    private void updateStuck() {
         planetText.setText("none");
         resText.setText("none");
         techText.setText("none");
@@ -181,7 +181,7 @@ public class MainGame extends AppCompatActivity {
         }
     }
 
-    public void pirateEncounter() {
+    private void pirateEncounter() {
         int pirateLvl = currentSS.getPirateLevel().getValue();
         int chance = (int) (Math.random() * 10);
         if (pirateLvl >= chance) {

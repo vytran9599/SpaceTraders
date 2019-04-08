@@ -1,9 +1,9 @@
 package edu.gatech.cs2340.spacetraders.views;
 
-import android.arch.lifecycle.ViewModelProvider;
+//import android.arch.lifecycle.ViewModelProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+//import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -12,16 +12,14 @@ import edu.gatech.cs2340.spacetraders.model.Market;
 import edu.gatech.cs2340.spacetraders.model.ModelFacade;
 import edu.gatech.cs2340.spacetraders.model.Player;
 import edu.gatech.cs2340.spacetraders.model.TradeGood;
-import edu.gatech.cs2340.spacetraders.model.Universe;
-import edu.gatech.cs2340.spacetraders.viewmodels.ConfigurationViewModel;
-import edu.gatech.cs2340.spacetraders.viewmodels.MarketViewModel;
+//import edu.gatech.cs2340.spacetraders.model.Universe;
+//import edu.gatech.cs2340.spacetraders.viewmodels.ConfigurationViewModel;
+//import edu.gatech.cs2340.spacetraders.viewmodels.MarketViewModel;
 
 /**
  * marketplace class
  */
 public class marketplace extends AppCompatActivity {
-
-    private int capacity, capacityLimit;
     private Player myPlayer;
     private Market myMarket;
     private TextView capacityLimitText, capacityText;
@@ -32,11 +30,6 @@ public class marketplace extends AppCompatActivity {
     private int sellerWater, sellerFurs, sellerFood, sellerOre, sellerGames,
             sellerFirearms, sellerMedicine, sellerMachines, sellerNarcotics,
             sellerRobots;
-    private int waterSellPrice, fursSellPrice, foodSellPrice, oreSellPrice, gamesSellPrice,
-            firearmsSellPrice, medicineSellPrice, machinesSellPrice, narcoticsSellPrice,
-            robotsSellPrice;
-    private int waterBuyPrice, fursBuyPrice, foodBuyPrice, oreBuyPrice, gamesBuyPrice,
-            firearmsBuyPrice, medicineBuyPrice, machinesBuyPrice, narcoticsBuyPrice, robotsBuyPrice;
     private TextView playerWaterText, playerFursText, playerFoodText, playerOreText,
             playerGamesText,
             playerFirearmsText, playerMedicineText, playerMachinesText, playerNarcoticsText,
@@ -55,7 +48,6 @@ public class marketplace extends AppCompatActivity {
             firearmsBuyPriceText, medicineBuyPriceText, machinesBuyPriceText, narcoticsBuyPriceText,
             robotsBuyPriceText;
     private TextView creditsText;
-    private int creditsTotal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -151,8 +143,8 @@ public class marketplace extends AppCompatActivity {
 
     //was public
     private void updatePlayerValues() {
-
-        creditsTotal = myPlayer.getCredit();
+        int capacity, capacityLimit;
+        int creditsTotal = myPlayer.getCredit();
         creditsText.setText(Integer.toString(creditsTotal));
         capacity = myPlayer.getMyShip().getCapacity();
         capacityLimit = myPlayer.getMyShip().getMaxCapacity();
@@ -216,7 +208,11 @@ public class marketplace extends AppCompatActivity {
         for (int i = 0; i < goods.length; i++) {
             prices[i] = goods[i].getFinalPrice();
         }
-
+         int waterSellPrice, fursSellPrice, foodSellPrice, oreSellPrice, gamesSellPrice,
+                firearmsSellPrice, medicineSellPrice, machinesSellPrice, narcoticsSellPrice,
+                robotsSellPrice;
+        int waterBuyPrice, fursBuyPrice, foodBuyPrice, oreBuyPrice, gamesBuyPrice,
+                firearmsBuyPrice, medicineBuyPrice, machinesBuyPrice, narcoticsBuyPrice, robotsBuyPrice;
         waterBuyPrice = prices[0];
         fursBuyPrice = prices[1];
         foodBuyPrice = prices[2];

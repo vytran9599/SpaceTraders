@@ -2,11 +2,12 @@ package edu.gatech.cs2340.spacetraders.model;
 
 import android.util.Log;
 
-import java.util.HashMap;
+//import java.util.HashMap;
 
 /**
  * Player class
  */
+@SuppressWarnings("unused")
 public class Player {
     //added final
     private final String name;
@@ -71,10 +72,7 @@ public class Player {
         if (index < 0 || index >= personalGoodCounts.length) {
             return false;
         }
-        if (personalGoodCounts[index] > 0) {
-            return true;
-        }
-        return false;
+        return personalGoodCounts[index] > 0;
     }
 
     /**
@@ -146,29 +144,41 @@ public class Player {
     public String getName(){
         return name;
     }
+// --Commented out by Inspection START (4/7/19, 11:27 PM):
+//    /**
+//     * getter method for player's pilot points
+//     * @return the pilot points of the player
+//     */
+//    public int getPilotPts(){
+//        return pilotPts;
+//    }
+// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
+// --Commented out by Inspection START (4/7/19, 11:27 PM):
+//// --Commented out by Inspection START (4/7/19, 11:27 PM):
+////    /**
+////     * getter method for player's engineer points
+////     * @return the engineer points of the player
+////     */
+////    public int getEngrPts(){
+// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
+//        return engrPts;
+//    }
+// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
     /**
-     * getter method for player's pilot points
-     * @return the pilot points of the player
-     */
-    public int getPilotPts(){
-        return pilotPts;
-    }
-    /**
-     * getter method for player's engineer points
-     * @return the engineer points of the player
-     */
-    public int getEngrPts(){
-        return engrPts;
-    }
-    /**
-     * getter method for player's trade points
-     * @return the trade points of the player
-     */
-    public int getTradePts(){
-        return tradePts;
-    }
-    /**
-     * getter method for player's fight points
+// --Commented out by Inspection START (4/7/19, 11:27 PM):
+// --Commented out by Inspection START (4/7/19, 11:27 PM):
+////     * getter method for player's trade points
+////     * @return the trade points of the player
+////     */
+////    public int getTradePts(){
+////        return tradePts;
+// --Commented out by Inspection START (4/7/19, 11:27 PM):
+//// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
+////    }
+////    /**
+////     * getter method for player's fight points
+//// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
+// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
      * @return the fight points of the player
      */
     public int getFightPts(){
