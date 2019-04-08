@@ -16,9 +16,9 @@ class GameViewModel extends AndroidViewModel {
 //     * Game view model constructor
 //     * @param application application
 //     */
-//    public GameViewModel(@NonNull Application application) {
-//        super(application);
-//    }
+    public GameViewModel(@NonNull Application application) {
+        super(application);
+    }
 // --Commented out by Inspection STOP (4/7/19, 11:27 PM)
 
 // --Commented out by Inspection START (4/7/19, 11:27 PM):

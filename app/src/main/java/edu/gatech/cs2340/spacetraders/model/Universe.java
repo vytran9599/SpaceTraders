@@ -19,7 +19,7 @@ public class Universe {
      */
     public Universe() {
         ArrayList<String> solarNames = new ArrayList<>();
-        private final String[] names = {
+         final String[] names = {
                 "Acamar",
                 "Adahn",		// The alternate personality for The Nameless One in "Planescape: Torment"
                 "Aldea",
@@ -254,9 +254,9 @@ public class Universe {
 //
 //    /**
 // --Commented out by Inspection STOP (4/7/19, 11:27 PM)
-     * get solar system
-     * @return hashset
-     */
+     // get solar system
+     // @return hashset
+     //
     public HashSet<SolarSystem> getSolarSystems() {
         return solarSystems;
     }
@@ -266,9 +266,9 @@ public class Universe {
 //     * get current solar system
 //     * @return solar system
 //     */
-//    public SolarSystem getCurrentSolarSystem() {
-//        return currentSolarSystem;
-//    }
+    public SolarSystem getCurrentSolarSystem() {
+        return currentSolarSystem;
+    }
 //
 //    /**
 //     * get current planet
@@ -276,15 +276,15 @@ public class Universe {
 // --Commented out by Inspection START (4/7/19, 11:27 PM):
 //     * @return planet
 //     */
-//    public Planet getCurrentPlanet() {
-//        return currentPlanet;
-//    }
+    public Planet getCurrentPlanet() {
+        return currentPlanet;
+    }
 //
 //    /**
 //     * set current solar system
 // --Commented out by Inspection STOP (4/7/19, 11:27 PM)
-     * @param s solar system
-     */
+     // @param s solar system
+     ///
     public void setCurrentSolarSystem(SolarSystem s) {
         currentSolarSystem = s;
     }

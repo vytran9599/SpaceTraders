@@ -17,9 +17,9 @@ class MarketViewModel extends AndroidViewModel {
 //     * Constructor
 //     * @param application application
 //     */
-//    public MarketViewModel(Application application) {
-//        super(application);
-//    }
+    public MarketViewModel(Application application) {
+        super(application);
+    }
 // --Commented out by Inspection STOP (4/7/19, 11:27 PM)
 
     /**

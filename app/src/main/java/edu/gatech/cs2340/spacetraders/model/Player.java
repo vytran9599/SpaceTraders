@@ -179,8 +179,8 @@ public class Player {
 ////     * getter method for player's fight points
 //// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
 // --Commented out by Inspection STOP (4/7/19, 11:27 PM)
-     * @return the fight points of the player
-     */
+     // @return the fight points of the player
+     ///
     public int getFightPts(){
         return fightPts;
     }
