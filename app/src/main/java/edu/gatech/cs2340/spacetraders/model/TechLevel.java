@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.spacetraders.model;
 
 /**
- * techlevel class
+ * tech level class
  */
 public enum TechLevel {
     PRE_AGRICULTURE (0),
@@ -29,7 +29,7 @@ public enum TechLevel {
     /**
      * get level
      * @param a integer
-     * @return techlevel
+     * @return tech level
      */
     public static TechLevel getLevelByNumber(int a) {
         for (TechLevel level: values()) {

@@ -22,31 +22,69 @@ import edu.gatech.cs2340.spacetraders.model.TradeGood;
 public class marketplace extends AppCompatActivity {
     private Player myPlayer;
     private Market myMarket;
-    private TextView capacityLimitText, capacityText;
+    private TextView capacityLimitText;
+    private TextView capacityText;
 
-    private int playerWater, playerFurs, playerFood, playerOre, playerGames,
-            playerFirearms, playerMedicine, playerMachines, playerNarcotics,
-            playerRobots;
-    private int sellerWater, sellerFurs, sellerFood, sellerOre, sellerGames,
-            sellerFirearms, sellerMedicine, sellerMachines, sellerNarcotics,
-            sellerRobots;
-    private TextView playerWaterText, playerFursText, playerFoodText, playerOreText,
-            playerGamesText,
-            playerFirearmsText, playerMedicineText, playerMachinesText, playerNarcoticsText,
-            playerRobotsText;
-    private TextView sellerWaterText, sellerFursText, sellerFoodText, sellerOreText,
-            sellerGamesText,
-            sellerFirearmsText, sellerMedicineText, sellerMachinesText, sellerNarcoticsText,
-            sellerRobotsText;
-    private TextView waterSellPriceText, fursSellPriceText, foodSellPriceText, oreSellPriceText,
-            gamesSellPriceText,
-            firearmsSellPriceText, medicineSellPriceText, machinesSellPriceText,
-            narcoticsSellPriceText,
-            robotsSellPriceText;
-    private TextView waterBuyPriceText, fursBuyPriceText, foodBuyPriceText, oreBuyPriceText,
-            gamesBuyPriceText,
-            firearmsBuyPriceText, medicineBuyPriceText, machinesBuyPriceText, narcoticsBuyPriceText,
-            robotsBuyPriceText;
+    private int playerWater;
+    private int playerFurs;
+    private int playerFood;
+    private int playerOre;
+    private int playerGames;
+    private int playerFirearms;
+    private int playerMedicine;
+    private int playerMachines;
+    private int playerNarcotics;
+    private int playerRobots;
+    private int sellerWater;
+    private int sellerFurs;
+    private int sellerFood;
+    private int sellerOre;
+    private int sellerGames;
+    private int sellerFirearms;
+    private int sellerMedicine;
+    private int sellerMachines;
+    private int sellerNarcotics;
+    private int sellerRobots;
+    private TextView playerWaterText;
+    private TextView playerFursText;
+    private TextView playerFoodText;
+    private TextView playerOreText;
+    private TextView playerGamesText;
+    private TextView playerFirearmsText;
+    private TextView playerMedicineText;
+    private TextView playerMachinesText;
+    private TextView playerNarcoticsText;
+    private TextView playerRobotsText;
+    private TextView sellerWaterText;
+    private TextView sellerFursText;
+    private TextView sellerFoodText;
+    private TextView sellerOreText;
+    private TextView sellerGamesText;
+    private TextView sellerFirearmsText;
+    private TextView sellerMedicineText;
+    private TextView sellerMachinesText;
+    private TextView sellerNarcoticsText;
+    private TextView sellerRobotsText;
+    private TextView waterSellPriceText;
+    private TextView fursSellPriceText;
+    private TextView foodSellPriceText;
+    private TextView oreSellPriceText;
+    private TextView gamesSellPriceText;
+    private TextView firearmsSellPriceText;
+    private TextView medicineSellPriceText;
+    private TextView machinesSellPriceText;
+    private TextView narcoticsSellPriceText;
+    private TextView robotsSellPriceText;
+    private TextView waterBuyPriceText;
+    private TextView fursBuyPriceText;
+    private TextView foodBuyPriceText;
+    private TextView oreBuyPriceText;
+    private TextView gamesBuyPriceText;
+    private TextView firearmsBuyPriceText;
+    private TextView medicineBuyPriceText;
+    private TextView machinesBuyPriceText;
+    private TextView narcoticsBuyPriceText;
+    private TextView robotsBuyPriceText;
     private TextView creditsText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +181,8 @@ public class marketplace extends AppCompatActivity {
 
     //was public
     private void updatePlayerValues() {
-        int capacity, capacityLimit;
+        int capacity;
+        int capacityLimit;
         int creditsTotal = myPlayer.getCredit();
         creditsText.setText(Integer.toString(creditsTotal));
         capacity = myPlayer.getMyShip().getCapacity();
@@ -208,11 +247,26 @@ public class marketplace extends AppCompatActivity {
         for (int i = 0; i < goods.length; i++) {
             prices[i] = goods[i].getFinalPrice();
         }
-         int waterSellPrice, fursSellPrice, foodSellPrice, oreSellPrice, gamesSellPrice,
-                firearmsSellPrice, medicineSellPrice, machinesSellPrice, narcoticsSellPrice,
-                robotsSellPrice;
-        int waterBuyPrice, fursBuyPrice, foodBuyPrice, oreBuyPrice, gamesBuyPrice,
-                firearmsBuyPrice, medicineBuyPrice, machinesBuyPrice, narcoticsBuyPrice, robotsBuyPrice;
+        int waterSellPrice;
+        int fursSellPrice;
+        int foodSellPrice;
+        int oreSellPrice;
+        int gamesSellPrice;
+        int firearmsSellPrice;
+        int medicineSellPrice;
+        int machinesSellPrice;
+        int narcoticsSellPrice;
+        int robotsSellPrice;
+        int waterBuyPrice;
+        int fursBuyPrice;
+        int foodBuyPrice;
+        int oreBuyPrice;
+        int gamesBuyPrice;
+        int firearmsBuyPrice;
+        int medicineBuyPrice;
+        int machinesBuyPrice;
+        int narcoticsBuyPrice;
+        int robotsBuyPrice;
         waterBuyPrice = prices[0];
         fursBuyPrice = prices[1];
         foodBuyPrice = prices[2];
@@ -507,8 +561,8 @@ public class marketplace extends AppCompatActivity {
      * @param v view
      */
     public void waterMaxOnClick(View v) {
-        while (sellerWater > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Water")
-                && myPlayer.haveSpace()) {
+        while ((sellerWater > 0) && (myPlayer.getCredit() >= myMarket.getPriceOf("Water"))
+                && (myPlayer.haveSpace())) {
             generalBuy("Water");
         }
     }
@@ -518,8 +572,8 @@ public class marketplace extends AppCompatActivity {
      * @param v view
      */
     public void fursMaxOnClick(View v) {
-        while (sellerFurs > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Furs")
-                && myPlayer.haveSpace()) {
+        while ((sellerFurs > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Furs"))
+                && (myPlayer.haveSpace())) {
             generalBuy("Furs");
         }
     }
@@ -529,8 +583,8 @@ public class marketplace extends AppCompatActivity {
      * @param v view
      */
     public void foodMaxOnClick(View v) {
-        while (sellerFood > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Food")
-                && myPlayer.haveSpace()) {
+        while ((sellerFood > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Food"))
+                && (myPlayer.haveSpace())) {
             generalBuy("Food");
         }
     }
@@ -540,8 +594,8 @@ public class marketplace extends AppCompatActivity {
      * @param v view
      */
     public void oreMaxOnClick(View v) {
-        while (sellerOre > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Ore")
-                && myPlayer.haveSpace()) {
+        while ((sellerOre > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Ore"))
+                && (myPlayer.haveSpace())) {
             generalBuy("Ore");
         }
     }
@@ -551,8 +605,8 @@ public class marketplace extends AppCompatActivity {
      * @param v view
      */
     public void gamesMaxOnClick(View v) {
-        while (sellerGames > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Games")
-                && myPlayer.haveSpace()) {
+        while ((sellerGames > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Games"))
+                && (myPlayer.haveSpace())) {
             generalBuy("Games");
         }
     }
@@ -562,8 +616,8 @@ public class marketplace extends AppCompatActivity {
      * @param v view
      */
     public void firearmsMaxOnClick(View v) {
-        while (sellerFirearms > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Firearms")
-                && myPlayer.haveSpace()) {
+        while ((sellerFirearms > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Firearms"))
+                && (myPlayer.haveSpace())) {
             generalBuy("Firearms");
         }
     }
@@ -573,8 +627,8 @@ public class marketplace extends AppCompatActivity {
      * @param v view
      */
     public void medicineMaxOnClick(View v) {
-        while (sellerMedicine > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Medicine")
-                && myPlayer.haveSpace()) {
+        while ((sellerMedicine > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Medicine"))
+                && (myPlayer.haveSpace())) {
             generalBuy("Medicine");
         }
     }
@@ -584,8 +638,8 @@ public class marketplace extends AppCompatActivity {
      * @param v view
      */
     public void machinesMaxOnClick(View v) {
-        while (sellerMachines > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Machines")
-                && myPlayer.haveSpace()) {
+        while ((sellerMachines > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Machines"))
+                && (myPlayer.haveSpace())) {
             generalBuy("Machines");
         }
     }
@@ -595,8 +649,8 @@ public class marketplace extends AppCompatActivity {
      * @param v view
      */
     public void narcoticsMaxOnClick(View v) {
-        while (sellerNarcotics > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Narcotics")
-                && myPlayer.haveSpace()) {
+        while ((sellerNarcotics > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Narcotics"))
+                && (myPlayer.haveSpace())) {
             generalBuy("Narcotics");
         }
     }
@@ -606,8 +660,8 @@ public class marketplace extends AppCompatActivity {
      * @param v view
      */
     public void robotsMaxOnClick(View v) {
-        while (sellerRobots > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Robots")
-                && myPlayer.haveSpace()) {
+        while ((sellerRobots > 0 && myPlayer.getCredit() >= myMarket.getPriceOf("Robots"))
+                && (myPlayer.haveSpace())) {
             generalBuy("Robots");
         }
     }

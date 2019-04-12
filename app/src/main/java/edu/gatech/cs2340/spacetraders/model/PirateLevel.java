@@ -13,6 +13,11 @@ public enum PirateLevel {
 
     PirateLevel(int v) {this.value = v;}
     //was public
+
+    /**
+     * getter for value
+     * @return int
+     */
     public int getValue() {return value;}
 
     /**

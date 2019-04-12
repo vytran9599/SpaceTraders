@@ -20,7 +20,6 @@ import edu.gatech.cs2340.spacetraders.model.Game;
 import edu.gatech.cs2340.spacetraders.model.ModelFacade;
 import edu.gatech.cs2340.spacetraders.model.Player;
 import edu.gatech.cs2340.spacetraders.model.Universe;
-import edu.gatech.cs2340.spacetraders.viewmodels.ConfigurationViewModel;
 
 /**
  * Class that adds new person
@@ -30,13 +29,20 @@ public class addNewPerson extends AppCompatActivity {
 
     private final int ABILITY_POINTS = 16;
     private boolean isNameGiven;
-    private int pilotPts = 0, engrPts = 0, tradePts = 0, fightPts = 0;
-    private int pointsGiven = 0;
+    private int pilotPts;
+    private int engineerPts;
+    private int tradePts;
+    private int fightPts;
+    private int pointsGiven;
     private int totalPoints = 16;
-    private TextView pilotText, fighterText, traderText, engineerText, totalPointsText;
+    private TextView pilotText;
+    private TextView fighterText;
+    private TextView traderText;
+    private TextView engineerText;
+    private TextView totalPointsText;
     private Button okButton;
     private Spinner difficultySpinner;
-    private EditText playerNameTextbox;
+    private EditText playerNameBox;
     private Game myGame;
 
     @Override
@@ -48,7 +54,7 @@ public class addNewPerson extends AppCompatActivity {
         traderText = findViewById(R.id.traderPoints);
         engineerText = findViewById(R.id.engineerPoints);
         totalPointsText = findViewById(R.id.totalPoints);
-        playerNameTextbox = findViewById(R.id.playerName);
+        playerNameBox = findViewById(R.id.playerName);
         okButton = findViewById(R.id.OkButton);
         difficultySpinner = findViewById(R.id.difficultyLevel);
 
@@ -59,15 +65,16 @@ public class addNewPerson extends AppCompatActivity {
         //ConfigurationViewModel configVM;
         //configVM = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
-        playerNameTextbox.addTextChangedListener(nameFieldWatcher);
+        playerNameBox.addTextChangedListener(nameFieldWatcher);
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DifficultyStanding difficulty =
                         (DifficultyStanding) difficultySpinner.getSelectedItem();
-                String playerName = playerNameTextbox.getText().toString();
+                String playerName = playerNameBox.getText().toString();
                 Player myPlayer =
-                        new Player(playerName, difficulty, pilotPts, engrPts, tradePts, fightPts);
+                        new Player(playerName, difficulty, pilotPts,
+                                engineerPts, tradePts, fightPts);
                 Universe myUniverse = new Universe();
                 //configVM.createGame(difficulty, myPlayer, myUniverse);
                 myGame = new Game(difficulty, myPlayer, myUniverse);
@@ -89,9 +96,9 @@ public class addNewPerson extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String playerName = playerNameTextbox.getText().toString();
+            String playerName = playerNameBox.getText().toString();
             isNameGiven = !playerName.isEmpty();
-            okButton.setEnabled(isNameGiven && totalPoints == 0);
+            okButton.setEnabled((isNameGiven) && (totalPoints == 0));
         }
 
         @Override
@@ -105,7 +112,7 @@ public class addNewPerson extends AppCompatActivity {
      * @param v view
      */
     public void pilotPlusButtonOnClick(View v) {
-        if (pilotPts < 10 && pointsGiven < ABILITY_POINTS) {
+        if ((pilotPts < 10) && (pointsGiven < ABILITY_POINTS)) {
             pilotText.setText(Integer.toString(++pilotPts));
             pointsGiven++;
             plusAbilityPointsText(totalPointsText);
@@ -131,7 +138,7 @@ public class addNewPerson extends AppCompatActivity {
      * @param v view
      */
     public void fighterPlusButtonOnClick(View v) {
-        if (fightPts < 10 && pointsGiven < ABILITY_POINTS) {
+        if ((fightPts < 10) && (pointsGiven < ABILITY_POINTS)) {
             fighterText.setText(Integer.toString(++fightPts));
             pointsGiven++;
             plusAbilityPointsText(totalPointsText);
@@ -157,7 +164,7 @@ public class addNewPerson extends AppCompatActivity {
      * @param v view
      */
     public void traderPlusButtonOnClick(View v) {
-        if (tradePts < 10 && pointsGiven < ABILITY_POINTS) {
+        if ((tradePts < 10) && (pointsGiven < ABILITY_POINTS)) {
             traderText.setText(Integer.toString(++tradePts));
             pointsGiven++;
             plusAbilityPointsText(totalPointsText);
@@ -183,8 +190,8 @@ public class addNewPerson extends AppCompatActivity {
      * @param v view
      */
     public void engineerPlusButtonOnClick(View v) {
-        if (engrPts < 10 && pointsGiven < ABILITY_POINTS) {
-            engineerText.setText(Integer.toString(++engrPts));
+        if ((engineerPts < 10) && (pointsGiven < ABILITY_POINTS)) {
+            engineerText.setText(Integer.toString(++engineerPts));
             pointsGiven++;
             plusAbilityPointsText(totalPointsText);
         }
@@ -195,8 +202,8 @@ public class addNewPerson extends AppCompatActivity {
      * @param v view
      */
     public void engineerMinusButtonOnClick(View v) {
-        if (engrPts > 0) {
-            engineerText.setText(Integer.toString(--engrPts));
+        if (engineerPts > 0) {
+            engineerText.setText(Integer.toString(--engineerPts));
             pointsGiven--;
             minusAbilityPointsText(totalPointsText);
         } else {
@@ -223,7 +230,7 @@ public class addNewPerson extends AppCompatActivity {
      */
     private void plusAbilityPointsText(TextView totalPointsText ) {
             totalPointsText.setText(Integer.toString(--totalPoints));
-            okButton.setEnabled(totalPoints == 0 && isNameGiven);
+            okButton.setEnabled((totalPoints == 0) && (isNameGiven));
         }
 
 }

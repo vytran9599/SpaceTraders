@@ -10,7 +10,7 @@ public class Coordinate {
     private final int y;
 
     /**
-     * Constructor of Coodinate
+     * Constructor of Coordinate
      * @param x integer x
      * @param y integer y
      */
@@ -36,14 +36,15 @@ public class Coordinate {
     }
     @Override
     public boolean equals(Object other) {
-        Coordinate coord = (Coordinate) other;
-        return coord.getX() == x && coord.getY() == y;
+        Coordinate coordinate = (Coordinate) other;
+        return (coordinate.getX() == x) && (coordinate.getY() == y);
     }
-    @Override
+
     /**
-     *
-     * To string
+     * To string override
+     * @return String
      */
+    @Override
     public String toString() {
         return "Coordinate: (" + x + ", " + y + "). ";
     }

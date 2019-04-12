@@ -7,7 +7,7 @@ package edu.gatech.cs2340.spacetraders.model;
  *
  * It is a Singleton so that it can be accessed from anywhere in the application
  */
-public class ModelFacade {
+public final class ModelFacade {
     private Game myGame;
     /** Singleton Pattern Code
      *  this allows us to get access to this class

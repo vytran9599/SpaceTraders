@@ -8,6 +8,9 @@ import android.view.View;
 
 import edu.gatech.cs2340.spacetraders.R;
 
+/**
+ * pirate encounter class
+ */
 public class PirateEncounterActivity extends AppCompatActivity {
 
     @Override
@@ -16,6 +19,10 @@ public class PirateEncounterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pirate_encounter);
     }
 
+    /**
+     * run away from pirate
+     * @param v view
+     */
     public void runAwayButtonOnClick(View v) {
         onBackPressed();
     }

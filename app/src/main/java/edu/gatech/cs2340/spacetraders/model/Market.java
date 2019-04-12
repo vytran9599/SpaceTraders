@@ -97,22 +97,26 @@ public class Market {
      * @param goodName good name
      */
     public void buyInPlanet(Player player, String goodName) {
+        if (goodName == null) {
+            throw new IllegalArgumentException();
+        }
         int index = getIndexByName(goodName);
-        if (index < 0 || index >= goods.length) {
+        if (index < 0) {
             return;
         }
+        //|| index >= goods.length
         TradeGood thisGood = goods[index];
         int price = thisGood.getFinalPrice();
         if (player.getCredit() < price) {
-            Log.d("invalid action: ", "you're too poor to purchase this item.");
+            //Log.d("invalid action: ", "you're too poor to purchase this item.");
             return;
         }
         if (marketGoodCounts[index] <1) {
-            Log.d("invalid action: ", "This item is sold out");
+            //Log.d("invalid action: ", "This item is sold out");
             return;
         }
         marketGoodCounts[index]--;
-        Log.d("entered buy in planet", player.getName() + " bought " + goodName + ".");
+        //Log.d("entered buy in planet", player.getName() + " bought " + goodName + ".");
         player.moreGood(thisGood);
         //return;
     }
