@@ -100,7 +100,7 @@ public class Player {
                 personalGoodCounts[index]++;
                 myShip.setCapacity(myShip.getCapacity() + 1);
                 credit = credit - good.getFinalPrice();
-                Log.d("entered moreGood", "More " + good.getName());
+                //Log.d("entered moreGood", "More " + good.getName());
         }
     }
 

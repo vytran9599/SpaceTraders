@@ -60,7 +60,7 @@ public class Ship {
      */
     public void setCapacity(int c) {
         capacity = c;
-        Log.d("entered setCapacity() "," new capacity: " + capacity);
+        //Log.d("entered setCapacity() "," new capacity: " + capacity);
     }
 
     /**
