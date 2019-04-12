@@ -17,7 +17,12 @@ public class CurrentSS extends AppCompatActivity {
 
     private SolarSystem currentSS;
 
-    private TextView planetText, resText, techText, govText, polText, pirText;
+    private TextView planetText;
+    private TextView resText;
+    private TextView techText;
+    private TextView govText;
+    private TextView polText;
+    private TextView pirText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -23,7 +23,7 @@ class MarketViewModel extends AndroidViewModel {
 // --Commented out by Inspection STOP (4/7/19, 11:27 PM)
 
     /**
-     * settes method
+     * setter method
      * @param p planet
      */
     public void setMarket(Planet p) {

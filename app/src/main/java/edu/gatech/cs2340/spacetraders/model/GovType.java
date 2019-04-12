@@ -21,7 +21,7 @@ public enum GovType {
      * @return government type
      */
     public static GovType getTypeByNumber(int a) {
-        if (a < 0 || a > 4) {
+        if ((a < 0) || (a > 4)) {
             throw new IllegalArgumentException("Out of range");
         }
         for (GovType level: values()) {

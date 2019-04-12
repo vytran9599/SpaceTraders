@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 //import android.support.design.widget.FloatingActionButton;
-//import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 //import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -18,11 +17,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 import edu.gatech.cs2340.spacetraders.R;
 import edu.gatech.cs2340.spacetraders.model.Game;
@@ -58,14 +52,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Load game button on click
+     * @param v view
+     */
     public void loadGameButtonOnClick(View v) {
         if (myGson != null) {
-            System.out.println("myGson isn't null yay");
+            //System.out.println("myGson isn't null yay");
             SharedPreferences loadGame = getSharedPreferences(SAVE, 0);
             String myJson = loadGame.getString(SAVE_GAME, null);
             Game myGame = myGson.fromJson(myJson, Game.class);
             ModelFacade.getInstance().setGame(myGame);
-            System.out.println("name of player: " + ModelFacade.getInstance().getGame().getPlayer().getName());
+            //System.out.println("name of player: " +
+            // ModelFacade.getInstance().getGame().getPlayer().getName());
             startActivity(new Intent(MainActivity.this, MainGame.class));
 //        try
 //        {
@@ -89,6 +89,11 @@ public class MainActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
         }
     }
+
+    /**
+     * save game button on click
+     * @param v view
+     */
     public void saveGameButtonOnClick(View v) {
         if (ModelFacade.getInstance().getGame() != null) {
             myGson = new Gson();

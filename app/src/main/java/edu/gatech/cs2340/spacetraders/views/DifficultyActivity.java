@@ -7,14 +7,16 @@ import android.widget.AdapterView;
 //import edu.gatech.cs2340.spacetraders.R;
 
 /**
- * DifficultyAcitivity class
+ * Difficulty Acitivity class
  */
 public class DifficultyActivity extends Activity implements AdapterView.OnItemSelectedListener {
+    @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
         // An item was selected. You can retrieve the selected item using
         // parent.getItemAtPosition(pos)
         parent.getItemAtPosition(pos);
     }
+    @Override
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }

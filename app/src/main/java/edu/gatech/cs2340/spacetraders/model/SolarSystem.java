@@ -7,7 +7,7 @@ import java.util.HashSet;
  * Solar System class
  */
 public class SolarSystem {
-    private final Coordinate coord;
+    private final Coordinate coordinate;
     private final String name;
     private final TechLevel tech;
     private final Resources resource;
@@ -19,22 +19,24 @@ public class SolarSystem {
 
     /**
      * solar system constructor
-     * @param coor coordinate
+     * @param coordinate coordinate
      * @param nam string
-     * @param tec techlevel
-     * @param recourc resources
+     * @param tech tech
+     * @param recource resources
      * @param g government type
      * @param pi pirate level
      * @param po police level
      * @param cond condition
      * @param planet planet
      */
-    public SolarSystem(Coordinate coor, String nam, TechLevel tec, Resources recourc, GovType g,
-                       PirateLevel pi, PoliceLevel po, Condition cond, HashSet<Planet> planet) {
-        coord = coor;
+    public SolarSystem(Coordinate coordinate, String nam, TechLevel tech,
+                       Resources recource, GovType g,
+                       PirateLevel pi, PoliceLevel po, Condition cond,
+                       HashSet<Planet> planet) {
+        this.coordinate = coordinate;
         name = nam;
-        tech = tec;
-        resource = recourc;
+        this.tech = tech;
+        this.resource = recource;
         gov = g;
         pirate = pi;
         police = po;
@@ -45,7 +47,7 @@ public class SolarSystem {
     @Override
     public boolean equals(Object other) {
         SolarSystem newP = (SolarSystem) other;
-        return newP.getName().equals(name) || newP.getCoordinate().equals(coord);
+        return newP.getName().equals(name) || newP.getCoordinate().equals(coordinate);
     }
 
     /**
@@ -72,7 +74,7 @@ public class SolarSystem {
      * @return coordinate
      */
     public Coordinate getCoordinate() {
-        return coord;
+        return coordinate;
     }
 
     /**
@@ -170,7 +172,7 @@ public class SolarSystem {
         for(Planet a:planets) {
             p.append(a).append(" ");
         }
-        return "Name of Solar System: " + name + "\n" + coord +
+        return "Name of Solar System: " + name + "\n" + coordinate +
                 "\nTechLevel: " + tech + "\nResources: " + resource +
                 "\nGovernment Type: " + gov + "\nPirate Level: " +
                 pirate + "\nPolice Level: " + police + "\nCondition: " + condition

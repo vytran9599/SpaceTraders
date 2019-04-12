@@ -4,6 +4,7 @@ package edu.gatech.cs2340.spacetraders.model;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 /**
  * Universe class
@@ -18,7 +19,7 @@ public class Universe {
      * Universe constructor
      */
     public Universe() {
-        ArrayList<String> solarNames = new ArrayList<>();
+        List<String> solarNames = new ArrayList<>();
          final String[] names = {
                 "Acamar",
                 "Adahn",		// The alternate personality for The Nameless One in "Planescape: Torment"
@@ -204,12 +205,12 @@ public class Universe {
                 currentSolarSystem.getCoordinate().getY();
         int distance = Math.abs(a - b);
 
-        System.out.println("fuel before travel: " + player.getMyShip().getFuel());
+        //System.out.println("fuel before travel: " + player.getMyShip().getFuel());
 
         player.getMyShip().setFuel(player.getMyShip().getFuel() - distance);
 
-        System.out.println("new solar: " + newS.getName() + " distance: " + distance +
-                " new fuel:" + player.getMyShip().getFuel());
+        //System.out.println("new solar: " + newS.getName() + " distance: " + distance +
+                //" new fuel:" + player.getMyShip().getFuel());
 
         currentSolarSystem = getSolarSystemByName(solarSysName);
         currentPlanet = currentSolarSystem.getRandomPlanet();
@@ -257,34 +258,35 @@ public class Universe {
      // get solar system
      // @return hashset
      //
+
+    /**
+     * get solar system
+     * @return a set of solar system
+     */
     public HashSet<SolarSystem> getSolarSystems() {
         return solarSystems;
     }
 
     /**
-// --Commented out by Inspection START (4/7/19, 11:27 PM):
-//     * get current solar system
-//     * @return solar system
-//     */
+     * getter for solar system
+     * @return soalr system
+     */
     public SolarSystem getCurrentSolarSystem() {
         return currentSolarSystem;
     }
-//
-//    /**
-//     * get current planet
-// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
-// --Commented out by Inspection START (4/7/19, 11:27 PM):
-//     * @return planet
-//     */
+
+    /**
+     * get planet
+     * @return planet
+     */
     public Planet getCurrentPlanet() {
         return currentPlanet;
     }
-//
-//    /**
-//     * set current solar system
-// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
-     // @param s solar system
-     ///
+
+    /**
+     * set current solar system
+     * @param s solar system
+     */
     public void setCurrentSolarSystem(SolarSystem s) {
         currentSolarSystem = s;
     }
