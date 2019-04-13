@@ -22,7 +22,7 @@ public class Planet {
      * getters for name
      * @return string
      */
-    public String getName() {
+    private String getName() {
         return name;
     }
 
