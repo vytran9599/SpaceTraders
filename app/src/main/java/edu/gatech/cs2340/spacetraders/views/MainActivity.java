@@ -26,8 +26,8 @@ import edu.gatech.cs2340.spacetraders.model.ModelFacade;
  * Main activity class
  */
 public class MainActivity extends AppCompatActivity {
-    public static final String SAVE = "MySavedGameFile";
-    public static final String SAVE_GAME = "SavedGame";
+    private static final String SAVE = "MySavedGameFile";
+    private static final String SAVE_GAME = "SavedGame";
     private Gson myGson;
     //private Game saveGame;
 

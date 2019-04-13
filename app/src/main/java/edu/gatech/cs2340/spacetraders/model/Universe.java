@@ -3,8 +3,8 @@ package edu.gatech.cs2340.spacetraders.model;
 //import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 
 /**
  * Universe class
@@ -19,7 +19,7 @@ public class Universe {
      * Universe constructor
      */
     public Universe() {
-        List<String> solarNames = new ArrayList<>();
+        Collection<String> solarNames = new ArrayList<>();
          final String[] names = {
                 "Acamar",
                 "Adahn",		// The alternate personality for The Nameless One in "Planescape: Torment"

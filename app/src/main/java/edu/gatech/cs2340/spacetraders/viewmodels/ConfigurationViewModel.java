@@ -14,7 +14,7 @@ import android.arch.lifecycle.AndroidViewModel;
  * This class handles the user input events and
  * sets up the data for the model to be initialized
  */
-public class ConfigurationViewModel extends AndroidViewModel {
+class ConfigurationViewModel extends AndroidViewModel {
     // --Commented out by Inspection (4/7/19, 11:27 PM):private Game myGame;
     //private Player myPlayer;
 
