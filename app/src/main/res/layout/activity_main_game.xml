@@ -33,6 +33,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/spaceship"
+        android:onClick="shipButtonOnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -347,7 +348,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:text="TextView"
+        android:text="Text"
         android:textColor="@android:color/background_light"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView23"
         app:layout_constraintStart_toEndOf="@+id/textView23" />
@@ -370,7 +371,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:text="TextView"
+        android:text="Text"
         android:textColor="@android:color/background_light"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView25"
         app:layout_constraintStart_toEndOf="@+id/textView25" />

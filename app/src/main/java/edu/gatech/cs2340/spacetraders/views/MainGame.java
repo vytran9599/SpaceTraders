@@ -81,7 +81,7 @@ public class MainGame extends AppCompatActivity {
 
         fuelBar = findViewById(R.id.fuelBar);
         fuelBar.setScaleY(3);
-        fuelBar.setMax(myPlayer.getMyShip().getFuel());
+        fuelBar.setMax(myPlayer.getMyShip().getFuelCapacity());
 
         travelButton = findViewById(R.id.travelButton);
     }
@@ -122,7 +122,7 @@ public class MainGame extends AppCompatActivity {
      * @param v view
      */
     public void marketplaceButtonOnClick(View v) {
-        startActivity(new Intent(MainGame.this, marketplace.class));
+        startActivity(new Intent(MainGame.this, MarketplaceActivity.class));
     }
 
     /**
@@ -131,6 +131,10 @@ public class MainGame extends AppCompatActivity {
      */
     public void currentSSInfoButtonOnClick(View v) {
         startActivity(new Intent(MainGame.this, CurrentSS.class));
+    }
+
+    public void shipButtonOnClick(View v) {
+        startActivity(new Intent(MainGame.this, ShipStatsActivity.class));
     }
 
 
