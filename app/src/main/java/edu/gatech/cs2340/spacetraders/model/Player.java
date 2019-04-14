@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetraders.model;
 
+import android.util.Log;
 
 //import java.util.HashMap;
 
@@ -10,10 +11,7 @@ package edu.gatech.cs2340.spacetraders.model;
 public class Player {
     //added final
     private final String name;
-    private final int pilotPts;
-    private final int engineerPts;
-    private final int tradePts;
-    private final int fightPts;
+    private final int pilotPts, engrPts, tradePts, fightPts;
     private int credit;
     private Ship myShip;
     private final DifficultyStanding difficulty;
@@ -46,17 +44,17 @@ public class Player {
      * @param name name
      * @param difficulty difficulty
      * @param pilotPts pilot points
-     * @param engineerPts engineer points
+     * @param engrPts engineer points
      * @param tradePts trade points
      * @param fightPts fight points
      */
     public Player(String name, DifficultyStanding difficulty, int pilotPts,
-                  int engineerPts,
+                  int engrPts,
                   int tradePts, int fightPts) {
         this.name = name;
         this.difficulty = difficulty;
         this.pilotPts = pilotPts;
-        this.engineerPts = engineerPts;
+        this.engrPts = engrPts;
         this.tradePts = tradePts;
         this.fightPts = fightPts;
         credit = 1000;
@@ -71,7 +69,7 @@ public class Player {
      */
     public boolean hasGood(String goodName) {
         int index = getIndexByName(goodName);
-        if ((index < 0) || (index >= personalGoodCounts.length)) {
+        if (index < 0 || index >= personalGoodCounts.length) {
             return false;
         }
         return personalGoodCounts[index] > 0;
@@ -83,7 +81,7 @@ public class Player {
      */
     public void lessGood(TradeGood good) {
         int index = getIndexByName(good.getName());
-        if ((index >= 0) && (index < goods.length)) {
+        if (index >= 0 && index < goods.length) {
             if (personalGoodCounts[index] > 0) {
                 personalGoodCounts[index]--;
                 credit = credit + good.getFinalPrice();
@@ -98,12 +96,11 @@ public class Player {
      */
     public void moreGood(TradeGood good) {
         int index = getIndexByName(good.getName());
-        if ((index >= 0) && (index < goods.length) && (myShip.getCapacity()
-                < myShip.getMaxCapacity())) {
-                personalGoodCounts[index]++;
-                myShip.setCapacity(myShip.getCapacity() + 1);
-                credit = credit - good.getFinalPrice();
-                //Log.d("entered moreGood", "More " + good.getName());
+        if (index >= 0 && index < goods.length && myShip.getCapacity() < myShip.getMaxCapacity()) {
+            personalGoodCounts[index]++;
+            myShip.setCapacity(myShip.getCapacity() + 1);
+            credit = credit - good.getFinalPrice();
+            Log.d("entered moreGood", "More " + good.getName());
         }
     }
 
@@ -167,11 +164,12 @@ public class Player {
 //        return engrPts;
 //    }
 // --Commented out by Inspection STOP (4/7/19, 11:27 PM)
-// --Commented out by Inspection START (4/7/19, 11:27 PM):
-// --Commented out by Inspection START (4/7/19, 11:27 PM):
-////     * getter method for player's trade points
-////     * @return the trade points of the player
-////     */
+    /**
+     // --Commented out by Inspection START (4/7/19, 11:27 PM):
+     // --Commented out by Inspection START (4/7/19, 11:27 PM):
+     ////     * getter method for player's trade points
+     ////     * @return the trade points of the player
+     ////     */
 ////    public int getTradePts(){
 ////        return tradePts;
 // --Commented out by Inspection START (4/7/19, 11:27 PM):
@@ -181,13 +179,8 @@ public class Player {
 ////     * getter method for player's fight points
 //// --Commented out by Inspection STOP (4/7/19, 11:27 PM)
 // --Commented out by Inspection STOP (4/7/19, 11:27 PM)
-     // @return the fight points of the player
-     ///
-
-    /**
-     * get fight points
-     * @return int
-     */
+    // @return the fight points of the player
+    ///
     public int getFightPts(){
         return fightPts;
     }
@@ -232,7 +225,7 @@ public class Player {
         return String.format(
                 "Name: %s, pilot points: %d, engineer points: %d, "
                         + "trade points: %d, fight points: %d, credit: %d, ship: %s",
-                name, pilotPts, engineerPts, tradePts, fightPts, credit,
+                name, pilotPts, engrPts, tradePts, fightPts, credit,
                 myShip.getShipType().toString());
     }
 }
