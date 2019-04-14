@@ -79,7 +79,6 @@
         tools:text="saves game" />
 
     <Button
-        android:id="@+id/loadGame"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

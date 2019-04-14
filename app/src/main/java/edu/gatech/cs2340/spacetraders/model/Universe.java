@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 
+
 /**
  * Universe class
  */
@@ -283,9 +284,9 @@ public class Universe {
         return currentPlanet;
     }
 
-    /**
-     * set current solar system
-     * @param s solar system
+    /*
+      set current solar system
+      @param s solar system
      */
   //  public void setCurrentSolarSystem(SolarSystem s) {
    //     currentSolarSystem = s;
@@ -298,6 +299,7 @@ public class Universe {
  //   public void setCurrentPlanet(Planet p) {
   //      currentPlanet = p;
   //  }
+    @Override
     public String toString() {
         StringBuilder ans = new StringBuilder("\n");
         for (SolarSystem s: solarSystems) {

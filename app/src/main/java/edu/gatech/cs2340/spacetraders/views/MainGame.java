@@ -59,9 +59,9 @@ public class MainGame extends AppCompatActivity {
         } else {
             Log.d("Error:", " not enough fuel to travel to any solar systems");
         }
-        for (SolarSystem s:SSTravelList) {
+        //for (SolarSystem s:SSTravelList) {
             //System.out.print(s.getName() + " ");
-        }
+       // }
         //System.out.println("\n selected ss: " + selectedSS.getName() + " should be: "
                 //+ SSTravelList.get(0).getName());
         set();

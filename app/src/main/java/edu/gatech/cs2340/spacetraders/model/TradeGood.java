@@ -55,9 +55,9 @@ public class TradeGood {
         this.cr = cr;
         this.er = er;
         //Min price offered in space trade with random trader (not on a planet)
-        final int mtl;
-        mtl = mtlIn;
+        final int mtl = mtlIn;
         //Max price offered in space trade with random trader (not on a planet)
+        final int mth = mthIn;
         basePrice = base;
         finalPrice = base;
     }
