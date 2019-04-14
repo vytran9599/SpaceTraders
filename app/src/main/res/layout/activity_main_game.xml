@@ -55,7 +55,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CurrentSSInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/CurrentSSInfo"
+        android:contentDescription="Market Place" />
 
     <ImageButton
         android:id="@+id/CurrentSSInfo"
@@ -71,7 +72,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Current Planet" />
 
     <Button
         android:id="@+id/universe_button"
@@ -104,7 +106,8 @@
         app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/steel_background" />
+        app:srcCompat="@drawable/steel_background"
+        android:contentDescription="Planet Description" />
 
     <TextView
         android:id="@+id/planet_text"
