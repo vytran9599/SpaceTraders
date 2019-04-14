@@ -74,7 +74,7 @@ public class MainGame extends AppCompatActivity {
 
         fuelBar = findViewById(R.id.fuelBar);
         fuelBar.setScaleY(3);
-        fuelBar.setMax(myPlayer.getMyShip().getFuel());
+        fuelBar.setMax(myPlayer.getMyShip().getFuelCapacity());
 
         travelButton = findViewById(R.id.travelButton);
     }

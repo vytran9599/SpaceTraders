@@ -10,6 +10,7 @@ public class Ship {
     private int maxCapacity;
     private int capacity;
     private int fuel;
+    private int fuelCapacity;
 
     /**
      * constructor
@@ -19,6 +20,7 @@ public class Ship {
         shipType = ShipType.GNAT;
         maxCapacity = 20;
         capacity = 0;
+        fuelCapacity = p * 25 + 25;
         fuel = p * 25 + 25;
     }
 
@@ -44,6 +46,14 @@ public class Ship {
      */
     public int getFuel() {
         return fuel;
+    }
+
+    /**
+     * getter fuel
+     * @return integer
+     */
+    public int getFuelCapacity() {
+        return fuelCapacity;
     }
 
     /**
