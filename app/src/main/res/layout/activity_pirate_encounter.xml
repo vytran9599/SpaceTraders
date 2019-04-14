@@ -37,7 +37,6 @@
         app:srcCompat="@drawable/cat_pirate" />
 
     <Button
-        android:id="@+id/runAway"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"

@@ -43,9 +43,9 @@ public class Game implements java.io.Serializable{
    //     this.ds = ds;
   //  }
 
-    /**
-     * the getter method for the difficulty standing of this game
-     * @return the difficulty standing of this game
+    /*
+      the getter method for the difficulty standing of this game
+      @return the difficulty standing of this game
      */
  //   public DifficultyStanding getDS() {
       //  return ds;

@@ -1,6 +1,8 @@
 package edu.gatech.cs2340.spacetraders.model;
 
 //import java.util.ArrayList;
+import android.support.annotation.NonNull;
+
 import java.util.HashSet;
 
 /**
