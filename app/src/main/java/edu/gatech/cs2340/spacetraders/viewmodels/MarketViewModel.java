@@ -3,14 +3,14 @@ package edu.gatech.cs2340.spacetraders.viewmodels;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 
-import edu.gatech.cs2340.spacetraders.model.Market;
-import edu.gatech.cs2340.spacetraders.model.Planet;
+//import edu.gatech.cs2340.spacetraders.model.Market;
+//import edu.gatech.cs2340.spacetraders.model.Planet;
 
 /**
  * Market view model class
  */
 class MarketViewModel extends AndroidViewModel {
-    private Market myMarket;
+   // private Market myMarket;
 
 // --Commented out by Inspection START (4/7/19, 11:27 PM):
 //    /**
@@ -22,13 +22,13 @@ class MarketViewModel extends AndroidViewModel {
     }
 // --Commented out by Inspection STOP (4/7/19, 11:27 PM)
 
-    /**
-     * setter method
-     * @param p planet
+    /*
+      setter method
+      @param p planet
      */
-    public void setMarket(Planet p) {
-        myMarket = p.getMarket();
-    }
+    //public void setMarket(Planet p) {
+      //  myMarket = p.getMarket();
+   // }
 
 // --Commented out by Inspection START (4/7/19, 11:27 PM):
 //    /**

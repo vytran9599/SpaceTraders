@@ -23,10 +23,7 @@ public class TradeGood {
     private final Resources cr;
     //When this condition is present, the resource is expensive
     private final Resources er;
-    //Min price offered in space trade with random trader (not on a planet)
-    private final int mtl;
-    //Max price offered in space trade with random trader (not on a planet)
-    private final int mth;
+
     //base price for the good
     private final int basePrice;
     private int finalPrice;
@@ -42,12 +39,12 @@ public class TradeGood {
      * @param ie ie
      * @param cr cr
      * @param er er
-     * @param mtl mtl
-     * @param mth mth
+     * @param mtlIn mtl
+     * @param mthIn mth
      * @param base base
      */
     public TradeGood(String n, int mtlp, int mtlu, int ttp, int ipl, int var, Condition ie,
-                     Resources cr, Resources er, int mtl, int mth, int base) {
+                     Resources cr, Resources er, int mtlIn, int mthIn, int base) {
         this.name = n;
         this.mtlp = mtlp;
         this.mtlu = mtlu;
@@ -57,8 +54,10 @@ public class TradeGood {
         this.ie = ie;
         this.cr = cr;
         this.er = er;
-        this.mtl = mtl;
-        this.mth = mth;
+        //Min price offered in space trade with random trader (not on a planet)
+        final int mtl;
+        mtl = mtlIn;
+        //Max price offered in space trade with random trader (not on a planet)
         basePrice = base;
         finalPrice = base;
     }

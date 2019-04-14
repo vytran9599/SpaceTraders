@@ -7,7 +7,7 @@ import android.widget.AdapterView;
 //import edu.gatech.cs2340.spacetraders.R;
 
 /**
- * Difficulty Acitivity class
+ * Difficulty Activity class
  */
 public class DifficultyActivity extends Activity implements AdapterView.OnItemSelectedListener {
     @Override

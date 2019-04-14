@@ -6,7 +6,7 @@ import android.util.Log;
  * Game class
  */
 public class Game implements java.io.Serializable{
-    private DifficultyStanding ds;
+    private final DifficultyStanding ds;
     //added final
     private final Player thisPlayer;
     //added final
@@ -35,21 +35,21 @@ public class Game implements java.io.Serializable{
     }
 
 
-    /**
-     * setter method for the difficulty standing of this game
-     * @param ds the new difficulty standing
+    /*
+      setter method for the difficulty standing of this game
+      @param ds the new difficulty standing
      */
-    public void setDS(DifficultyStanding ds) {
-        this.ds = ds;
-    }
+  //  public void setDS(DifficultyStanding ds) {
+   //     this.ds = ds;
+  //  }
 
     /**
      * the getter method for the difficulty standing of this game
      * @return the difficulty standing of this game
      */
-    public DifficultyStanding getDS() {
-        return ds;
-    }
+ //   public DifficultyStanding getDS() {
+      //  return ds;
+   // }
 
     /**
      * Get Universe

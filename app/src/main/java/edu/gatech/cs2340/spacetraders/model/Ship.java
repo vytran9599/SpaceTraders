@@ -6,8 +6,8 @@ import android.util.Log;
  * Ship class
  */
 public class Ship {
-    private ShipType shipType;
-    private int maxCapacity;
+    private final ShipType shipType;
+    private final int maxCapacity;
     private int capacity;
     private int fuel;
 
