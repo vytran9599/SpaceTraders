@@ -16,7 +16,6 @@ import edu.gatech.cs2340.spacetraders.R;
  */
 public class ConfigurationActivity extends AppCompatActivity {
     //private GameViewModel viewModel;
-    private Spinner difficultySpinner;
     // --Commented out by Inspection (4/7/19, 11:27 PM):private Game game;
     //private boolean editing;
 
@@ -24,7 +23,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_person);
-
+        Spinner difficultySpinner;
         difficultySpinner = findViewById(R.id.difficultyLevel);
 
         ArrayAdapter<DifficultyStanding> difficultyAdapter =new ArrayAdapter<>

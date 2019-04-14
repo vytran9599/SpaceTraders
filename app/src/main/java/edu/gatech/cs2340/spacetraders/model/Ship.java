@@ -1,11 +1,12 @@
 package edu.gatech.cs2340.spacetraders.model;
 
+import android.util.Log;
 
 /**
  * Ship class
  */
-public final class Ship {
-    private ShipType shipType;
+public class Ship {
+    private final ShipType shipType;
     private final int maxCapacity;
     private int capacity;
     private int fuel;
@@ -59,7 +60,7 @@ public final class Ship {
      */
     public void setCapacity(int c) {
         capacity = c;
-        //Log.d("entered setCapacity() "," new capacity: " + capacity);
+        Log.d("entered setCapacity() "," new capacity: " + capacity);
     }
 
     /**
@@ -85,14 +86,9 @@ public final class Ship {
 //     * Setter method for the ship type
 //     * @param newType the new ship type of this ship
 // --Commented out by Inspection STOP (4/7/19, 11:27 PM)
-
-    /**
-     * set ship type
-     * @param newType ship type
-     */
-    public void setShipType(ShipType newType) {
-        shipType = newType;
-    }
+    //public void setShipType(ShipType newType) {
+   //     shipType = newType;
+   // }
 
 
 }

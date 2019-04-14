@@ -44,12 +44,9 @@ public class MainActivity extends AppCompatActivity {
         animation.setRepeatMode(Animation.REVERSE);
         Button newPlayer = findViewById(R.id.newPlayer);
         newPlayer.startAnimation(animation);
-        newPlayer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                v.clearAnimation();
-                startActivity(new Intent(MainActivity.this, addNewPerson.class));
-            }
+        newPlayer.setOnClickListener(v -> {
+            v.clearAnimation();
+            startActivity(new Intent(MainActivity.this, addNewPerson.class));
         });
     }
 

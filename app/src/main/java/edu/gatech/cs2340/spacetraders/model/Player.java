@@ -16,7 +16,6 @@ public class Player {
     private final int fightPts;
     private int credit;
     private Ship myShip;
-    private final DifficultyStanding difficulty;
     private final int[] personalGoodCounts;
     private final TradeGood[] goods = {
             new TradeGood("Water", 0, 0, 2, 3, 4, Condition.DROUGHT, Resources.LOTSOFWATER,
@@ -44,17 +43,16 @@ public class Player {
     /**
      *
      * @param name name
-     * @param difficulty difficulty
+     * @param difficultyIn difficulty
      * @param pilotPts pilot points
      * @param engineerPts engineer points
      * @param tradePts trade points
      * @param fightPts fight points
      */
-    public Player(String name, DifficultyStanding difficulty, int pilotPts,
+    public Player(String name, DifficultyStanding difficultyIn, int pilotPts,
                   int engineerPts,
                   int tradePts, int fightPts) {
         this.name = name;
-        this.difficulty = difficulty;
         this.pilotPts = pilotPts;
         this.engineerPts = engineerPts;
         this.tradePts = tradePts;

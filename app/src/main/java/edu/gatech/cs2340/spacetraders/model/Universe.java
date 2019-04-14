@@ -259,13 +259,13 @@ public class Universe {
      // @return hashset
      //
 
-    /**
-     * get solar system
-     * @return a set of solar system
+    /*
+      get solar system
+      @return a set of solar system
      */
-    public HashSet<SolarSystem> getSolarSystems() {
-        return solarSystems;
-    }
+  //  public HashSet<SolarSystem> getSolarSystems() {
+    //    return solarSystems;
+ //   }
 
     /**
      * getter for solar system
@@ -287,17 +287,17 @@ public class Universe {
      * set current solar system
      * @param s solar system
      */
-    public void setCurrentSolarSystem(SolarSystem s) {
-        currentSolarSystem = s;
-    }
+  //  public void setCurrentSolarSystem(SolarSystem s) {
+   //     currentSolarSystem = s;
+  //  }
 
     /**
      * set current planet
-     * @param p planet
+   //* @param p planet
      */
-    public void setCurrentPlanet(Planet p) {
-        currentPlanet = p;
-    }
+ //   public void setCurrentPlanet(Planet p) {
+  //      currentPlanet = p;
+  //  }
     public String toString() {
         StringBuilder ans = new StringBuilder("\n");
         for (SolarSystem s: solarSystems) {
