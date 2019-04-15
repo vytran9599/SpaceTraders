@@ -10,6 +10,7 @@ public class Ship {
     private final int maxCapacity;
     private int capacity;
     private int fuel;
+    private final int FUELFACTOR = 25;
 
     /**
      * constructor
@@ -19,7 +20,7 @@ public class Ship {
         shipType = ShipType.GNAT;
         maxCapacity = 20;
         capacity = 0;
-        fuel = p * 25 + 25;
+        fuel = p * FUELFACTOR + FUELFACTOR;
     }
 
     /**

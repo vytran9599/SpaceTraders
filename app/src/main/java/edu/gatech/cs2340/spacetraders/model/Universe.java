@@ -15,6 +15,11 @@ public class Universe {
     private final HashSet<SolarSystem> solarSystems;
     private SolarSystem currentSolarSystem;
     private Planet currentPlanet;
+    private final int CO_SIZE = 150;
+    private final int RES_SIZE = 15;
+    private final double PIRATE_LEVEL = 3.99;
+    private final double POLICE_LEVEL = 3.99;
+    private final int COND_SIZE = 20;
 
     /**
      * Universe constructor
@@ -144,15 +149,15 @@ public class Universe {
                 "Zuul"};
         solarSystems = new HashSet<>();
         while (solarSystems.size() < 10) {
-            Coordinate co = new Coordinate((int) (Math.random() * 150 + 1),
+            Coordinate co = new Coordinate((int) (Math.random() * CO_SIZE + 1),
                     (int) (Math.random() * 100 + 1));
             String name = names[(int) (Math.random() * names.length)];
             TechLevel level = TechLevel.getLevelByNumber((int) (Math.random() * 7));
-            Resources re = Resources.getResourcesByNumber((int) (Math.random() * 15));
+            Resources re = Resources.getResourcesByNumber((int) (Math.random() * RES_SIZE));
             GovType gov = GovType.getTypeByNumber((int) (Math.random() * 4));
-            PirateLevel pirate = PirateLevel.getLevelByNumber((int) (Math.random() * 3.99));
-            PoliceLevel police = PoliceLevel.getLevelByNumber((int) (Math.random() * 3.99));
-            Condition cond = Condition.getConditionByNumber((int) (Math.random() * 20));
+            PirateLevel pirate = PirateLevel.getLevelByNumber((int) (Math.random() * PIRATE_LEVEL));
+            PoliceLevel police = PoliceLevel.getLevelByNumber((int) (Math.random() * POLICE_LEVEL));
+            Condition cond = Condition.getConditionByNumber((int) (Math.random() * COND_SIZE));
             HashSet<Planet> planets = new HashSet<>();
             while (planets.size() < 3) {
                 Market mar = new Market(cond, re, level);
