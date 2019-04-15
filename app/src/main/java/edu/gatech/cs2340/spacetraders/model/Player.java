@@ -17,25 +17,25 @@ public class Player {
     private final int[] personalGoodCounts;
     private final TradeGood[] goods = {
             new TradeGood("Water", 0, 0, 2, 3, 4, Condition.DROUGHT, Resources.LOTSOFWATER,
-                    Resources.DESERT, 30, 50, 30 ),
+                    Resources.DESERT, 30 ),
             new TradeGood("Furs", 0, 0, 0, 10, 10, Condition.COLD, Resources.RICHFAUNA,
-                    Resources.LIFELESS, 230, 280, 250),
+                    Resources.LIFELESS, 250),
             new TradeGood("Food", 1, 0, 1, 5, 5, Condition.CROPFAIL, Resources.RICHSOIL,
-                    Resources.POORSOIL, 90, 160, 100),
+                    Resources.POORSOIL, 100),
             new TradeGood("Ore", 2, 2, 3, 20, 10, Condition.WAR, Resources.MINERALRICH,
-                    Resources.MINERALPOOR, 350, 420, 350),
+                    Resources.MINERALPOOR, 350),
             new TradeGood("Games", 3, 1, 6, -10, 5, Condition.BOREDOM,
-                    Resources.ARTISTIC, null, 160, 270, 250),
+                    Resources.ARTISTIC, null, 250),
             new TradeGood("Firearms", 3, 1, 5, -75, 100, Condition.WAR,
-                    Resources.WARLIKE, null, 600, 1100, 1250),
+                    Resources.WARLIKE, null, 1250),
             new TradeGood("Medicine", 4, 1, 6, -20, 10, Condition.PLAGUE,
-                    Resources.LOTSOFHERBS, null, 400, 700, 650),
+                    Resources.LOTSOFHERBS, null, 650),
             new TradeGood("Machines", 4, 3, 5, -30, 5, Condition.LACKOOFWORKERS,
-                    null, null, 600, 800, 900),
+                    null, null, 900),
             new TradeGood("Narcotics", 5, 0, 5, -125, 150, Condition.BOREDOM,
-                    Resources.WEIRDMUSHROOMS, null, 2000, 3000, 3500),
+                    Resources.WEIRDMUSHROOMS, null, 3500),
             new TradeGood("Robots", 6, 4, 7, -150, 100, Condition.LACKOOFWORKERS,
-                    null, null, 3500, 5000, 5000)
+                    null, null, 5000)
     };
 
     /**
@@ -43,7 +43,7 @@ public class Player {
      * @param name name
      * @param difficultyIn difficulty
      * @param pilotPts pilot points
-     * @param engrPts engineer points
+     * @param engineerPts engineer points
      * @param tradePts trade points
      * @param fightPts fight points
      */
@@ -53,7 +53,7 @@ public class Player {
                   int tradePts, int fightPts) {
         this.name = name;
         this.pilotPts = pilotPts;
-        this.engrPts = engrPts;
+        this.engrPts = engineerPts;
         this.tradePts = tradePts;
         this.fightPts = fightPts;
         credit = 1000;

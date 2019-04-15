@@ -36,6 +36,9 @@ public class Coordinate {
     }
     @Override
     public boolean equals(Object other) {
+        if (!(other instanceof Coordinate)) {
+            return false;
+        }
         Coordinate coordinate = (Coordinate) other;
         return (coordinate.getX() == x) && (coordinate.getY() == y);
     }

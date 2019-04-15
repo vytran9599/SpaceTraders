@@ -39,12 +39,10 @@ public class TradeGood {
      * @param ie ie
      * @param cr cr
      * @param er er
-     * @param mtlIn mtl
-     * @param mthIn mth
      * @param base base
      */
     public TradeGood(String n, int mtlp, int mtlu, int ttp, int ipl, int var, Condition ie,
-                     Resources cr, Resources er, int mtlIn, int mthIn, int base) {
+                     Resources cr, Resources er, int base) {
         this.name = n;
         this.mtlp = mtlp;
         this.mtlu = mtlu;
@@ -55,9 +53,7 @@ public class TradeGood {
         this.cr = cr;
         this.er = er;
         //Min price offered in space trade with random trader (not on a planet)
-        final int mtl = mtlIn;
         //Max price offered in space trade with random trader (not on a planet)
-        final int mth = mthIn;
         basePrice = base;
         finalPrice = base;
     }
