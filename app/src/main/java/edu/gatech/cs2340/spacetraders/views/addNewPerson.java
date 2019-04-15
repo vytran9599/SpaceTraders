@@ -67,25 +67,22 @@ public class addNewPerson extends AppCompatActivity {
         //configVM = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
         playerNameBox.addTextChangedListener(nameFieldWatcher);
-        okButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DifficultyStanding difficulty =
-                        (DifficultyStanding) difficultySpinner.getSelectedItem();
-                String playerName = playerNameBox.getText().toString();
-                Player myPlayer =
-                        new Player(playerName, difficulty, pilotPts,
-                                engineerPts, tradePts, fightPts);
-                Universe myUniverse = new Universe();
-                //configVM.createGame(difficulty, myPlayer, myUniverse);
-                myGame = new Game(difficulty, myPlayer, myUniverse);
-                ModelFacade.getInstance().setGame(myGame);
-                Log.d("My Game's Information", ModelFacade.getInstance().getGame().toString());
-                Log.d("My Universe Information",
-                        ModelFacade.getInstance().getGame().getMyUniverse().toString());
-                startActivity(new Intent(addNewPerson.this, MainGame.class));
+        okButton.setOnClickListener(v -> {
+            DifficultyStanding difficulty =
+                    (DifficultyStanding) difficultySpinner.getSelectedItem();
+            String playerName = playerNameBox.getText().toString();
+            Player myPlayer =
+                    new Player(playerName, difficulty, pilotPts,
+                            engineerPts, tradePts, fightPts);
+            Universe myUniverse = new Universe();
+            //configVM.createGame(difficulty, myPlayer, myUniverse);
+            myGame = new Game(difficulty, myPlayer, myUniverse);
+            ModelFacade.getInstance().setGame(myGame);
+            Log.d("My Game's Information", ModelFacade.getInstance().getGame().toString());
+            Log.d("My Universe Information",
+                    ModelFacade.getInstance().getGame().getMyUniverse().toString());
+            startActivity(new Intent(addNewPerson.this, MainGame.class));
 
-            }
         });
     }
 

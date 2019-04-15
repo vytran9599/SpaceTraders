@@ -1,6 +1,8 @@
 package edu.gatech.cs2340.spacetraders.model;
 
 //import java.util.ArrayList;
+//import android.support.annotation.NonNull;
+
 import java.util.HashSet;
 
 /**
@@ -22,7 +24,7 @@ public class SolarSystem {
      * @param coordinate coordinate
      * @param nam string
      * @param tech tech
-     * @param recource resources
+     * @param resource resources
      * @param g government type
      * @param pi pirate level
      * @param po police level
@@ -30,13 +32,13 @@ public class SolarSystem {
      * @param planet planet
      */
     public SolarSystem(Coordinate coordinate, String nam, TechLevel tech,
-                       Resources recource, GovType g,
+                       Resources resource, GovType g,
                        PirateLevel pi, PoliceLevel po, Condition cond,
                        HashSet<Planet> planet) {
         this.coordinate = coordinate;
         name = nam;
         this.tech = tech;
-        this.resource = recource;
+        this.resource = resource;
         gov = g;
         pirate = pi;
         police = po;
@@ -121,9 +123,9 @@ public class SolarSystem {
      * get planet
      * @return planet
      */
-    public HashSet<Planet> getPlanets() {
-        return planets;
-    }
+  //  public HashSet<Planet> getPlanets() {
+  //      return planets;
+  //  }
 
 // --Commented out by Inspection START (4/7/19, 11:27 PM):
 //    /**

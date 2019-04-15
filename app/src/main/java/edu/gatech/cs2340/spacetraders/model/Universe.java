@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 
+
 /**
  * Universe class
  */
@@ -264,13 +265,13 @@ public class Universe {
      // @return hashset
      //
 
-    /**
-     * get solar system
-     * @return a set of solar system
+    /*
+      get solar system
+      @return a set of solar system
      */
-    public HashSet<SolarSystem> getSolarSystems() {
-        return solarSystems;
-    }
+  //  public HashSet<SolarSystem> getSolarSystems() {
+    //    return solarSystems;
+ //   }
 
     /**
      * getter for solar system
@@ -288,21 +289,22 @@ public class Universe {
         return currentPlanet;
     }
 
-    /**
-     * set current solar system
-     * @param s solar system
+    /*
+      set current solar system
+      @param s solar system
      */
-    public void setCurrentSolarSystem(SolarSystem s) {
-        currentSolarSystem = s;
-    }
+  //  public void setCurrentSolarSystem(SolarSystem s) {
+   //     currentSolarSystem = s;
+  //  }
 
     /**
      * set current planet
-     * @param p planet
+   //* @param p planet
      */
-    public void setCurrentPlanet(Planet p) {
-        currentPlanet = p;
-    }
+ //   public void setCurrentPlanet(Planet p) {
+  //      currentPlanet = p;
+  //  }
+    @Override
     public String toString() {
         StringBuilder ans = new StringBuilder("\n");
         for (SolarSystem s: solarSystems) {
