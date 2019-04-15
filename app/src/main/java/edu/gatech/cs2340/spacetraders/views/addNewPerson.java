@@ -34,7 +34,7 @@ public class addNewPerson extends AppCompatActivity {
     private int tradePts;
     private int fightPts;
     private int pointsGiven;
-    private int totalPoints = 16;
+    private int totalPoints;
     private TextView pilotText;
     private TextView fighterText;
     private TextView traderText;
@@ -48,6 +48,7 @@ public class addNewPerson extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        totalPoints = 16;
         setContentView(R.layout.activity_add_new_person);
         pilotText = findViewById(R.id.pilotPoints);
         fighterText = findViewById(R.id.fighterPoints);

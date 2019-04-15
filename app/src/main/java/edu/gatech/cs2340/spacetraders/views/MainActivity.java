@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String SAVE = "MySavedGameFile";
     private static final String SAVE_GAME = "SavedGame";
     private Gson myGson;
+    private final int DURATION = 1500;
     //private Game saveGame;
 
     @Override
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //Change alpha from fully visible to invisible
         final Animation animation = new AlphaAnimation(1, 0);
-        animation.setDuration(1500); // duration - half a second
+        animation.setDuration(DURATION); // duration - half a second
         animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
         animation.setRepeatCount(Animation.INFINITE); // Repeat animation infinitely
         // Reverse animation at the end so the button will fade back in

@@ -37,6 +37,9 @@ public class Market {
             new TradeGood("Robots", 6, 4, 7, -150, 100, Condition.LACKOOFWORKERS,
                     null, null, 3500, 5000, 5000)
     };
+    private final int AMOUNTPRODFACTOR = 50;
+    private final int AMOUNTPRODFACTOR2 = 20;
+    private final double FINALPRICEFACTOR = 0.01;
     //setup the market's items
 
     /**
@@ -62,15 +65,15 @@ public class Market {
             }
 
             //generates amount of this product in the market - between 1 to 50
-            int amountProduced = (int) (Math.random() * 50 + 1);
+            int amountProduced = (int) (Math.random() * AMOUNTPRODFACTOR + 1);
             if (good.getTtp() == tech.getValue()) {
-                amountProduced += 20;
+                amountProduced += AMOUNTPRODFACTOR2;
             }
 
             //economic model:
             int finalPrice = good.getBasePrice();
             finalPrice = finalPrice + good.getIpl() * (int) (tech.getValue() - good.getMtlp() +
-                    Math.random() * good.getVar() * 0.01);
+                    Math.random() * good.getVar() * FINALPRICEFACTOR);
 
             //if condition causes the price to increase astronomically
             if (good.getIe().getValue() == cond.getValue()) {
