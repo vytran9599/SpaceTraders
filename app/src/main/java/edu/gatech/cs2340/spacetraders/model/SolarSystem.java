@@ -48,6 +48,9 @@ public class SolarSystem {
 
     @Override
     public boolean equals(Object other) {
+        if (!(other instanceof SolarSystem)) {
+            return false;
+        }
         SolarSystem newP = (SolarSystem) other;
         return newP.getName().equals(name) || newP.getCoordinate().equals(coordinate);
     }

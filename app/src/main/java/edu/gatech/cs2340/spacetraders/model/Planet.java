@@ -35,6 +35,9 @@ public class Planet {
     }
     @Override
     public boolean equals(Object other) {
+        if (!(other instanceof Planet)) {
+            return false;
+        }
         Planet oth = (Planet) (other);
         return oth.getName().equals(name);
     }
