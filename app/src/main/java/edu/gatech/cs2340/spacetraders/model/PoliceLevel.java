@@ -13,7 +13,7 @@ public enum PoliceLevel {
 
     PoliceLevel(int v) {this.value = v;}
     //was public
-    private int getValue() {return value;}
+    public int getValue() {return value;}
 
     /**
      * getters

@@ -147,12 +147,12 @@ public class Universe {
             Coordinate co = new Coordinate((int) (Math.random() * 150 + 1),
                     (int) (Math.random() * 100 + 1));
             String name = names[(int) (Math.random() * names.length)];
-            TechLevel level = TechLevel.getLevelByNumber((int) (Math.random() * 7));
-            Resources re = Resources.getResourcesByNumber((int) (Math.random() * 15));
-            GovType gov = GovType.getTypeByNumber((int) (Math.random() * 4));
+            TechLevel level = TechLevel.getLevelByNumber((int) (Math.random() * 7.99));
+            Resources re = Resources.getResourcesByNumber((int) (Math.random() * 15.99));
+            GovType gov = GovType.getTypeByNumber((int) (Math.random() * 4.99));
             PirateLevel pirate = PirateLevel.getLevelByNumber((int) (Math.random() * 3.99));
             PoliceLevel police = PoliceLevel.getLevelByNumber((int) (Math.random() * 3.99));
-            Condition cond = Condition.getConditionByNumber((int) (Math.random() * 20));
+            Condition cond = Condition.getConditionByNumber((int) (Math.random() * 20.99));
             HashSet<Planet> planets = new HashSet<>();
             while (planets.size() < 3) {
                 Market mar = new Market(cond, re, level);

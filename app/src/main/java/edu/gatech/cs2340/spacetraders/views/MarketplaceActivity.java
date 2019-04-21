@@ -13,13 +13,12 @@ import edu.gatech.cs2340.spacetraders.model.ModelFacade;
 import edu.gatech.cs2340.spacetraders.model.Player;
 import edu.gatech.cs2340.spacetraders.model.TradeGood;
 import edu.gatech.cs2340.spacetraders.model.Universe;
-import edu.gatech.cs2340.spacetraders.viewmodels.ConfigurationViewModel;
-import edu.gatech.cs2340.spacetraders.viewmodels.MarketViewModel;
+
 
 /**
  * marketplace class
  */
-public class marketplace extends AppCompatActivity {
+public class MarketplaceActivity extends AppCompatActivity {
 
     private int capacity, capacityLimit;
     private Player myPlayer;

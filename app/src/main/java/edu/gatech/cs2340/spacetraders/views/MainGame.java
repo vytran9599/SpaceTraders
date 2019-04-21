@@ -133,6 +133,10 @@ public class MainGame extends AppCompatActivity {
         startActivity(new Intent(MainGame.this, CurrentSS.class));
     }
 
+    /**
+     * Ship Stats button
+     * @param v view
+     */
     public void shipButtonOnClick(View v) {
         startActivity(new Intent(MainGame.this, ShipStatsActivity.class));
     }
@@ -180,7 +184,12 @@ public class MainGame extends AppCompatActivity {
         myUniverse.travel(selectedSS.getName(), myPlayer);
         SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());
         currentSS = ModelFacade.getInstance().getGame().getMyUniverse().getCurrentSolarSystem();
-        pirateEncounter();
+        if (Math.random() > 0.5) {
+            pirateEncounter();
+        } else {
+            policeEncounter();
+        }
+
         updateText();
         if (SSTravelList.isEmpty()) {
             Log.d("Error: ","You don't have enough fuel to travel to any other solar systems");
@@ -197,6 +206,14 @@ public class MainGame extends AppCompatActivity {
         int chance = (int) (Math.random() * 10);
         if (pirateLvl >= chance) {
             startActivity(new Intent(MainGame.this, PirateEncounterActivity.class));
+        }
+    }
+
+    private void policeEncounter() {
+        int policeLvl = currentSS.getPoliceLevel().getValue();
+        int chance = (int) (Math.random() * 10);
+        if (policeLvl >= chance) {
+            startActivity(new Intent(MainGame.this, PoliceEncounterActivity.class));
         }
     }
 
