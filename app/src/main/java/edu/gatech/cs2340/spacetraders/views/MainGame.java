@@ -184,11 +184,15 @@ public class MainGame extends AppCompatActivity {
         myUniverse.travel(selectedSS.getName(), myPlayer);
         SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());
         currentSS = ModelFacade.getInstance().getGame().getMyUniverse().getCurrentSolarSystem();
-        if (Math.random() > 0.5) {
+        double rand = Math.random();
+        if (rand > 0.66) {
             pirateEncounter();
-        } else {
+        } else if (0.66 > rand  && rand > 0.33) {
             policeEncounter();
+        } else {
+            traderEncounter();
         }
+
 
         updateText();
         if (SSTravelList.isEmpty()) {
@@ -217,11 +221,23 @@ public class MainGame extends AppCompatActivity {
         }
     }
 
+    public void traderEncounter() {
+        if (Math.random() > 0.5) {
+            startActivity(new Intent(MainGame.this, TraderOfferActivity.class));
+        }
+    }
+
     /**
      * menu button on click
      * @param v view
      */
     public void menuButtonOnClick(View v) {
         startActivity(new Intent(MainGame.this, MainActivity.class));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateText();
     }
 }

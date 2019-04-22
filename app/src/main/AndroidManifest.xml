@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.PoliceEncounterActivity"></activity>
+        <activity android:name=".views.TraderOfferActivity"></activity>
+        <activity android:name=".views.TraderEncounterActivity" />
+        <activity android:name=".views.PoliceEncounterActivity" />
         <activity android:name=".views.PirateEncounterActivity" />
         <activity android:name=".views.MarketplaceActivity" />
         <activity android:name=".views.ShipStatsActivity" />

@@ -17,7 +17,7 @@ public class ShipStatsActivity extends AppCompatActivity {
     private Ship myShip;
     private int fuelCapacity, fuelCurrent, creditsCurrent;
 
-    private TextView fuel, credits, fifFuelCost, maxFuelCost;
+    private TextView fuel, credits, fifFuelCost, maxFuelCost, maxFuel;
     private ProgressBar fuelBar;
 
     @Override
@@ -33,10 +33,12 @@ public class ShipStatsActivity extends AppCompatActivity {
 
         set();
         updateText();
+        updateFuelBar();
     }
 
     private void set() {
         fuel = findViewById(R.id.fuel);
+        maxFuel = findViewById(R.id.maxFuel);
         credits = findViewById(R.id.credits);
         fifFuelCost = findViewById(R.id.fifFuelCredits);
         maxFuelCost = findViewById(R.id.maxFuelCredits);
@@ -48,45 +50,51 @@ public class ShipStatsActivity extends AppCompatActivity {
 
     private void updateText() {
         fuel.setText(Integer.toString(fuelCurrent));
+        maxFuel.setText(Integer.toString(fuelCapacity));
         credits.setText(Integer.toString(creditsCurrent));
-        maxFuelCost.setText(Integer.toString((fuelCapacity - fuelCurrent) * 2));
-        fifFuelCost.setText(Integer.toString(100));
+        fifFuelCost.setText(Integer.toString(50));
+        int fuelPurchase = fuelCapacity - fuelCurrent;
+        if (fuelPurchase > creditsCurrent) {
+            maxFuelCost.setText(Integer.toString(creditsCurrent));
+        } else {
+            maxFuelCost.setText(Integer.toString(fuelCapacity - fuelCurrent));
+        }
+    }
+
+    private void updatePlayerStats() {
+        myShip.setFuel(fuelCurrent);
+    }
+
+    private void updateFuelBar() {
+        fuelBar.setProgress(myPlayer.getMyShip().getFuel());
     }
 
     public void fiftyFuelOnClick(View v) {
         int fuelPurchase = fuelCapacity - fuelCurrent;
-        int cost = fuelPurchase * 2;
-        if (fuelPurchase >= 50 && creditsCurrent >= cost) {
-            creditsCurrent -= 100;
-            fuelCurrent += 50;
-        } else if (creditsCurrent >= cost) {
-            creditsCurrent -= cost;
-            fuelCurrent = fuelCapacity;
+        if (fuelPurchase >= 50) {
+            if (creditsCurrent >= 50) {
+                creditsCurrent -= 50;
+                fuelCurrent += 50;
+            }
+            updateText();
+            updatePlayerStats();
+            updateFuelBar();
         }
-        updateText();
-    }
-
-    private void updateMaxFuelCost() {
-        int fuelPurchase = fuelCapacity - fuelCurrent;
-        int cost = fuelPurchase * 2;
-
     }
 
     public void maxFuelOnClick(View v) {
         int fuelPurchase = fuelCapacity - fuelCurrent;
-        int cost = fuelPurchase * 2;
-        if (creditsCurrent >= fuelPurchase) {
-            fuelCurrent = fuelCapacity;
-            creditsCurrent -= cost;
-        } else {
-            if (creditsCurrent % 2 == 0) {
-                fuelCurrent += creditsCurrent / 2;
-                creditsCurrent = 0;
+        if (fuelPurchase != 0) {
+            if (creditsCurrent >= fuelPurchase) {
+                fuelCurrent = fuelCapacity;
+                creditsCurrent -= fuelPurchase;
             } else {
                 fuelCurrent += creditsCurrent / 2;
-                creditsCurrent = 1;
+                creditsCurrent = 0;
             }
+            updateText();
+            updatePlayerStats();
+            updateFuelBar();
         }
-        updateText();
     }
 }
