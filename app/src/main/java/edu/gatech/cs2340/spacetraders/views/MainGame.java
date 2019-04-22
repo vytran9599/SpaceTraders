@@ -240,5 +240,8 @@ public class MainGame extends AppCompatActivity {
         super.onResume();
         updateText();
         SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());
+        if (!SSTravelList.isEmpty()) {
+            travelButton.setEnabled(true);
+        }
     }
 }
