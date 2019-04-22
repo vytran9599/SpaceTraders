@@ -183,8 +183,8 @@ public class TraderEncounterActivity extends AppCompatActivity {
 
         //trader special
         int rand = (int) (Math.random() * 9.99);
-        goods[rand].setFinalPrice(1);
-        prices[rand] = 1;
+        goods[rand].setFinalPrice(5);
+        prices[rand] = 5;
 
         waterBuyPrice = prices[0];
         fursBuyPrice = prices[1];

@@ -239,5 +239,6 @@ public class MainGame extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         updateText();
+        SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());
     }
 }
