@@ -207,7 +207,7 @@ public class MainGame extends AppCompatActivity {
 
     private void pirateEncounter() {
         int pirateLvl = currentSS.getPirateLevel().getValue();
-        int chance = (int) (Math.random() * 10);
+        int chance = (int) (Math.random() * 8);
         if (pirateLvl >= chance) {
             startActivity(new Intent(MainGame.this, PirateEncounterActivity.class));
         }
@@ -215,7 +215,7 @@ public class MainGame extends AppCompatActivity {
 
     private void policeEncounter() {
         int policeLvl = currentSS.getPoliceLevel().getValue();
-        int chance = (int) (Math.random() * 10);
+        int chance = (int) (Math.random() * 8);
         if (policeLvl >= chance) {
             startActivity(new Intent(MainGame.this, PoliceEncounterActivity.class));
         }
