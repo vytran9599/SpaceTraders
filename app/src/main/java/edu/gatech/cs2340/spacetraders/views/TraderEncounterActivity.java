@@ -1,25 +1,22 @@
 package edu.gatech.cs2340.spacetraders.views;
 
-//import android.arch.lifecycle.ViewModelProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-//import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import edu.gatech.cs2340.spacetraders.R;
+import edu.gatech.cs2340.spacetraders.model.Condition;
 import edu.gatech.cs2340.spacetraders.model.Market;
 import edu.gatech.cs2340.spacetraders.model.ModelFacade;
 import edu.gatech.cs2340.spacetraders.model.Player;
+import edu.gatech.cs2340.spacetraders.model.Resources;
+import edu.gatech.cs2340.spacetraders.model.TechLevel;
 import edu.gatech.cs2340.spacetraders.model.TradeGood;
-//import edu.gatech.cs2340.spacetraders.model.Universe;
-//import edu.gatech.cs2340.spacetraders.viewmodels.ConfigurationViewModel;
-//import edu.gatech.cs2340.spacetraders.viewmodels.MarketViewModel;
 
-/**
- * marketplace class
- */
-public class marketplace extends AppCompatActivity {
+public class TraderEncounterActivity extends AppCompatActivity {
+
+    private int capacity, capacityLimit;
     private Player myPlayer;
     private Market myMarket;
     private TextView capacityLimitText, capacityText;
@@ -30,6 +27,11 @@ public class marketplace extends AppCompatActivity {
     private int sellerWater, sellerFurs, sellerFood, sellerOre, sellerGames,
             sellerFirearms, sellerMedicine, sellerMachines, sellerNarcotics,
             sellerRobots;
+    private int waterSellPrice, fursSellPrice, foodSellPrice, oreSellPrice, gamesSellPrice,
+            firearmsSellPrice, medicineSellPrice, machinesSellPrice, narcoticsSellPrice,
+            robotsSellPrice;
+    private int waterBuyPrice, fursBuyPrice, foodBuyPrice, oreBuyPrice, gamesBuyPrice,
+            firearmsBuyPrice, medicineBuyPrice, machinesBuyPrice, narcoticsBuyPrice, robotsBuyPrice;
     private TextView playerWaterText, playerFursText, playerFoodText, playerOreText,
             playerGamesText,
             playerFirearmsText, playerMedicineText, playerMachinesText, playerNarcoticsText,
@@ -48,21 +50,24 @@ public class marketplace extends AppCompatActivity {
             firearmsBuyPriceText, medicineBuyPriceText, machinesBuyPriceText, narcoticsBuyPriceText,
             robotsBuyPriceText;
     private TextView creditsText;
+    private int creditsTotal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_marketplace);
+        setContentView(R.layout.activity_trader_encounter);
+
         myPlayer = ModelFacade.getInstance().getGame().getPlayer();
-        myMarket = ModelFacade.getInstance().getGame().getMyUniverse().
-                getCurrentPlanet().getMarket();
+        myMarket = new Market(Condition.getConditionByNumber((int) (Math.random() * 7.99 )),
+                Resources.getResourcesByNumber((int) (Math.random() * 12.99)),
+                TechLevel.getLevelByNumber((int) (Math.random() * 7.99)));
 
         setNames();
         updatePlayerValues();
         updateSellerValues();
         updatePricesValue();
-
     }
-    //was public
+
     private void setNames() {
         capacityText = findViewById(R.id.capacityText);
         capacityLimitText = findViewById(R.id.capacityLimitText);
@@ -111,40 +116,9 @@ public class marketplace extends AppCompatActivity {
         robotsSellPriceText = findViewById(R.id.robotsSellPrice);
     }
 
-    //was public
-    private void generalBuy(String goodName) {
-        myMarket.buyInPlanet(myPlayer, goodName);
-        updatePlayerValues();
-        updateSellerValues();
-    }
-
-    //was public
-    private void generalSell(String goodName) {
-        myMarket.sellInPlanet(myPlayer, goodName);
-        updatePlayerValues();
-        updateSellerValues();
-    }
-
-    /**
-     * water buying
-     * @param v view
-     */
-    public void waterBuyOnClick(View v) {
-        generalBuy("Water");
-    }
-
-    /**
-     * water selling
-     * @param v view
-     */
-    public void waterSellOnClick(View v) {
-        generalSell("Water");
-    }
-
-    //was public
     private void updatePlayerValues() {
-        int capacity, capacityLimit;
-        int creditsTotal = myPlayer.getCredit();
+
+        creditsTotal = myPlayer.getCredit();
         creditsText.setText(Integer.toString(creditsTotal));
         capacity = myPlayer.getMyShip().getCapacity();
         capacityLimit = myPlayer.getMyShip().getMaxCapacity();
@@ -175,7 +149,6 @@ public class marketplace extends AppCompatActivity {
 
     }
 
-    //was public
     private void updateSellerValues() {
         int[] marketCounts = myMarket.getMarketGoodCounts();
         sellerWater = marketCounts[0];
@@ -201,18 +174,18 @@ public class marketplace extends AppCompatActivity {
         sellerRobotsText.setText(Integer.toString(sellerRobots));
     }
 
-    //was public
     private void updatePricesValue() {
         TradeGood[] goods = myMarket.getGoods();
         int[] prices = new int[10];
         for (int i = 0; i < goods.length; i++) {
             prices[i] = goods[i].getFinalPrice();
         }
-        int waterSellPrice, fursSellPrice, foodSellPrice, oreSellPrice, gamesSellPrice,
-                firearmsSellPrice, medicineSellPrice, machinesSellPrice, narcoticsSellPrice,
-                robotsSellPrice;
-        int waterBuyPrice, fursBuyPrice, foodBuyPrice, oreBuyPrice, gamesBuyPrice,
-                firearmsBuyPrice, medicineBuyPrice, machinesBuyPrice, narcoticsBuyPrice, robotsBuyPrice;
+
+        //trader special
+        int rand = (int) (Math.random() * 9.99);
+        goods[rand].setFinalPrice(5);
+        prices[rand] = 5;
+
         waterBuyPrice = prices[0];
         fursBuyPrice = prices[1];
         foodBuyPrice = prices[2];
@@ -234,6 +207,7 @@ public class marketplace extends AppCompatActivity {
         machinesSellPrice = prices[7];
         narcoticsSellPrice = prices[8];
         robotsSellPrice = prices[9];
+
 
         waterBuyPriceText.setText(Integer.toString(waterBuyPrice));
         fursBuyPriceText.setText(Integer.toString(fursBuyPrice));
@@ -257,6 +231,36 @@ public class marketplace extends AppCompatActivity {
         narcoticsSellPriceText.setText(Integer.toString(narcoticsSellPrice));
         robotsSellPriceText.setText(Integer.toString(robotsSellPrice));
     }
+
+    private void generalBuy(String goodName) {
+        myMarket.buyInPlanet(myPlayer, goodName);
+        updatePlayerValues();
+        updateSellerValues();
+    }
+
+    //was public
+    private void generalSell(String goodName) {
+        myMarket.sellInPlanet(myPlayer, goodName);
+        updatePlayerValues();
+        updateSellerValues();
+    }
+
+    /**
+     * water buying
+     * @param v view
+     */
+    public void waterBuyOnClick(View v) {
+        generalBuy("Water");
+    }
+
+    /**
+     * water selling
+     * @param v view
+     */
+    public void waterSellOnClick(View v) {
+        generalSell("Water");
+    }
+
 
     /**
      * fur buying
@@ -611,4 +615,5 @@ public class marketplace extends AppCompatActivity {
             generalBuy("Robots");
         }
     }
+
 }

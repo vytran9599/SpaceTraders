@@ -3,7 +3,7 @@ package edu.gatech.cs2340.spacetraders.model;
 //import android.util.Log;
 
 import java.util.ArrayList;
-//import java.util.Collection;
+import java.util.Collection;
 import java.util.HashSet;
 
 
@@ -20,7 +20,7 @@ public class Universe {
      * Universe constructor
      */
     public Universe() {
-       // Collection<String> solarNames = new ArrayList<>();
+        Collection<String> solarNames = new ArrayList<>();
          final String[] names = {
                 "Acamar",
                 "Adahn",		// The alternate personality for The Nameless One in "Planescape: Torment"
@@ -144,20 +144,15 @@ public class Universe {
                 "Zuul"};
         solarSystems = new HashSet<>();
         while (solarSystems.size() < 10) {
-            int CO_SIZE = 150;
-            Coordinate co = new Coordinate((int) (Math.random() * CO_SIZE + 1),
+            Coordinate co = new Coordinate((int) (Math.random() * 150 + 1),
                     (int) (Math.random() * 100 + 1));
             String name = names[(int) (Math.random() * names.length)];
-            TechLevel level = TechLevel.getLevelByNumber((int) (Math.random() * 7));
-            int RES_SIZE = 15;
-            Resources re = Resources.getResourcesByNumber((int) (Math.random() * RES_SIZE));
-            GovType gov = GovType.getTypeByNumber((int) (Math.random() * 4));
-            double PIRATE_LEVEL = 3.99;
-            PirateLevel pirate = PirateLevel.getLevelByNumber((int) (Math.random() * PIRATE_LEVEL));
-            double POLICE_LEVEL = 3.99;
-            PoliceLevel police = PoliceLevel.getLevelByNumber((int) (Math.random() * POLICE_LEVEL));
-            int COND_SIZE = 20;
-            Condition cond = Condition.getConditionByNumber((int) (Math.random() * COND_SIZE));
+            TechLevel level = TechLevel.getLevelByNumber((int) (Math.random() * 7.99));
+            Resources re = Resources.getResourcesByNumber((int) (Math.random() * 15.99));
+            GovType gov = GovType.getTypeByNumber((int) (Math.random() * 4.99));
+            PirateLevel pirate = PirateLevel.getLevelByNumber((int) (Math.random() * 3.99));
+            PoliceLevel police = PoliceLevel.getLevelByNumber((int) (Math.random() * 3.99));
+            Condition cond = Condition.getConditionByNumber((int) (Math.random() * 20.99));
             HashSet<Planet> planets = new HashSet<>();
             while (planets.size() < 3) {
                 Market mar = new Market(cond, re, level);
@@ -176,7 +171,7 @@ public class Universe {
             }
             solarSystems.add(ss);
 
-          //  solarNames.add(name);
+            solarNames.add(name);
         }
     }
 

@@ -8,10 +8,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:fullBackupContent="@xml/backup_descriptor">
+        android:theme="@style/AppTheme">
+        <activity android:name=".views.TraderOfferActivity"></activity>
+        <activity android:name=".views.TraderEncounterActivity" />
+        <activity android:name=".views.PoliceEncounterActivity" />
         <activity android:name=".views.PirateEncounterActivity" />
-        <activity android:name=".views.marketplace" />
+        <activity android:name=".views.MarketplaceActivity" />
+        <activity android:name=".views.ShipStatsActivity" />
         <activity android:name=".views.MainGame" />
         <activity android:name=".views.addNewPerson" />
         <activity android:name=".views.CurrentSS" />
