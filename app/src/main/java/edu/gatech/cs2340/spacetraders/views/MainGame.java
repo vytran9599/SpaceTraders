@@ -81,7 +81,7 @@ public class MainGame extends AppCompatActivity {
 
         fuelBar = findViewById(R.id.fuelBar);
         fuelBar.setScaleY(3);
-        fuelBar.setMax(myPlayer.getMyShip().getFuel());
+        fuelBar.setMax(myPlayer.getMyShip().getFuelCapacity());
 
         travelButton = findViewById(R.id.travelButton);
     }
@@ -122,7 +122,7 @@ public class MainGame extends AppCompatActivity {
      * @param v view
      */
     public void marketplaceButtonOnClick(View v) {
-        startActivity(new Intent(MainGame.this, marketplace.class));
+        startActivity(new Intent(MainGame.this, MarketplaceActivity.class));
     }
 
     /**
@@ -131,6 +131,14 @@ public class MainGame extends AppCompatActivity {
      */
     public void currentSSInfoButtonOnClick(View v) {
         startActivity(new Intent(MainGame.this, CurrentSS.class));
+    }
+
+    /**
+     * Ship Stats button
+     * @param v view
+     */
+    public void shipButtonOnClick(View v) {
+        startActivity(new Intent(MainGame.this, ShipStatsActivity.class));
     }
 
 
@@ -176,7 +184,16 @@ public class MainGame extends AppCompatActivity {
         myUniverse.travel(selectedSS.getName(), myPlayer);
         SSTravelList = myUniverse.getSolarSystemsToTravel(myPlayer.getMyShip().getFuel());
         currentSS = ModelFacade.getInstance().getGame().getMyUniverse().getCurrentSolarSystem();
-        pirateEncounter();
+        double rand = Math.random();
+        if (rand > 0.66) {
+            pirateEncounter();
+        } else if (0.66 > rand  && rand > 0.33) {
+            policeEncounter();
+        } else {
+            traderEncounter();
+        }
+
+
         updateText();
         if (SSTravelList.isEmpty()) {
             Log.d("Error: ","You don't have enough fuel to travel to any other solar systems");
@@ -196,11 +213,31 @@ public class MainGame extends AppCompatActivity {
         }
     }
 
+    private void policeEncounter() {
+        int policeLvl = currentSS.getPoliceLevel().getValue();
+        int chance = (int) (Math.random() * 10);
+        if (policeLvl >= chance) {
+            startActivity(new Intent(MainGame.this, PoliceEncounterActivity.class));
+        }
+    }
+
+    public void traderEncounter() {
+        if (Math.random() > 0.5) {
+            startActivity(new Intent(MainGame.this, TraderOfferActivity.class));
+        }
+    }
+
     /**
      * menu button on click
      * @param v view
      */
     public void menuButtonOnClick(View v) {
         startActivity(new Intent(MainGame.this, MainActivity.class));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateText();
     }
 }
