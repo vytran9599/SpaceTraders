@@ -3,6 +3,7 @@ package edu.gatech.cs2340.spacetraders.views;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ public class ShipStatsActivity extends AppCompatActivity {
 
     private TextView fuel, credits, fifFuelCost, maxFuelCost, maxFuel;
     private ProgressBar fuelBar;
+    private Button buyBeetle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class ShipStatsActivity extends AppCompatActivity {
         credits = findViewById(R.id.credits);
         fifFuelCost = findViewById(R.id.fifFuelCredits);
         maxFuelCost = findViewById(R.id.maxFuelCredits);
+        buyBeetle = findViewById(R.id.buyBeetleButton);
 
         fuelBar = findViewById(R.id.fuelBar);
         fuelBar.setScaleY(3);
@@ -58,6 +61,9 @@ public class ShipStatsActivity extends AppCompatActivity {
             maxFuelCost.setText(Integer.toString(creditsCurrent));
         } else {
             maxFuelCost.setText(Integer.toString(fuelCapacity - fuelCurrent));
+        }
+        if (creditsCurrent >= 3000 ) {
+            buyBeetle.setEnabled(true);
         }
     }
 
@@ -96,5 +102,18 @@ public class ShipStatsActivity extends AppCompatActivity {
             updatePlayerStats();
             updateFuelBar();
         }
+    }
+
+    public void buyBettleOnClick(View v) {
+        if (creditsCurrent >= 3000) {
+            creditsCurrent -= 3000;
+            myShip.setFuel(myShip.getFuelCapacity() + 50);
+            myShip.setCapacity(myShip.getMaxCapacity() + 10);
+            updateText();
+            updateFuelBar();
+            fuelCapacity = myShip.getFuelCapacity();
+            buyBeetle.setEnabled(false);
+        }
+
     }
 }
