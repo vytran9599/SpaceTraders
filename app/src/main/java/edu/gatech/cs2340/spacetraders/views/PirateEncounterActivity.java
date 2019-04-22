@@ -23,8 +23,8 @@ public class PirateEncounterActivity extends AppCompatActivity {
      * run away from pirate
      * @param v view
      */
+
     public void runAwayButtonOnClick(View v) {
         onBackPressed();
     }
-
 }
