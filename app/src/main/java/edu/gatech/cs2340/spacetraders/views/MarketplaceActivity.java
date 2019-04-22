@@ -19,7 +19,7 @@ import edu.gatech.cs2340.spacetraders.model.TradeGood;
 /**
  * marketplace class
  */
-public class marketplace extends AppCompatActivity {
+public class MarketplaceActivity extends AppCompatActivity {
     private Player myPlayer;
     private Market myMarket;
     private TextView capacityLimitText, capacityText;
